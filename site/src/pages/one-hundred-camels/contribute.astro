@@ -1,0 +1,149 @@
+---
+import Base from '../../layouts/Base.astro';
+import ContactForm from '../../components/ContactForm.astro';
+
+const title = 'What you can bring — One Hundred Camels';
+const description = 'Ways to support the experiment that are not capital. Land, expertise, introductions, permissions, signal-boost.';
+
+const contributionCategories = [
+  { value: 'Land — may fit the site criteria', label: 'I have land that may fit the site criteria (or know someone who does).' },
+  { value: 'Range / livestock expertise', label: 'Range ecology, livestock management, or fencing expertise.' },
+  { value: 'Veterinary / camelid expertise', label: 'Veterinary or camelid-specific husbandry expertise.' },
+  { value: 'Paleoecology / restoration science', label: 'Paleoecology, rewilding, or restoration-science expertise.' },
+  { value: 'Legal / permitting', label: 'Legal, permitting, or state/federal regulatory experience relevant to assisted introduction.' },
+  { value: 'Tribal consultation', label: 'I am a Tribal Nation representative or cultural-resource consultant interested in reviewing siting decisions.' },
+  { value: 'Hydrology / soils / GIS', label: 'Hydrology, soil science, or GIS / remote-sensing support.' },
+  { value: 'Introductions to funders / foundations', label: 'I can make introductions to foundations or patrons.' },
+  { value: 'Press / story-telling', label: 'I am a journalist, documentarian, or editor who covers this ground.' },
+  { value: 'Signal boost', label: 'I can amplify this work within a community that would otherwise not hear about it.' },
+  { value: 'Other', label: 'Other — I will describe it in the message.' },
+];
+---
+
+<Base title={title} description={description} canonical="https://sustainabilitydiet.com/one-hundred-camels/contribute" readingBar>
+  <article class="mx-auto max-w-3xl px-6 py-16">
+
+    <p class="small-caps text-xs text-ochre mb-3">
+      <a href="/one-hundred-camels" class="hover:text-ochre-deep">One Hundred Camels</a>
+    </p>
+    <h1 class="font-display text-5xl md:text-6xl tracking-tight leading-[1.02] mb-6">
+      What you can bring.
+    </h1>
+    <p class="text-xl text-ink/75 leading-relaxed font-serif">
+      The experiment needs capital. It also needs land, expertise, permission, introductions, and, in several concrete ways, people who will do small amounts of real work. If the way you can help is not money &mdash; or not only money &mdash; this page is where that conversation starts.
+    </p>
+
+    <hr class="hairline my-12" />
+
+    <div class="prose-reading max-w-none font-serif text-[1.05rem] leading-[1.75] text-ink/90 space-y-6">
+      <p>
+        There are a lot of projects that say they "need everything" and then route every inquiry into the same funnel. That approach wastes your time. Below are the ten categories of contribution that are actually load-bearing for this experiment right now, with a specific note on what that would mean in practice.
+      </p>
+      <p>
+        If you do not see yourself on this list and still want to help, the bottom category ("other") reads into the inbox the same way the rest do.
+      </p>
+    </div>
+
+    <hr class="hairline my-12" />
+
+    <section class="space-y-12 mb-16">
+
+      <div>
+        <h2 class="font-display text-2xl tracking-tight mb-3">Land</h2>
+        <p class="font-serif text-base text-ink/80 leading-relaxed">
+          Roughly one hundred thousand contiguous acres in the southern Great Plains, Edwards Plateau, or comparable mixed-grass / mesquite-savanna region. Currently used as working ranch, conservation easement, or dormant agricultural land. Open to a twenty-five-year easement arrangement or long-term cooperative stewardship agreement. If you are a landowner or you know a landowner whose property fits this shape, that is the single most useful conversation this project can have.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-2xl tracking-tight mb-3">Range, livestock, and fencing expertise</h2>
+        <p class="font-serif text-base text-ink/80 leading-relaxed">
+          The experiment's herd will be domestic Bactrian camels managed under a working-ranch operational logic for the first ten years, not a zoological-park logic. That requires people who have actually run cattle or bison at scale, not just people who have read about it. Practical fencing experience for a two-meter-shoulder-height animal is especially wanted.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-2xl tracking-tight mb-3">Veterinary and camelid husbandry</h2>
+        <p class="font-serif text-base text-ink/80 leading-relaxed">
+          Veterinary capacity for camelids in North America is narrow. There are excellent alpaca and llama veterinarians, fewer camel specialists, and almost no one trained in camel management on open range. If you are a DVM with camelid experience, an agricultural-extension specialist, or a working rancher who has managed dromedaries in the Southwest, this is your category.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-2xl tracking-tight mb-3">Paleoecology and restoration science</h2>
+        <p class="font-serif text-base text-ink/80 leading-relaxed">
+          Pre-introduction modeling, post-introduction measurement, seed-dispersal monitoring, and contribution to the pre-registered protocol. The committee-of-three described on the experiment page is meant to be populated from this pool. Interested scientists should say so.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-2xl tracking-tight mb-3">Legal, permitting, and regulatory</h2>
+        <p class="font-serif text-base text-ink/80 leading-relaxed">
+          State and federal permitting for the introduction of a non-native large herbivore on private land is navigable but not simple. Experience with APHIS, state veterinary boards, Endangered Species Act consultation procedures (for protected species on neighboring parcels), and the relevant conservation easement law is useful. Pro-bono counsel from a land-trust or ag-law background would be transformational.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-2xl tracking-tight mb-3">Tribal consultation</h2>
+        <p class="font-serif text-base text-ink/80 leading-relaxed">
+          If the eventual site is in or adjacent to traditional territory of a Tribal Nation, consultation is not optional. It is also, done well, one of the most informative processes of the project. If you are a Tribal representative, Tribal historic preservation officer, or cultural-resource consultant who has a view on how this work should intersect with your community's stewardship, we will listen before we propose.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-2xl tracking-tight mb-3">Hydrology, soils, and GIS</h2>
+        <p class="font-serif text-base text-ink/80 leading-relaxed">
+          Site selection will need multi-variable screening: existing water, soil type, vegetation map, neighboring parcel risk, accessibility. A volunteer with remote-sensing or GIS capacity who could build a candidate-site screening layer would speed site selection by months.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-2xl tracking-tight mb-3">Introductions to funders</h2>
+        <p class="font-serif text-base text-ink/80 leading-relaxed">
+          The ask on the experiment page is roughly $1.5M for a twenty-five year commitment. That is small by foundation standards and large by individual standards. If you have a relationship with a family foundation, an ecological-restoration funder, or a patron known to back unusual long-duration bets, a warm introduction is worth more than a cold application.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-2xl tracking-tight mb-3">Press and story-telling</h2>
+        <p class="font-serif text-base text-ink/80 leading-relaxed">
+          The work benefits from being explained well by people who are not the author, because the author has an obvious incentive. Journalists, documentary filmmakers, and longform editors who cover land use, ecology, or cultural history are welcome to reach out. The experiment page is linkable and the sources page is open.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="font-display text-2xl tracking-tight mb-3">Signal boost</h2>
+        <p class="font-serif text-base text-ink/80 leading-relaxed">
+          If you know a reader, a rancher, or a scientist who would not otherwise encounter this, and you think they would have a useful response &mdash; whether supportive or skeptical &mdash; send it to them. A ten-reader community of people who will argue honestly about the proposal is worth more than a ten-thousand-reader community that reads silently.
+        </p>
+      </div>
+
+    </section>
+
+    <hr class="hairline my-12" />
+
+    <ContactForm
+      idPrefix="contribute"
+      heading="If one of the categories above is you"
+      intro="Pick the closest match. The form opens your mail client with a pre-filled subject line so the inquiry lands in the right place."
+      categories={contributionCategories}
+      subjectPrefix="One Hundred Camels — contribute — "
+    />
+
+    <div class="mt-16 pt-8 border-t border-ink/10 flex flex-col sm:flex-row gap-4">
+      <a
+        href="/one-hundred-camels/the-experiment"
+        class="inline-block px-6 py-3 bg-ink text-paper text-sm small-caps hover:bg-ochre transition-colors"
+      >
+        ← Back to the experiment
+      </a>
+      <a
+        href="/one-hundred-camels/the-experiment#open-letter"
+        class="inline-block px-6 py-3 border border-ink text-ink text-sm small-caps hover:bg-ink hover:text-paper transition-colors"
+      >
+        Or sign the open letter →
+      </a>
+    </div>
+
+  </article>
+</Base>

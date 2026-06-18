@@ -1,0 +1,209 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const terms = [
+  {
+    id: 'anachronism',
+    term: 'Anachronism, ecological',
+    aliases: 'Janzen-Martin anachronism',
+    body: `A species — usually a plant — whose current features are best explained by relationships with other species that are no longer present. The term enters ecology through Janzen and Martin's 1982 paper on Neotropical fruits whose dispersers (gomphotheres, ground sloths, native horses) went extinct in the late Pleistocene. The fruit is the anachronism because its design is speaking to a mouth that is not there. Used in this site for osage orange, honey locust, Kentucky coffeetree, avocado, pawpaw, and many others.`
+  },
+  {
+    id: 'baseline',
+    term: 'Baseline, ecological',
+    body: `The reference state against which ecological change is measured. Conservation biology's inherited baseline is the moment of European contact (1492 in the Americas); the book argues this baseline is too shallow and misses most of the relevant ecological history. A deeper baseline — the end of the Pleistocene, roughly thirteen thousand years ago — puts different animals and different loops in the frame. See also <em>Columbian Curtain</em> and <em>shifting baseline syndrome</em>.`
+  },
+  {
+    id: 'browsing',
+    term: 'Browsing (vs. grazing)',
+    body: `Browsing means eating leaves, twigs, bark, fruit, and the soft woody parts of trees and shrubs. Grazing means eating grasses and low herbaceous plants. The distinction matters because the ecological roles of browsers and grazers are not interchangeable; cattle are grazers, camels are browsers, and the question of which function is missing from a given landscape is part of what decides what a restoration proxy should be.`
+  },
+  {
+    id: 'columbian-curtain',
+    term: 'Columbian Curtain',
+    body: `Paul Martin's term for the conservation paradigm that treats 1492 as the ecological reference date for the Americas. What was present at contact is &ldquo;native;&rdquo; what was introduced afterward is &ldquo;non-native.&rdquo; Martin's objection, running through <em>Twilight of the Mammoths</em> (2005), is that this line is drawn at the date of political rather than ecological interest, and that dropping it reveals a continent missing most of its large-bodied fauna.`
+  },
+  {
+    id: 'de-extinction',
+    term: 'De-extinction',
+    body: `The attempt to bring an extinct species back via genetic engineering, cloning, or backbreeding. Distinct from <em>rewilding</em>: de-extinction is about the animal, rewilding is about the ecological function. This site is about restoration of function using available proxies; it is not a de-extinction project.`
+  },
+  {
+    id: 'ecological-release',
+    term: 'Ecological release',
+    body: `What happens when a species' natural regulators (predators, competitors, dispersers, pathogens) are removed and it expands beyond its historic envelope. The term is usually used for invasives escaping control; the mirror case — shrubs expanding because no large browser crops them, grasses over-maturing because no large grazer turns them over — is relevant to this site's argument about loop failure after the late-Pleistocene extinctions.`
+  },
+  {
+    id: 'extirpation',
+    term: 'Extirpation (vs. extinction)',
+    body: `Extinction is the loss of a species globally. Extirpation is the loss of a species from a particular place while it persists elsewhere. Camels are extirpated from North America but not extinct; dromedaries and Bactrians are the same family, descended from the North American emigrants. The distinction matters for the proxy argument.`
+  },
+  {
+    id: 'functional-extinction',
+    term: 'Functional extinction',
+    body: `A species is functionally extinct when it still exists as individuals but no longer performs its ecological role — for example, a seed disperser too rare to disperse seeds at population scale. The related idea of <em>ecological anachronism</em> is what happens on the plant side when the animal side goes functionally extinct.`
+  },
+  {
+    id: 'holocene',
+    term: 'Holocene',
+    body: `The geological epoch covering roughly the last 11,700 years — the warm stable interval after the last glaciation, during which agriculture, writing, and all human civilization arose. The Late Pleistocene ends and the Holocene begins at approximately the same time the continental megafauna vanish. This overlap is not a coincidence but the cause is contested.`
+  },
+  {
+    id: 'keystone',
+    term: 'Keystone species',
+    body: `A species whose effect on an ecosystem is disproportionate to its biomass — its removal produces changes beyond what its numbers would predict. Coined by Robert Paine in 1969 for intertidal starfish. Sea otters, beavers, and wolves are well-known keystone species; the argument of the book is that a number of late-Pleistocene megafauna were also keystones, and that their absence is a keystone-scale ongoing effect.`
+  },
+  {
+    id: 'megafauna',
+    term: 'Megafauna',
+    body: `Usually, animals above a body-mass threshold of 44 kilograms (roughly 100 pounds). &ldquo;Megafaunal dispersal syndrome&rdquo; and &ldquo;megafaunal fruit&rdquo; refer to the design features in plants that are best explained by co-evolution with such animals: large sugary fruits, seeds too large for smaller animals to pass, pods and husks that require a ruminant gut.`
+  },
+  {
+    id: 'near-time',
+    term: 'Near Time',
+    body: `Roughly the last 50,000 years — the interval over which modern humans spread across the globe and over which most of the continental megafauna vanished. The term was sharpened by Ross MacPhee and colleagues in the 1990s as a way to distinguish the relevant deep-past from the much deeper fossil record: Near Time is close enough to the present that restoration questions apply. The atlas on this site is named for it.`
+  },
+  {
+    id: 'neohistorical',
+    term: 'Neohistorical baseline',
+    body: `A baseline drawn at the end of the Pleistocene rather than at European contact. Proposed in various forms by Martin, Donlan and colleagues (&ldquo;Pleistocene rewilding,&rdquo; 2005), and others. Not universally accepted; its usefulness is what the whole field of Pleistocene rewilding is contesting.`
+  },
+  {
+    id: 'neotoma',
+    term: 'Neotoma',
+    body: `The Neotoma Paleoecology Database — an open data resource for paleoecological occurrences from the last several million years (pollen, plant macrofossils, vertebrate remains, ostracodes, diatoms). Licensed CC-BY-4.0. Used by the site for plant-community reconstructions in Near Time vignettes.`
+  },
+  {
+    id: 'overkill',
+    term: 'Overkill hypothesis',
+    body: `Paul Martin's proposal that the Late Pleistocene extinctions across the Americas were caused primarily by newly-arrived human hunters. Long contested; the current picture likely involves some combination of hunting, rapid climate oscillation (the Younger Dryas), and possibly disease. The book treats cause as unsettled and does not hinge the rewilding argument on any particular causal story.`
+  },
+  {
+    id: 'pbdb',
+    term: 'PBDB',
+    body: `The Paleobiology Database — an open collection of fossil occurrence records from across geological time, licensed CC-BY. Used by the site for Near Time vertebrate occurrences. The PBDB entries for <em>Camelops hesternus</em> are what determines which sites count as &ldquo;inside historic range&rdquo; for the experiment.`
+  },
+  {
+    id: 'pleistocene',
+    term: 'Pleistocene',
+    body: `The geological epoch from roughly 2.58 million to 11,700 years before present. The &ldquo;Late Pleistocene&rdquo; covers the last roughly 129,000 years and ends with the terminal-Pleistocene extinctions that removed most of the continent's large-bodied fauna. The Pleistocene is the ecological reference frame for the book.`
+  },
+  {
+    id: 'pleistocene-rewilding',
+    term: 'Pleistocene rewilding',
+    body: `A restoration strategy that uses living species as functional proxies for extinct Pleistocene relatives. Proposed formally by Donlan et al. (2005); practiced in various partial forms by Pleistocene Park, Armendaris, and others. The experiment on this site is a Pleistocene-rewilding project in the narrow sense: it uses a living proxy animal for a specific extinct ecological function.`
+  },
+  {
+    id: 'proxy',
+    term: 'Proxy (in restoration ecology)',
+    body: `A living species standing in for an extinct one whose ecological role we want to restore. Proxies are never equivalents; the question is always which traits matter for the function being restored, and whether the proxy shares enough of them. Dromedary for <em>Camelops</em> is a proxy choice: body mass, gut physiology, and browse preference are closer than any other living camelid's, and far closer than any living North American herbivore's.`
+  },
+  {
+    id: 'refugium',
+    term: 'Refugium',
+    body: `A pocket of habitat where a species persists through a regional disturbance that removes it elsewhere. Plural refugia. Relevant to the book for two reasons: the patchiness of the Pleistocene extinctions (some species persisted in refugia for thousands of years after their range collapse), and the question of whether current degraded landscapes contain refugial patches from which restoration can work outward.`
+  },
+  {
+    id: 'rewilding',
+    term: 'Rewilding',
+    body: `The restoration of ecological processes and species to a landscape, with the aim of reducing human management over time. Different schools of rewilding draw the baseline in different places: European rewilding often uses &ldquo;wilderness before the plow&rdquo; as its reference; Pleistocene rewilding uses an end-of-Pleistocene reference. Both are rewilding.`
+  },
+  {
+    id: 'shifting-baseline',
+    term: 'Shifting baseline syndrome',
+    body: `Coined by fisheries biologist Daniel Pauly in 1995: each generation accepts the ecosystem state of its own youth as normal, and measures change against that state. The syndrome systematically undercounts long-run decline. The book's argument against the Columbian Curtain is a case of shifting-baseline diagnosis: the baseline has shifted, and nobody noticed.`
+  },
+  {
+    id: 'trophic-cascade',
+    term: 'Trophic cascade',
+    body: `A chain of ecological effects that propagates through feeding relationships — most famously, wolves changing elk behavior changing willow recovery changing beaver populations changing stream geomorphology in Yellowstone. The seed-dispersal loop the experiment tests is a cascade in the other direction: a restored animal-to-plant interaction triggering soil, hydrology, and plant-community change.`
+  },
+  {
+    id: 'younger-dryas',
+    term: 'Younger Dryas',
+    body: `A roughly 1,300-year cold interval at the end of the Pleistocene (approximately 12,900 to 11,700 years before present), during which Northern Hemisphere temperatures dropped sharply and then rebounded. Overlaps with the tail of the continental megafaunal extinctions. The Younger Dryas Impact Hypothesis (that it was triggered by an extraterrestrial impact) is one of several contested causal stories and is not required by any argument on this site.`
+  }
+];
+
+// Alphabetized list (already ordered above)
+---
+
+<Base title="Glossary — The Sustainability Diet" description="Glossary of terms used in the Near Time atlas and the experiment proposal: Pleistocene rewilding, ecological anachronism, the Columbian Curtain, and related vocabulary." readingBar>
+  <article class="mx-auto max-w-reading px-6 pt-20 pb-32">
+
+    <header class="mb-14">
+      <p class="small-caps text-xs text-ochre mb-4">Near Time / reference</p>
+      <h1 class="font-display text-4xl md:text-5xl tracking-tight leading-tight mb-6">
+        Glossary.
+      </h1>
+      <p class="font-serif text-lg md:text-xl leading-relaxed text-ink/75 max-w-reading">
+        Terms used on this site, in the book, and in the
+        Pleistocene-rewilding literature. Each entry is a working
+        definition written for the use this site makes of the term,
+        not a dictionary entry.
+      </p>
+    </header>
+
+    <!-- Jump index -->
+    <nav class="mb-16 border border-ink/10 bg-bone/20 p-6 font-body not-prose">
+      <p class="small-caps text-xs text-ochre mb-4">Jump to</p>
+      <ul class="flex flex-wrap gap-x-5 gap-y-2 text-sm text-ink/80">
+        {terms.map(t => (
+          <li>
+            <a href={`#${t.id}`} class="hover:text-ochre transition-colors">
+              {t.term.split(',')[0]}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <div class="prose-reading text-lg leading-[1.7] text-ink/90 space-y-12">
+      {terms.map(t => (
+        <section id={t.id} class="scroll-mt-24">
+          <h2 class="font-display text-2xl tracking-tight mb-2">
+            {t.term}
+          </h2>
+          {t.aliases && (
+            <p class="small-caps text-xs text-ink/50 mb-4">
+              Also called: {t.aliases}
+            </p>
+          )}
+          <p set:html={t.body}></p>
+        </section>
+      ))}
+    </div>
+
+    <hr class="hairline my-16" />
+
+    <section class="text-sm text-ink/70 font-serif leading-relaxed">
+      <p>
+        A note on sources. Definitions here are written by the author
+        and are not lifted from any single reference work. Where a
+        term's current use was sharpened by a specific paper or book,
+        that source is named in the body of the entry. For the
+        academic treatment, the primary references are Martin (2005),
+        Donlan et al. (2005), MacPhee (1999), and the ongoing
+        literature on functional rewilding. See also the
+        <a href="/near-time/sources" class="text-ochre hover:underline">sources &amp; methodology</a>
+        page.
+      </p>
+    </section>
+
+    <div class="mt-20 flex flex-wrap gap-4 items-center">
+      <a
+        href="/near-time"
+        class="inline-flex items-center gap-2 px-6 py-3 border border-ink/20 hover:border-ink transition-colors text-sm small-caps"
+      >
+        Back to Near Time
+      </a>
+      <a
+        href="/near-time/sources"
+        class="inline-flex items-center gap-2 px-6 py-3 border border-ink/20 hover:border-ink transition-colors text-sm small-caps"
+      >
+        Sources &amp; methodology
+      </a>
+    </div>
+
+  </article>
+</Base>

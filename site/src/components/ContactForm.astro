@@ -1,0 +1,120 @@
+---
+interface Category {
+  value: string;
+  label: string;
+}
+
+interface Props {
+  idPrefix: string;
+  heading?: string;
+  intro?: string;
+  categories: Category[];
+  action?: string;
+  subjectPrefix?: string;
+}
+
+const {
+  idPrefix,
+  heading,
+  intro,
+  categories,
+  action = 'mailto:karen@paleofoundation.com',
+  subjectPrefix = '',
+} = Astro.props;
+---
+
+<form
+  action={action}
+  method="post"
+  enctype="text/plain"
+  class="border border-ink/15 bg-bone/20 p-6 md:p-8 font-body space-y-6 not-prose"
+>
+  {heading && (
+    <div>
+      <p class="small-caps text-xs text-ochre mb-2">Contact form</p>
+      <p class="font-display text-2xl tracking-tight leading-tight mb-2">
+        {heading}
+      </p>
+      {intro && <p class="text-ink/75 text-base">{intro}</p>}
+    </div>
+  )}
+
+  <div>
+    <label class="small-caps text-xs text-ochre mb-3 block">
+      I am writing because
+    </label>
+    <div class="space-y-2 text-ink/85">
+      {categories.map((cat) => (
+        <label class="flex items-start gap-3 cursor-pointer">
+          <input
+            type="radio"
+            name="Inquiry-type"
+            value={`${subjectPrefix}${cat.value}`}
+            class="mt-1"
+          />
+          <span>{cat.label}</span>
+        </label>
+      ))}
+    </div>
+  </div>
+
+  <div>
+    <label for={`${idPrefix}-name`} class="small-caps text-xs text-ochre mb-2 block">Your name</label>
+    <input
+      id={`${idPrefix}-name`}
+      name="Name"
+      type="text"
+      required
+      class="w-full border border-ink/20 bg-paper px-3 py-2 text-ink placeholder-ink/40 focus:outline-none focus:border-ochre"
+    />
+  </div>
+
+  <div>
+    <label for={`${idPrefix}-email`} class="small-caps text-xs text-ochre mb-2 block">Email</label>
+    <input
+      id={`${idPrefix}-email`}
+      name="Email"
+      type="email"
+      required
+      class="w-full border border-ink/20 bg-paper px-3 py-2 text-ink placeholder-ink/40 focus:outline-none focus:border-ochre"
+    />
+  </div>
+
+  <div>
+    <label for={`${idPrefix}-affiliation`} class="small-caps text-xs text-ochre mb-2 block">
+      Affiliation
+      <span class="text-ink/40 normal-case tracking-normal"> (optional)</span>
+    </label>
+    <input
+      id={`${idPrefix}-affiliation`}
+      name="Affiliation"
+      type="text"
+      class="w-full border border-ink/20 bg-paper px-3 py-2 text-ink placeholder-ink/40 focus:outline-none focus:border-ochre"
+    />
+  </div>
+
+  <div>
+    <label for={`${idPrefix}-message`} class="small-caps text-xs text-ochre mb-2 block">Message</label>
+    <textarea
+      id={`${idPrefix}-message`}
+      name="Message"
+      rows="6"
+      required
+      class="w-full border border-ink/20 bg-paper px-3 py-2 text-ink placeholder-ink/40 focus:outline-none focus:border-ochre"
+    ></textarea>
+  </div>
+
+  <div class="flex flex-wrap items-center gap-4 pt-2">
+    <button
+      type="submit"
+      class="inline-flex items-center px-6 py-3 bg-ink text-paper hover:bg-ochre transition-colors text-sm small-caps"
+    >
+      Send
+    </button>
+    <p class="text-xs text-ink/55 max-w-sm">
+      The form opens your mail client with the message pre-filled.
+      If it does not, write directly to
+      <a href="mailto:karen@paleofoundation.com" class="text-ochre hover:underline">karen@paleofoundation.com</a>.
+    </p>
+  </div>
+</form>

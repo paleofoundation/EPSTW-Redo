@@ -1,0 +1,212 @@
+---
+import Base from '../layouts/Base.astro';
+
+const title = 'Frequently asked questions — The Sustainability Diet';
+const description = 'The questions readers ask most. What this project is, how it relates to other rewilding work, when the book ships, how to cite the site, and how to get in touch.';
+
+// The questions that recur. Not the same as the experiment page's
+// "what we hear most, answered" (which pre-addresses objections to the
+// experiment itself). These are project-level / logistical / editorial.
+const faqs = [
+  {
+    q: 'What is this project, in one sentence?',
+    a: `A book (<em>The Sustainability Diet</em>, forthcoming from Victory Belt) and
+        a companion atlas of late-Pleistocene ecological memory, centered on a
+        specific, falsifiable proposal to test Pleistocene rewilding on a narrowly
+        defined piece of American rangeland.`,
+  },
+  {
+    q: 'Who is it for?',
+    a: `Three audiences, in this order. (1) The landowner, funder, or
+        institution who could actually run the experiment. (2) The general reader
+        who is curious about what the continent used to hold and what could be
+        returned to it. (3) The scientist, rewilder, or graduate student who
+        wants the argument in a form they can push back on. The book and the
+        site are written so all three can read the same pages without either
+        being talked down to or left behind.`,
+  },
+  {
+    q: 'When does the book come out?',
+    a: `The book is in revision as of April 2026. No release date has been
+        set. Readers who want to hear when it ships can use the email form on
+        <a href="/the-book/excerpt" class="text-ochre-deep hover:text-ink">the Prologue page</a>
+        or on the <a href="/about" class="text-ochre-deep hover:text-ink">About page</a>. The list is
+        small and infrequent — one or two messages a year, both specific.`,
+  },
+  {
+    q: 'How is this different from bison reintroduction, or American Prairie, or Knepp?',
+    a: `Those projects use living surrogates (bison, free-ranging cattle and
+        horses) for a Holocene or late-Holocene baseline. This project asks
+        whether a subset of <em>Pleistocene</em>-baseline functions (seed
+        dispersal by a large camelid browser; thorny-legume consumption; long-distance
+        movement across arid rangeland) can be tested with a single proxy
+        species on a single site. The scale is smaller, the time horizon longer,
+        and the failure criteria defined in advance. See
+        <a href="/one-hundred-camels" class="text-ochre-deep hover:text-ink">the family of adjacent projects</a>
+        for how this one sits in relation to the others.`,
+  },
+  {
+    q: 'Why camels? Is this serious?',
+    a: `Yes. North America had multiple camelid species for roughly 40 million
+        years. <em>Camelops hesternus</em>, one of the latest, went extinct
+        ~13,000 years ago. Living dromedaries (<em>Camelus dromedarius</em>) share
+        a common ancestor with Camelops ~20 million years back and retain
+        the morphological and behavioral traits most likely to do the
+        ecological work the extinct animal did. The proposal is not
+        "introduce camels" as a goal; it is "test whether this specific
+        proxy performs a set of named functions on a named site." The
+        fossil case, the proxy rationale, and the objections are all laid
+        out on <a href="/near-time/stories/one-hundred-camels" class="text-ochre-deep hover:text-ink">the first regional story</a>.`,
+  },
+  {
+    q: 'How can I cite this site?',
+    a: `Pre-formatted citation strings (Chicago, APA, MLA) are on the
+        <a href="/near-time/sources#cite-this-site" class="text-ochre-deep hover:text-ink">sources page</a>.
+        The atlas is a work of the author. Where it summarizes other
+        people's data or figures, those are attributed in place and on
+        the <a href="/data-attribution" class="text-ochre-deep hover:text-ink">data-attribution page</a>.`,
+  },
+  {
+    q: 'Can I quote, translate, excerpt, or build on the content here?',
+    a: `Short quotations with attribution: yes, without asking. Translations,
+        derivative works, and anything longer than a few sentences: write first.
+        The book is under contract and long-form reuse runs through the
+        publisher. The atlas entries and Field Notes are the author's and
+        can be licensed flexibly for good-faith academic and journalistic
+        use. Reach out through <a href="/about#contact" class="text-ochre-deep hover:text-ink">the contact form</a>
+        with "Editorial / Press" selected.`,
+  },
+  {
+    q: 'I have a correction or a better source. Will you hear it?',
+    a: `Yes, and the site is designed for this. Every regional story and
+        every matrix entry has a confidence rating; "B" and "C" entries
+        especially welcome tightening. Send it through the
+        <a href="/about#contact" class="text-ochre-deep hover:text-ink">contact form</a>
+        with "Correction" selected, point at the page and the claim, and
+        include your source. Substantive corrections ship with attribution
+        on the <a href="/changelog" class="text-ochre-deep hover:text-ink">changelog</a> unless you prefer
+        otherwise.`,
+  },
+  {
+    q: 'I want to help. What do you actually need?',
+    a: `Ten concrete categories are listed on
+        <a href="/one-hundred-camels/contribute" class="text-ochre-deep hover:text-ink">the contribute page</a>:
+        land access, veterinary specialists, archaeologists and
+        paleontologists, camelid practitioners, foundations willing to
+        consider a long-horizon grant, pro bono legal work, volunteer help,
+        scientific advisors, peer practitioners from adjacent rewilding
+        projects, and readers who will pass the proposal along. None of
+        these are optional; the project needs most of them before a site
+        can be announced.`,
+  },
+  {
+    q: 'Is the Paleo Foundation running this?',
+    a: `No. The author founded and runs
+        <a href="https://paleofoundation.com" class="text-ochre-deep hover:text-ink" rel="noopener">the Paleo Foundation</a>, which certifies food,
+        supplements, and consumer products to diet-category standards. The
+        Foundation is not a party to this project; the book and the site
+        are a personal project of the author. The Foundation's
+        certification work informs the survivability argument in the book
+        but the proposed experiment is independent of the Foundation's
+        operations.`,
+  },
+  {
+    q: 'The site mentions revising earlier positions. What changed?',
+    a: `The author wrote and ran a Paleo Foundation through the 2010s and
+        still does. Several positions she held in 2012 she has revised,
+        most importantly: (a) microbiome individuality means there is no
+        universal human diet, and categorical "paleo vs. not" framings
+        misread the evidence; (b) monocultures, while the current dominant
+        implementation scores poorly, have meaningful improvement
+        potential and should not be treated as categorically evil. The book
+        documents these revisions rather than quietly walking them back.
+        Honest self-revision is treated as evidence of seriousness, not
+        weakness.`,
+  },
+  {
+    q: 'Why does the site say "Pendergrass Score" nowhere?',
+    a: `Deliberate. The four-axis framework is named descriptively
+        ("survivability" as the fourth axis), not after the author. This
+        is a project to introduce a tool, not a personal brand.`,
+  },
+  {
+    q: 'Does the site use cookies or track me?',
+    a: `No. The site sets no cookies of its own. Google Fonts is loaded
+        from Google's CDN (self-hosting is planned); that request leaves a
+        server-log entry with Google. No analytics, no pixels, no tag
+        manager. See <a href="/privacy" class="text-ochre-deep hover:text-ink">the privacy page</a> for the short version.`,
+  },
+  {
+    q: 'Can I get the RSS feed?',
+    a: `Yes. Field Notes publishes at
+        <a href="/feed.xml" class="text-ochre-deep hover:text-ink">/feed.xml</a>,
+        discoverable from any page via the standard
+        <code>&lt;link rel="alternate"&gt;</code> declaration in the head.`,
+  },
+  {
+    q: 'How do I reach Karen?',
+    a: `<a href="/about#contact" class="text-ochre-deep hover:text-ink">The segmented contact form</a>
+        on the About page. It routes by category to the same address
+        (<code>karen@paleofoundation.com</code>) with a subject prefix, which
+        lets the small amount of mail that arrives actually get read.`,
+  },
+];
+
+// FAQ JSON-LD schema for search-engine rich results.
+// Plain-text answers only — strip HTML tags before injecting.
+const stripTags = (html) => html.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(f => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: stripTags(f.a),
+    },
+  })),
+};
+---
+
+<Base
+  title={title}
+  description={description}
+  canonical="https://sustainabilitydiet.com/faq"
+  jsonLd={faqJsonLd}
+ readingBar>
+  <article class="mx-auto max-w-3xl px-6 py-16">
+
+    <p class="small-caps text-xs text-ochre mb-3">FAQ</p>
+    <h1 class="font-display text-5xl md:text-6xl tracking-tight leading-[1.02] mb-6">
+      Frequently-asked questions
+    </h1>
+    <p class="text-xl text-ink/75 leading-relaxed font-serif max-w-2xl mb-8">
+      The questions that recur. Answers stay honest about uncertainty and
+      point into the site where the longer version of the answer lives.
+    </p>
+
+    <hr class="hairline mb-10" />
+
+    <div class="space-y-10">
+      {faqs.map((f, i) => (
+        <section id={`q${i + 1}`} class="scroll-mt-24">
+          <h2 class="font-display text-xl md:text-2xl tracking-tight leading-tight mb-3">
+            {f.q}
+          </h2>
+          <div class="font-serif text-base md:text-lg text-ink/85 leading-relaxed" set:html={f.a}></div>
+        </section>
+      ))}
+    </div>
+
+    <section class="mt-16 pt-10 border-t border-ink/15 font-serif text-ink/70 leading-relaxed">
+      <p>
+        Missing a question? Send it through
+        <a href="/about#contact" class="text-ochre-deep hover:text-ink">the contact form</a>
+        with &ldquo;Reader&rdquo; selected. If a question recurs it will
+        arrive on this page with a proper answer.
+      </p>
+    </section>
+
+  </article>
+</Base>

@@ -1,0 +1,54 @@
+---
+import Base from '../layouts/Base.astro';
+
+const title = 'Not found — The Sustainability Diet';
+const description = 'The page you are looking for is not here. A few places it might have been.';
+
+const mainRoutes = [
+  { href: '/', label: 'Home', blurb: 'The thesis, the tools, the book.' },
+  { href: '/the-book/excerpt', label: 'Read the Prologue', blurb: 'Why this book was written.' },
+  { href: '/one-hundred-camels/the-experiment', label: 'The experiment', blurb: 'One hundred camels on one hundred thousand acres. The proposal.' },
+  { href: '/near-time', label: 'Near Time', blurb: 'The atlas of what the continent forgot.' },
+  { href: '/near-time/orphaned-fruits', label: 'Orphaned fruits', blurb: 'Plants whose dispersers are gone.' },
+  { href: '/near-time/proxies', label: 'Proxies', blurb: 'Living species proposed to do the work extinct ones used to.' },
+  { href: '/field-notes', label: 'Field Notes', blurb: 'Short-form essays.' },
+  { href: '/about', label: 'About', blurb: 'Who wrote this, and why.' },
+];
+---
+
+<Base title={title} description={description}>
+  <article class="mx-auto max-w-3xl px-6 py-24 text-center">
+
+    <p class="small-caps text-xs text-ochre mb-4 tracking-wide">404 · not found</p>
+
+    <h1 class="font-display text-6xl md:text-7xl tracking-tight leading-[1.02] mb-8">
+      Orphaned&nbsp;page.
+    </h1>
+
+    <p class="text-xl text-ink/75 leading-relaxed font-serif max-w-xl mx-auto mb-4">
+      Whatever you were looking for did not arrive here. Either the link is broken, or the page has moved, or the URL was speculative.
+    </p>
+
+    <p class="text-base text-ink/65 leading-relaxed font-serif italic max-w-xl mx-auto mb-16">
+      In the spirit of the rest of the site: a fruit that no one eats is not a design failure. It is a sign that the destination has changed. Try one of these instead.
+    </p>
+
+    <div class="text-left grid sm:grid-cols-2 gap-x-8 gap-y-6 max-w-2xl mx-auto">
+      {mainRoutes.map(r => (
+        <a href={r.href} class="group block py-2 border-b border-ink/10 hover:border-ink transition-colors">
+          <div class="font-display text-lg leading-tight text-ink group-hover:text-ochre-deep transition-colors">
+            {r.label} →
+          </div>
+          <p class="font-serif text-sm text-ink/65 leading-snug mt-1">
+            {r.blurb}
+          </p>
+        </a>
+      ))}
+    </div>
+
+    <p class="mt-16 text-xs small-caps text-ink/50 tracking-wide">
+      If you think this link should work, please <a href="/about#contact" class="text-ochre-deep hover:text-ink">write in</a>. It is faster than me finding it myself.
+    </p>
+
+  </article>
+</Base>

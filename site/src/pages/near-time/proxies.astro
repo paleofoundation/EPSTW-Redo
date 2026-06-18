@@ -1,0 +1,282 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const title = 'Proxies — The Sustainability Diet';
+const description = 'Taxon-substitution matrix: extinct North American Pleistocene megafauna and their proposed living proxies. After Donlan (2005) and descendants.';
+
+// Groupings by functional role so the table organizes itself readably.
+const groups = [
+  {
+    heading: 'Large grazers and browsers',
+    rows: [
+      {
+        extinct: 'Columbian mammoth',
+        scientific: 'Mammuthus columbi',
+        mass: '~9,000 kg',
+        role: 'Open-country grazer, ecosystem engineer, landscape opener.',
+        proxy: 'Asian elephant (Elephas maximus)',
+        rationale: 'Closest living phylogenetic relative. Comparable body size, comparable appetite for grass, comparable habit of pushing over small trees.',
+        objection: 'Climate-match is poor. Feeding behavior is not a perfect one-to-one — mammoths were more grazer, less browser. No one has made the case that Asian elephants can be free-ranging in the American West today.',
+        confidence: 'B',
+      },
+      {
+        extinct: 'American mastodon',
+        scientific: 'Mammut americanum',
+        mass: '~8,000 kg',
+        role: 'Woodland browser. Opened forest-and-bog mosaics.',
+        proxy: 'Asian elephant (Elephas maximus)',
+        rationale: 'Same phylogenetic logic as mammoth, different functional role. Would only fit a forested-mosaic site, not an open grassland.',
+        objection: 'Mastodons were genuinely different — the elephant is a single-proxy candidate being asked to cover two extinct ecologies. At best partial.',
+        confidence: 'C',
+      },
+      {
+        extinct: 'Western camel',
+        scientific: 'Camelops hesternus',
+        mass: '~800 kg',
+        role: 'Mixed-feeder. Browser of thorny leguminous trees. Seed-disperser for osage orange, honey locust, Kentucky coffeetree.',
+        proxy: 'Bactrian or dromedary camel (Camelus bactrianus / C. dromedarius)',
+        rationale: 'Closely related within Camelidae. Same family. Same approximate body mass. Same dietary generalism. The proxy that the experiment is built around.',
+        objection: 'Introduction optics. Livestock-association. Carries risk of hybridization with feral dromedaries in the Southwest (minimal — there are not many).',
+        confidence: 'A',
+      },
+      {
+        extinct: 'Stout-legged llama',
+        scientific: 'Palaeolama mirifica',
+        mass: '~200 kg',
+        role: 'Smaller browser, shrubland edge.',
+        proxy: 'Guanaco (Lama guanicoe) or vicuña (Vicugna vicugna)',
+        rationale: 'Same family. Similar body size. Extant natural analog populations already exist in the Americas, just farther south.',
+        objection: 'Guanaco is not a cold-tolerant high-plains species at all latitudes. Siting matters.',
+        confidence: 'B',
+      },
+      {
+        extinct: 'Gomphothere',
+        scientific: 'Cuvieronius hyodon',
+        mass: '~4,500 kg',
+        role: 'Neotropical browser. The likely disperser of the avocado and many other large-fruited central-American trees.',
+        proxy: 'Asian elephant (Elephas maximus)',
+        rationale: 'Same logic as mammoth. Closest extant proboscidean.',
+        objection: 'Central and South American restoration contexts; not a North American temperate-range candidate.',
+        confidence: 'B',
+      },
+      {
+        extinct: 'American horse',
+        scientific: 'Equus spp. (several)',
+        mass: '~400 kg',
+        role: 'Grazer, keeper-of-short-grass steppe.',
+        proxy: 'Modern horse (Equus caballus) — feral populations already resident',
+        rationale: 'Same genus. Feral American mustangs are, by a reasonable reading of the paleontological record, a returned native. The horse is an orphan that already came home.',
+        objection: 'Feral-horse politics in the American West are fraught. Most public-land agencies treat mustangs as invasive livestock rather than returned fauna — a position that depends on where you place the native/non-native boundary in time.',
+        confidence: 'A',
+      },
+    ],
+  },
+  {
+    heading: 'Apex and mesopredators',
+    rows: [
+      {
+        extinct: 'American cheetah',
+        scientific: 'Miracinonyx trumani',
+        mass: '~70 kg',
+        role: 'Cursorial pursuit predator on open plains. The predator the pronghorn evolved with.',
+        proxy: 'African cheetah (Acinonyx jubatus)',
+        rationale: 'Functional match for cursorial hunting pattern. Pronghorn speed has no extant selective pressure to explain it; cheetah presence would restore the selective pressure.',
+        objection: 'Climate tolerance is uncertain. Cheetah is endangered in its native range; using a threatened species as a proxy for a different lost species is ethically complicated. Donlan 2005 made this proposal; it remains the most polarizing item on the list.',
+        confidence: 'C',
+      },
+      {
+        extinct: 'American lion',
+        scientific: 'Panthera atrox',
+        mass: '~350 kg',
+        role: 'Apex predator on large grazers. Kept herds moving.',
+        proxy: 'African lion (Panthera leo)',
+        rationale: 'Same genus. Similar ecology (though atrox was larger).',
+        objection: 'Human-wildlife conflict risk with a true apex predator returning. Not currently proposed at any scale.',
+        confidence: 'C',
+      },
+      {
+        extinct: 'Short-faced bear',
+        scientific: 'Arctodus simus',
+        mass: '~1,000 kg',
+        role: 'Scavenger / kleptoparasite / occasional predator. Cleared carcasses off the landscape.',
+        proxy: 'Brown bear (Ursus arctos) — already present at reduced range',
+        rationale: 'Related. Grizzly bears do partial work. Range expansion alone recovers much of the function.',
+        objection: 'Not a full proxy; Arctodus was larger and more cursorial. Current grizzly recovery is the closest we have.',
+        confidence: 'B',
+      },
+      {
+        extinct: 'Dire wolf',
+        scientific: 'Aenocyon dirus',
+        mass: '~70 kg',
+        role: 'Pack hunter, scavenger.',
+        proxy: 'Gray wolf (Canis lupus) — already present',
+        rationale: 'Related. Gray wolf recovery across the continent over the past 30 years has restored most of the function. This is less a proposal than an observation.',
+        objection: 'Dire wolves were a distinct genus; gray wolves are the closest functional match available but not a phylogenetic proxy.',
+        confidence: 'A',
+      },
+    ],
+  },
+  {
+    heading: 'Armored and reptilian herbivores',
+    rows: [
+      {
+        extinct: 'Glyptodont',
+        scientific: 'Glyptotherium cylindricum',
+        mass: '~400 kg',
+        role: 'Low-browsing armored herbivore. Slow-moving disturbance agent.',
+        proxy: 'Giant tortoise (Chelonoidis niger, Aldabrachelys gigantea) for function; giant armadillo (Priodontes maximus) for phylogeny',
+        rationale: 'No good single proxy exists. Function (slow armored browser) and phylogeny (armadillo family) diverge.',
+        objection: 'Tortoises are reptiles — the energy-budget match is very loose. Giant armadillos are a fraction of glyptodont size. Either proxy covers only part of the original ecology.',
+        confidence: 'C',
+      },
+      {
+        extinct: 'Giant North American tortoise',
+        scientific: 'Hesperotestudo crassiscutata',
+        mass: '~100 kg',
+        role: 'Slow seed-disperser, low-grade grazer, long-lived soil disturber.',
+        proxy: 'Galápagos or Aldabran giant tortoise (Chelonoidis niger / Aldabrachelys gigantea)',
+        rationale: 'Same family. Same body plan. Same ecological role. The functional match is almost unreasonably good.',
+        objection: 'Climate: both extant giant tortoises are tropical. Southern Florida has been proposed (Ted Turner\'s Armendaris operation trialed the related Bolson tortoise, Gopherus flavomarginatus, which is a native recovery rather than a proxy substitution).',
+        confidence: 'B',
+      },
+    ],
+  },
+  {
+    heading: 'The holes',
+    rows: [
+      {
+        extinct: 'Giant ground sloth',
+        scientific: 'Megalonyx jeffersonii, Eremotherium laurillardi',
+        mass: '~1,000–3,000 kg',
+        role: 'Bulky browser-digger. Seed-disperser for pawpaw, persimmon, possibly honey locust. Soil-working megaherbivore.',
+        proxy: 'None viable.',
+        rationale: 'Extant sloths are canopy specialists at a fraction of the body mass. No large herbivore-digger currently exists that could substitute. The niche is genuinely open.',
+        objection: 'This is not a candidate row. It is a documented gap. Part of being honest about proxies is saying where there is no proxy.',
+        confidence: '—',
+      },
+      {
+        extinct: 'Saber-tooth cat',
+        scientific: 'Smilodon fatalis',
+        mass: '~250 kg',
+        role: 'Ambush predator on very large prey.',
+        proxy: 'None viable.',
+        rationale: 'Smilodon\'s prey-size specialization has no living analog. Lions and tigers are the closest cats in mass but are cursorial or semi-ambush generalists, not prey-size specialists.',
+        objection: 'Another honest hole. The absence does not necessarily need to be filled.',
+        confidence: '—',
+      },
+    ],
+  },
+];
+---
+
+<Base title={title} description={description} canonical="https://sustainabilitydiet.com/near-time/proxies" readingBar>
+  <article class="mx-auto max-w-5xl px-6 py-16">
+
+    <p class="small-caps text-xs text-ochre mb-3">Near Time · Reference</p>
+    <h1 class="font-display text-5xl md:text-6xl tracking-tight leading-[1.02] mb-6">
+      Proxies
+    </h1>
+    <p class="text-xl text-ink/75 leading-relaxed font-serif max-w-3xl">
+      A taxon-substitution table. The left column is what went extinct in North America at the end of the Pleistocene. The right columns are the living species that have been proposed — in the peer-reviewed literature and in real restoration projects — to take up some part of what the extinct animal did.
+    </p>
+
+    <div class="mt-8 small-caps text-xs text-ink/60 tracking-wide">
+      After Donlan et al. (2005) · see <a href="/near-time/sources" class="text-ochre hover:text-ochre-deep">sources &amp; methodology</a>
+    </div>
+
+    <hr class="hairline my-12" />
+
+    <section class="prose-reading max-w-none mb-16">
+      <p class="font-serif text-lg leading-relaxed text-ink/85 mb-6">
+        A proxy is not a resurrection. It is an acknowledgment that function can outlive taxonomy — that a camel from one continent can do the ecological work a camel from another continent used to do, even if the two are not the same species. The idea is old. It runs from Soulé and Noss in the 1980s through Donlan in 2005 through every rewilding project on the continent today.
+      </p>
+      <p class="font-serif text-lg leading-relaxed text-ink/85 mb-6">
+        The table below is organized by functional role, not by size or continent, because the question a landowner or a funder usually needs answered is not <em>what was on this ground</em> but <em>what did the missing animal do on this ground, and is there still something alive that does the same work</em>.
+      </p>
+      <p class="font-serif text-lg leading-relaxed text-ink/85">
+        Honesty about the gaps matters. The last section of the table, "the holes," is where no viable proxy exists. The absence is part of the map.
+      </p>
+    </section>
+
+    {groups.map(g => (
+      <section class="mb-20">
+        <h2 class="font-display text-2xl tracking-tight mb-6 pb-3 border-b-2 border-ink/30">{g.heading}</h2>
+        <div class="space-y-10">
+          {g.rows.map(r => (
+            <div class="grid md:grid-cols-[1fr_1.2fr] gap-8 py-6 border-b border-ink/10 last:border-b-0">
+              <div>
+                <p class="small-caps text-xs text-ochre mb-2">Extinct</p>
+                <div class="font-display text-2xl tracking-tight leading-tight mb-1">{r.extinct}</div>
+                <div class="italic text-ink/60 text-sm mb-4">{r.scientific} · {r.mass}</div>
+                <p class="text-sm text-ink/80 leading-relaxed">{r.role}</p>
+              </div>
+              <div>
+                <p class="small-caps text-xs text-ochre mb-2">Proposed proxy</p>
+                <div class="font-display text-lg leading-tight mb-4">{r.proxy}</div>
+                <div class="mb-4">
+                  <p class="small-caps text-xs text-ink/60 mb-1">Rationale</p>
+                  <p class="text-sm text-ink/80 leading-relaxed">{r.rationale}</p>
+                </div>
+                <div class="mb-4">
+                  <p class="small-caps text-xs text-ink/60 mb-1">Key objection</p>
+                  <p class="text-sm text-ink/80 leading-relaxed">{r.objection}</p>
+                </div>
+                <div>
+                  <p class="small-caps text-xs text-ink/60 mb-1">Confidence</p>
+                  <span class={`inline-block px-2 py-1 rounded text-xs small-caps ${
+                    r.confidence === 'A' ? 'bg-moss/20 text-moss' :
+                    r.confidence === 'B' ? 'bg-ochre/20 text-ochre-deep' :
+                    r.confidence === 'C' ? 'bg-ink/10 text-ink/60' :
+                    'bg-ink/5 text-ink/40'
+                  }`}>{r.confidence}</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    ))}
+
+    <section class="prose-reading max-w-none mb-16 mt-12 pt-12 border-t border-ink/10">
+      <h2 class="font-display text-3xl tracking-tight mb-6">Confidence key</h2>
+      <p class="font-serif text-lg leading-relaxed text-ink/85 mb-3">
+        <span class="inline-block px-2 py-0.5 rounded bg-moss/20 text-moss small-caps text-xs mr-2">A</span>
+        The proxy is phylogenetically close, functionally close, and already used (or already resident) in analogous restoration work.
+      </p>
+      <p class="font-serif text-lg leading-relaxed text-ink/85 mb-3">
+        <span class="inline-block px-2 py-0.5 rounded bg-ochre/20 text-ochre-deep small-caps text-xs mr-2">B</span>
+        The proxy is reasonable on at least two of three axes (phylogeny, function, operational precedent) but has known limitations.
+      </p>
+      <p class="font-serif text-lg leading-relaxed text-ink/85 mb-3">
+        <span class="inline-block px-2 py-0.5 rounded bg-ink/10 text-ink/60 small-caps text-xs mr-2">C</span>
+        The proxy has been proposed in the literature but is either contested, restricted to narrow conditions, or carries welfare/ethical objections serious enough that it is not currently being pursued at scale.
+      </p>
+      <p class="font-serif text-lg leading-relaxed text-ink/85">
+        <span class="inline-block px-2 py-0.5 rounded bg-ink/5 text-ink/40 small-caps text-xs mr-2">—</span>
+        No viable proxy. The niche is documented and honestly unfilled.
+      </p>
+    </section>
+
+    <div class="mt-16 pt-8 border-t border-ink/10 flex flex-col sm:flex-row gap-4">
+      <a
+        href="/one-hundred-camels/the-experiment"
+        class="inline-block px-6 py-3 bg-ink text-paper text-sm small-caps hover:bg-ochre transition-colors"
+      >
+        See the experiment →
+      </a>
+      <a
+        href="/near-time/orphaned-fruits"
+        class="inline-block px-6 py-3 border border-ink text-ink text-sm small-caps hover:bg-ink hover:text-paper transition-colors"
+      >
+        Orphaned fruits →
+      </a>
+      <a
+        href="/one-hundred-camels/critics"
+        class="inline-block px-6 py-3 border border-ink/30 text-ink/80 text-sm small-caps hover:border-ink hover:text-ink transition-colors"
+      >
+        Critics of this approach →
+      </a>
+    </div>
+
+  </article>
+</Base>

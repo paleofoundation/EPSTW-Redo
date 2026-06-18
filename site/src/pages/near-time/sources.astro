@@ -1,0 +1,330 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+
+<Base title="Sources & methodology — The Sustainability Diet" description="How the Near Time atlas is built: data sources, citation conventions, screening rules, and the intellectual provenance of the vignettes." readingBar>
+  <article class="mx-auto max-w-reading px-6 pt-20 pb-32">
+
+    <header class="mb-14">
+      <p class="small-caps text-xs text-ochre mb-4">Near Time / reference</p>
+      <h1 class="font-display text-4xl md:text-5xl tracking-tight leading-tight mb-6">
+        Sources and methodology.
+      </h1>
+      <p class="font-serif text-lg md:text-xl leading-relaxed text-ink/75 max-w-reading">
+        How the atlas is built. What data sources sit behind the
+        maps. How the citations are made. Where the editorial
+        judgment enters and where it tries not to.
+      </p>
+    </header>
+
+    <div class="prose-reading text-lg leading-[1.7] text-ink/90 space-y-10">
+
+      <section>
+        <h2 class="font-display text-2xl md:text-3xl tracking-tight mb-6" id="data-sources">
+          Data sources.
+        </h2>
+
+        <p>
+          The atlas uses four kinds of source: primary literature,
+          open paleontological and ecological databases, open
+          botanical and observational databases, and a small number
+          of secondary synthesis works named where they matter.
+        </p>
+
+        <h3 class="font-display text-xl mt-10 mb-4" id="pbdb">Paleobiology Database (PBDB)</h3>
+        <p>
+          The PBDB is an open repository of fossil occurrence records
+          maintained by a community of paleontologists. Records are
+          collection-level and include age, location, and taxonomic
+          identification with uncertainty. Vignette hero maps, range
+          maps, and the site criteria for the experiment all use
+          PBDB occurrence data. Licensed CC-BY. Attribution is
+          included in every component caption that uses PBDB data
+          and in the footer of this site.
+        </p>
+
+        <h3 class="font-display text-xl mt-10 mb-4" id="neotoma">Neotoma Paleoecology Database</h3>
+        <p>
+          Neotoma is the companion open database for paleoecological
+          records: pollen, plant macrofossils, vertebrate remains,
+          ostracodes, diatoms. Plant-community reconstructions and
+          disperser&ndash;plant pairings lean on Neotoma where fossil
+          and pollen evidence is available. Licensed CC-BY-4.0.
+          Attribution is carried in every component that uses it.
+        </p>
+
+        <h3 class="font-display text-xl mt-10 mb-4" id="plants">USDA PLANTS</h3>
+        <p>
+          USDA PLANTS provides distribution, taxonomy, and ecological
+          information for North American vascular plants. Public
+          domain. Used for modern plant range and for species-code
+          normalization.
+        </p>
+
+        <h3 class="font-display text-xl mt-10 mb-4" id="gbif">GBIF and iNaturalist</h3>
+        <p>
+          The Global Biodiversity Information Facility (GBIF)
+          aggregates occurrence records from research collections
+          and citizen-science observations. iNaturalist is one of
+          the largest contributing citizen-science sources. Where
+          this site uses modern-day occurrence data, records are
+          filtered to permissively-licensed entries (CC0, CC-BY,
+          CC-BY-NC when NC is compatible with the use). Research-grade
+          iNaturalist observations are the default threshold; casual
+          observations are excluded from any displayed map.
+        </p>
+
+        <h3 class="font-display text-xl mt-10 mb-4" id="primary-lit">Primary literature</h3>
+        <p>
+          Every vignette carries end-of-page citations to the primary
+          literature that supports its specific claims. The citation
+          format is author&ndash;year with full reference at the
+          bottom of the page, and each citation is reachable by a
+          numbered in-page footnote with a jump-back arrow. Footnote
+          claims are tied to specific sentences; no footnote is
+          decorative. Where a claim is contested in the literature,
+          the strongest paper on each side is cited.
+        </p>
+
+        <h3 class="font-display text-xl mt-10 mb-4" id="synthesis">Synthesis works</h3>
+        <p>
+          Four synthesis works do a lot of load-bearing work behind
+          the atlas and are cited repeatedly:
+        </p>
+        <ul class="space-y-3 font-serif pl-6 list-disc">
+          <li>
+            Martin, P. S. (2005). <em>Twilight of the Mammoths: Ice
+            Age Extinctions and the Rewilding of America.</em>
+            University of California Press.
+          </li>
+          <li>
+            MacPhee, R. D. E. (Ed.) (1999). <em>Extinctions in Near
+            Time: Causes, Contexts, and Consequences.</em> Kluwer
+            Academic / Plenum.
+          </li>
+          <li>
+            Janzen, D. H., &amp; Martin, P. S. (1982). Neotropical
+            anachronisms: the fruits the gomphotheres ate.
+            <em>Science</em>, 215(4528), 19&ndash;27.
+          </li>
+          <li>
+            Donlan, C. J., Berger, J., Bock, C. E., et al. (2005).
+            Re-wilding North America. <em>Nature</em>, 436, 913&ndash;914;
+            and the follow-on 2006 paper in <em>American Naturalist</em>.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl md:text-3xl tracking-tight mt-14 mb-6" id="screening">
+          Screening and cutoff conventions.
+        </h2>
+
+        <p>
+          Fossil records vary in reliability. The atlas applies three
+          screening rules that are common practice in the
+          paleoecological literature and that are named wherever
+          they are binding.
+        </p>
+
+        <ul class="space-y-3 font-serif pl-6 list-disc">
+          <li>
+            <strong>Age cutoff.</strong> Unless a vignette is
+            explicitly about a deeper-time species, the atlas
+            restricts to occurrences from the Pleistocene and
+            Holocene. Near Time in MacPhee's sense is roughly the
+            last 50,000 years. Most of the book's argument is inside
+            that window.
+          </li>
+          <li>
+            <strong>Identification confidence.</strong> Occurrence
+            records identified only to genus or family are included
+            in range maps when the species identification is
+            unambiguous from the regional record. Where the genus
+            includes multiple species at similar age and location,
+            the record is noted as such and is not used for
+            species-specific claims.
+          </li>
+          <li>
+            <strong>Radiocarbon dates.</strong> Dates are reported
+            in calibrated years before present (cal BP) where the
+            source reports them; uncalibrated radiocarbon ages are
+            calibrated using IntCal20 and noted. The terminal
+            Pleistocene extinctions are reported at approximately
+            13,000 cal BP, with site-specific variance noted in
+            vignettes that depend on the number.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl md:text-3xl tracking-tight mt-14 mb-6" id="uncertainty">
+          How uncertainty is handled.
+        </h2>
+
+        <p>
+          Where the science is genuinely unsettled, the atlas says so.
+          The specific cases where this matters most:
+        </p>
+
+        <ul class="space-y-3 font-serif pl-6 list-disc">
+          <li>
+            <strong>Cause of the terminal-Pleistocene extinctions.</strong>
+            Overkill, climate, disease, and combinations thereof.
+            The atlas does not take a position; the experiment does
+            not require one.
+          </li>
+          <li>
+            <strong>The Younger Dryas Impact Hypothesis.</strong>
+            Contested; cited as an open question and not used as
+            support for any argument.
+          </li>
+          <li>
+            <strong>Specific plant&ndash;disperser pairings.</strong>
+            Proposed pairings vary in evidential weight. Osage orange
+            with gomphotheres is broadly supported. Pairings where
+            the evidence is thinner are flagged in vignette text.
+          </li>
+          <li>
+            <strong>Proxy choice.</strong> That dromedaries are the
+            closest available proxy for <em>Camelops</em> is well
+            supported by Heintzman et al. (2015) and the broader
+            camelid phylogeny. That dromedaries can perform the
+            specific ecological function is the question the
+            experiment exists to test.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl md:text-3xl tracking-tight mt-14 mb-6" id="interactive">
+          Interactive components: what they will do, and what they will not claim.
+        </h2>
+
+        <p>
+          When the atlas's interactive components ship, each one
+          will carry an explicit legend for:
+        </p>
+
+        <ul class="space-y-3 font-serif pl-6 list-disc">
+          <li>
+            The data source used for the visualization.
+          </li>
+          <li>
+            The age window and screening rules applied.
+          </li>
+          <li>
+            What the component is claiming and what it is not.
+            (A range map of <em>Camelops</em> occurrences is not
+            a claim about range extent at any particular moment; it
+            is a claim about documented fossil localities over the
+            Late Pleistocene as a whole. The legend will say so.)
+          </li>
+          <li>
+            A link back to this page for the underlying
+            methodological context.
+          </li>
+        </ul>
+
+        <p>
+          Interactive components are live placeholders in the
+          current build. The atlas renders what the component will
+          show; the data pipeline is the next-session priority.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl md:text-3xl tracking-tight mt-14 mb-6" id="editorial">
+          Editorial voice.
+        </h2>
+
+        <p>
+          The atlas is written in a consistent register: factual
+          where the record is factual, plain where the record is
+          incomplete, careful where the record is contested. Where
+          the author holds a view that runs ahead of the evidence,
+          the view is marked as the author's. Where a claim is
+          counter to a widely-held alternative, the alternative is
+          named and the strongest case for it is cited.
+        </p>
+
+        <p>
+          The atlas's author, Karen Pendergrass, is not a credentialed
+          paleoecologist. The claims it makes are what the primary
+          literature supports; the framing and selection are editorial.
+          Where readers with specialist expertise find errors, the
+          contact form on the <a href="/about#contact" class="text-ochre hover:underline">About page</a>
+          is the canonical path to get them corrected. Every vignette
+          will carry a last-updated date once the build reaches
+          publication tempo.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl md:text-3xl tracking-tight mt-14 mb-6" id="cite">
+          How to cite this site.
+        </h2>
+
+        <p>
+          Citations are appreciated. If a piece of writing or a
+          specific table on this site informed a paper, a talk, a
+          lesson plan, or a podcast, please cite it. Below are three
+          formats covering the styles most people need.
+        </p>
+
+        <p class="small-caps text-xs text-ink/60 tracking-wide mt-8 mb-2">Chicago author-date</p>
+        <pre class="not-prose bg-bone/30 border border-ink/10 p-4 text-xs md:text-sm font-mono overflow-x-auto leading-relaxed whitespace-pre-wrap">Pendergrass, Karen. 2026. "Orphaned Fruits." <em>The Sustainability Diet</em>.
+Accessed [date]. https://sustainabilitydiet.com/near-time/orphaned-fruits.</pre>
+
+        <p class="small-caps text-xs text-ink/60 tracking-wide mt-8 mb-2">APA 7th edition</p>
+        <pre class="not-prose bg-bone/30 border border-ink/10 p-4 text-xs md:text-sm font-mono overflow-x-auto leading-relaxed whitespace-pre-wrap">Pendergrass, K. (2026). Orphaned fruits. <em>The Sustainability Diet</em>.
+Retrieved [date], from https://sustainabilitydiet.com/near-time/orphaned-fruits</pre>
+
+        <p class="small-caps text-xs text-ink/60 tracking-wide mt-8 mb-2">MLA 9th edition</p>
+        <pre class="not-prose bg-bone/30 border border-ink/10 p-4 text-xs md:text-sm font-mono overflow-x-auto leading-relaxed whitespace-pre-wrap">Pendergrass, Karen. "Orphaned Fruits." <em>The Sustainability Diet</em>,
+2026, sustainabilitydiet.com/near-time/orphaned-fruits. Accessed [date].</pre>
+
+        <p class="font-serif text-base text-ink/75 italic leading-relaxed mt-8">
+          Replace the title and URL with whichever page you are citing. When <em>The Sustainability Diet</em> book publishes (in print), the book's bibliographic citation should be preferred for any claim that also appears there. The site remains the primary source for the tables, the atlas, and the field notes.
+        </p>
+
+        <h2 class="font-display text-2xl md:text-3xl tracking-tight mt-14 mb-6" id="attribution">
+          Attribution.
+        </h2>
+
+        <p>
+          Data attribution is carried at the component level (each
+          map and chart carries a source line), at the page level
+          (at the bottom of each vignette), and site-wide on the
+          <a href="/data-attribution" class="text-ochre hover:underline">data attribution</a>
+          page for the CC-BY licenses that require it. The site is
+          in compliance with the license terms of PBDB, Neotoma,
+          GBIF, iNaturalist, and every other open source it uses.
+        </p>
+      </section>
+
+    </div>
+
+    <div class="mt-20 flex flex-wrap gap-4 items-center">
+      <a
+        href="/near-time"
+        class="inline-flex items-center gap-2 px-6 py-3 border border-ink/20 hover:border-ink transition-colors text-sm small-caps"
+      >
+        Back to Near Time
+      </a>
+      <a
+        href="/near-time/glossary"
+        class="inline-flex items-center gap-2 px-6 py-3 border border-ink/20 hover:border-ink transition-colors text-sm small-caps"
+      >
+        Glossary
+      </a>
+      <a
+        href="/data-attribution"
+        class="inline-flex items-center gap-2 px-6 py-3 border border-ink/20 hover:border-ink transition-colors text-sm small-caps"
+      >
+        Data attribution
+      </a>
+    </div>
+
+  </article>
+</Base>

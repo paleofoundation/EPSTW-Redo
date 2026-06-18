@@ -1,0 +1,282 @@
+---
+import Base from '../layouts/Base.astro';
+
+const title = 'The Fourth Axis — The Sustainability Diet';
+const description = 'Survivability as the fourth axis of food-system assessment. The concept the book turns on: what the system requires to keep functioning, and what happens when those requirements are not met.';
+
+// The four axes, plainly stated. Order matches the book.
+const axes = [
+  {
+    label: 'Economic viability',
+    question: 'Does the system generate sufficient returns to persist as an economic entity under current conditions?',
+    condition: 'current',
+  },
+  {
+    label: 'Social equity',
+    question: 'Does the system distribute its benefits and costs in ways that are equitable or defensible under current conditions?',
+    condition: 'current',
+  },
+  {
+    label: 'Environmental integrity',
+    question: 'Does the system operate within ecological bounds that the surrounding environment can sustain under current conditions?',
+    condition: 'current',
+  },
+  {
+    label: 'Survivability',
+    question: 'What does the system require to keep functioning, and what happens when those requirements are not met?',
+    condition: 'changed',
+  },
+];
+
+// What the axis does NOT do. Direct from Chapter 4.
+const limits = [
+  {
+    heading: 'Not a measure of moral worth.',
+    body: 'A system that scores poorly on survivability is not evil; it is structurally vulnerable. The industrial grain system that feeds most of the planet scores poorly on survivability for reasons that are structural and historical, not because anyone set out to build a fragile system.',
+  },
+  {
+    heading: 'Not a predictor of specific failures.',
+    body: 'The axis identifies dependency profiles and maps vulnerability, but it does not tell you which specific disruption will occur or when. It tells you where the fault lines are. It does not tell you when the earthquake comes.',
+  },
+  {
+    heading: 'Not a single numerical score.',
+    body: 'The axis produces a profile, not a number. Attempts to reduce complex systems to single scores are more useful for marketing than for understanding. A system that depends on diesel is vulnerable in a different way than a system that depends on federal subsidies; collapsing both into one number obscures more than it reveals.',
+  },
+  {
+    heading: 'Not personally branded.',
+    body: 'The author sketched the core of this argument in a 2016 essay and named it after herself. She no longer thinks that was the right choice. The framework is a tool, and tools are described by what they do — not by who made them. There is no "Pendergrass Score." The axis is just the survivability axis.',
+  },
+];
+
+// Where the concept is actually applied across the site.
+const where = [
+  {
+    href: '/one-hundred-camels/the-experiment',
+    title: 'The experiment',
+    body: 'The most concrete application. A Pleistocene-rewilding proposal constructed deliberately around a favorable survivability profile: minimal continuous inputs, regional redundancy, graceful degradation under stress.',
+  },
+  {
+    href: '/one-hundred-camels/critics',
+    title: 'Critics and counter-positions',
+    body: 'The best objections, including the ones that target the survivability framing directly. Read here for where the fourth axis is contested.',
+  },
+  {
+    href: '/near-time/stories/one-hundred-camels',
+    title: 'The first regional story',
+    body: 'A regional case study read through all four axes, including what the Pleistocene baseline added to the survivability assessment that the three-axis framework alone would have missed.',
+  },
+  {
+    href: '/the-book',
+    title: 'The book',
+    body: 'Part II of <em>The Sustainability Diet</em> runs the four-axis assessment on both dominant industrial systems and on the regenerative and rewilding alternatives. The survivability axis is the analytical spine of that argument.',
+  },
+];
+---
+
+<Base title={title} description={description} canonical="https://sustainabilitydiet.com/fourth-axis" readingBar>
+
+  <article class="mx-auto max-w-3xl px-6 py-16">
+
+    <p class="small-caps text-xs text-ochre mb-3">The core concept</p>
+    <h1 class="font-display text-5xl md:text-7xl tracking-tight leading-[1.00] mb-6">
+      The Fourth Axis
+    </h1>
+    <p class="font-display text-2xl md:text-3xl text-ink/70 tracking-tight leading-tight mb-10 max-w-2xl">
+      Survivability as the axis the standard sustainability framework leaves out.
+    </p>
+
+    {/* The setup — the Virginia poultry example, compressed */}
+    <div class="font-serif text-lg md:text-xl text-ink/85 leading-relaxed space-y-6 max-w-reading">
+      <p>
+        Picture a pastured-poultry operation in the Piedmont of Virginia.
+        Five hundred acres, rotationally grazed, solar panels on the barn
+        roof, organic certification on the feed. Soil organic matter up two
+        percentage points in a decade. Eight jobs at above-median wages.
+        Direct-to-consumer sales within a hundred miles. By every standard
+        measure of sustainability, the operation scores well: economically
+        viable, socially beneficial, environmentally sound.
+      </p>
+      <p>
+        Now remove one thing. Not a catastrophe — just one input. The
+        commodity corn supply the birds depend on becomes unavailable for a
+        season. A Midwest drought. A shipping disruption. Something ordinary.
+        The operation does not adapt. It cannot. The birds are monogastrics
+        and need concentrated energy; its acreage is in perennial pasture;
+        its infrastructure is built for poultry. If the disruption lasts a
+        season, the operation diminishes. Two seasons: financial distress.
+        Three: gone.
+      </p>
+      <p>
+        The gap is not in the operation. It is in the framework we use to
+        evaluate the operation. The three-axis model measured the system's
+        <em>performance under current conditions.</em> It did not ask what
+        the system requires to keep performing, or what happens when those
+        requirements are not met.
+      </p>
+      <p>
+        <strong>That question is the fourth axis.</strong>
+      </p>
+    </div>
+
+    <hr class="hairline my-14" />
+
+    {/* The four axes, side by side */}
+    <section class="mb-16">
+      <h2 class="small-caps text-xs text-ochre mb-6">The four axes, stated plainly</h2>
+      <div class="space-y-4">
+        {axes.map((a, i) => (
+          <article class={`grid md:grid-cols-[auto_1fr] gap-4 md:gap-8 border p-5 md:p-6 ${
+            a.condition === 'changed'
+              ? 'bg-bone/40 border-ink'
+              : 'bg-paper border-ink/15'
+          }`}>
+            <div class="md:w-44">
+              <p class="small-caps text-[0.65rem] text-ochre-deep tracking-wide mb-1">
+                Axis {String(i + 1).padStart(2, '0')}
+              </p>
+              <p class="font-display text-xl tracking-tight leading-tight">
+                {a.label}
+              </p>
+            </div>
+            <p class="font-serif text-base md:text-lg text-ink/85 leading-relaxed">
+              {a.question}
+            </p>
+          </article>
+        ))}
+      </div>
+      <p class="font-serif text-sm md:text-base text-ink/65 leading-relaxed mt-6 max-w-2xl">
+        Notice the structural difference. The first three axes share a temporal
+        orientation: each describes performance <em>under current conditions.</em>
+        The fourth axis asks about performance <em>under changed conditions.</em>
+        The first three tell you how the system is doing. The fourth tells you
+        what the system is made of.
+      </p>
+    </section>
+
+    {/* What survivability asks */}
+    <section class="mb-16">
+      <h2 class="small-caps text-xs text-ochre mb-4">What the axis asks</h2>
+      <div class="font-serif text-base md:text-lg text-ink/85 leading-relaxed space-y-4 max-w-3xl">
+        <p>
+          Survivability asks two linked questions about any food system under
+          evaluation.
+        </p>
+        <p>
+          <strong>First:</strong> what does this system require to keep
+          functioning? Inputs (energy, water, feed, fertilizer, seed, labor,
+          capital, infrastructure). Market conditions (commodity prices,
+          consumer demand, distribution networks). Policy conditions (subsidies,
+          regulations, trade agreements). Ecological conditions (climate
+          stability, soil fertility, hydrological patterns, pollinator
+          populations). Every food system has a dependency profile — a set of
+          things it needs from outside itself in order to continue operating.
+          The first question maps that profile.
+        </p>
+        <p>
+          <strong>Second:</strong> what happens when one or more of those
+          requirements is not met? This is the stress question, and it is the
+          question the three-axis framework does not ask.
+        </p>
+        <p>
+          A system whose dependency profile is narrow — one that requires only
+          conditions the system itself produces or that are reliably available
+          independent of any single external supply chain — scores high on
+          survivability. A system whose dependency profile is broad — one that
+          requires continuous diesel, continuous commodity feed, continuous
+          federal subsidies, continuous just-in-time logistics, continuous
+          stable climate — scores low on survivability, regardless of how well
+          it performs on the other three axes when all of those requirements
+          are being met.
+        </p>
+      </div>
+    </section>
+
+    {/* The intellectual lineage */}
+    <section class="mb-16">
+      <h2 class="small-caps text-xs text-ochre mb-4">The concept is not novel</h2>
+      <div class="font-serif text-base md:text-lg text-ink/85 leading-relaxed space-y-4 max-w-3xl">
+        <p>
+          Ecologists have been studying system behavior under stress for
+          decades. C. S. Holling's 1973 paper on ecological resilience drew
+          the distinction between stability (a system's tendency to return to
+          equilibrium after a perturbation) and resilience (its capacity to
+          absorb disturbance without shifting to a qualitatively different
+          state). The distinction has been productive in ecology and has been
+          imported, with varying success, into food-systems thinking.
+        </p>
+        <p>
+          Nassim Taleb's <em>Antifragile</em> (2012) added the observation
+          that the categories of fragile, robust, and antifragile describe a
+          spectrum of system responses to volatility, and that most modern
+          institutions and supply chains are fragile precisely because they
+          have been optimized for efficiency under stable conditions at the
+          expense of robustness under unstable ones.
+        </p>
+        <p>
+          Survivability draws on these predecessors without duplicating any of
+          them. It is narrower than Holling's resilience, which applies across
+          ecological scales from a pond to a biome. It is narrower than
+          Taleb's antifragility, which applies across domains. It is specific
+          to food systems, and it is designed to function as an assessment
+          axis — a dimension that can be applied alongside the existing three,
+          producing a four-axis profile that captures both a system's current
+          performance and its behavior under changed conditions.
+        </p>
+      </div>
+    </section>
+
+    {/* The limits — what the axis does NOT do */}
+    <section class="mb-16">
+      <h2 class="small-caps text-xs text-ochre mb-4">What the axis does not do</h2>
+      <p class="font-serif text-base md:text-lg text-ink/80 leading-relaxed mb-6 max-w-3xl">
+        Precision about limits is what distinguishes a tool from a sales
+        pitch. Four statements, stated directly.
+      </p>
+      <div class="space-y-6">
+        {limits.map(l => (
+          <article class="border-l-2 border-ink/20 pl-5 max-w-3xl">
+            <p class="font-display text-lg md:text-xl tracking-tight leading-tight mb-2">
+              {l.heading}
+            </p>
+            <p class="font-serif text-base md:text-lg text-ink/80 leading-relaxed">
+              {l.body}
+            </p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <hr class="hairline my-14" />
+
+    {/* Where the concept lives on this site */}
+    <section class="mb-16">
+      <h2 class="font-display text-3xl md:text-4xl tracking-tight leading-tight mb-3">
+        Where the axis is applied.
+      </h2>
+      <p class="font-serif text-base md:text-lg text-ink/80 leading-relaxed mb-8 max-w-3xl">
+        This page introduces the concept. It does not argue for any particular
+        food system. The argument lives where the framework is actually put to
+        use — on the experiment page, on the regional story, and in the book.
+      </p>
+      <div class="grid md:grid-cols-2 gap-4">
+        {where.map(w => (
+          <a href={w.href} class="block border border-ink/20 bg-paper p-5 md:p-6 hover:bg-bone/30 hover:border-ink transition-colors">
+            <p class="font-display text-xl tracking-tight leading-tight mb-2">
+              {w.title} →
+            </p>
+            <p class="font-serif text-base text-ink/75 leading-snug" set:html={w.body}></p>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    {/* Pull-quote at the close — the chapter's own ending */}
+    <section class="mt-20 pt-10 border-t border-ink/15 max-w-2xl mx-auto">
+      <p class="font-serif italic text-lg md:text-xl text-ink/75 leading-relaxed text-center">
+        The framework is a lens. The rest of the site is what the lens is
+        pointed at.
+      </p>
+    </section>
+
+  </article>
+</Base>

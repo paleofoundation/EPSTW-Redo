@@ -1,0 +1,30 @@
+---
+import Base from './Base.astro';
+
+interface Props {
+  title: string;
+  kicker: string;
+  blurb: string;
+}
+
+const { title, kicker, blurb } = Astro.props;
+---
+
+<Base title={`${title} — The Sustainability Diet`}>
+  <section class="mx-auto max-w-6xl px-6 pt-32 pb-40">
+    <div class="small-caps text-xs text-ochre mb-6">{kicker}</div>
+    <h1 class="font-display text-5xl md:text-6xl leading-[1.05] tracking-tight mb-8">
+      {title}
+    </h1>
+    <p class="font-serif text-xl leading-relaxed text-ink/75 max-w-reading">
+      {blurb}
+    </p>
+    <p class="small-caps text-xs text-ink/40 mt-12">Under construction</p>
+    <a
+      href="/"
+      class="inline-block mt-4 text-sm text-ink/60 hover:text-ink transition-colors"
+    >
+      ← Return to the homepage
+    </a>
+  </section>
+</Base>

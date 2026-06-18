@@ -1,0 +1,168 @@
+---
+import Base from '../layouts/Base.astro';
+
+const title = 'Changelog — The Sustainability Diet';
+const description = 'The site is a living document. Every session\u2019s additions, corrections, and removals, listed in reverse chronological order.';
+
+// Reverse-chronological entries.
+// kind: "added" | "changed" | "corrected" | "removed"
+// "corrected" entries should be visible at a glance — they matter more.
+const entries = [
+  {
+    date: '2026-04-19',
+    session: 'Session 6',
+    heading: 'Flip-the-land reframe',
+    changes: [
+      { kind: 'changed', text: '<a href="/one-hundred-camels/the-experiment" class="text-ochre-deep hover:text-ink">The experiment page</a> reframed around the flip register from the revised Epilogue: a distressed parcel bought at distressed basis, a five-year MVP phase, a ten-year flip window with four pre-defined exits (sold at restored valuation, retained, easement-protected, or returned to the commons), and Year 25 as an optional closed-loop coda rather than the headline. The 25-year number was a pre-Epilogue-revision figure; the book\u2019s own ending says ten.' },
+      { kind: 'added', text: 'New Section 02, "What flipping the ground means here," importing the Epilogue register and naming the four disposition options.' },
+      { kind: 'changed', text: 'Falsification list (Section 11) split into a Year-5 gate and a Year-10 gate, so each phase has its own pre-registered stop condition.' },
+      { kind: 'changed', text: 'What-is-being-asked section (Section 13) rewritten as a phased ask: Phase 1 capital and commitment vs. Phase 2 trigger, capital, and exit. "Underwriter" introduced alongside "patron" as a distinct funder type.' },
+      { kind: 'changed', text: 'Homepage thesis and <a href="/one-hundred-camels" class="text-ochre-deep hover:text-ink">/one-hundred-camels</a> landing updated so the flip register appears before a reader reaches the proposal page.' },
+    ],
+  },
+  {
+    date: '2026-04-18',
+    session: 'Session 5',
+    heading: 'Discovery layer',
+    changes: [
+      { kind: 'added', text: '<a href="/start" class="text-ochre-deep hover:text-ink">/start</a> — a two-minute project summary for cold readers.' },
+      { kind: 'added', text: '<a href="/faq" class="text-ochre-deep hover:text-ink">/faq</a> — standalone frequently-asked-questions page with FAQ JSON-LD schema.' },
+      { kind: 'added', text: '/changelog (this page).' },
+      { kind: 'added', text: '<a href="/map" class="text-ochre-deep hover:text-ink">/map</a> — full site map. Every URL, grouped, with one-line blurbs.' },
+      { kind: 'added', text: '<a href="/near-time/further-reading" class="text-ochre-deep hover:text-ink">/near-time/further-reading</a> — annotated reading list, curated and opinionated; different from the bibliography.' },
+      { kind: 'changed', text: '<a href="/the-book" class="text-ochre-deep hover:text-ink">/the-book</a> — promoted from placeholder to a real page (structure, dedication, pre-order list sign-up).' },
+      { kind: 'changed', text: '<a href="/fourth-axis" class="text-ochre-deep hover:text-ink">/fourth-axis</a> — promoted from placeholder to a narrative page explaining survivability as the fourth axis and pointing to where the concept lives across the site.' },
+      { kind: 'added', text: 'Jump-nav / in-page TOC on <a href="/one-hundred-camels/the-experiment" class="text-ochre-deep hover:text-ink">the experiment page</a> and <a href="/one-hundred-camels/critics" class="text-ochre-deep hover:text-ink">/critics</a>.' },
+      { kind: 'added', text: 'Site-wide standardized focus ring using <code>ochre-deep</code>, replacing browser-default variance.' },
+      { kind: 'added', text: 'Reading-progress bar on long-form pages (CSS scroll-driven animation; degrades silently on browsers without support).' },
+    ],
+  },
+  {
+    date: '2026-04-18',
+    session: 'Session 4',
+    heading: 'Autonomy pass — matrices, timeline, critics, contribute',
+    changes: [
+      { kind: 'added', text: '<a href="/near-time/orphaned-fruits" class="text-ochre-deep hover:text-ink">/near-time/orphaned-fruits</a> — Janzen-Martin matrix of 10 North American plants whose seed dispersers went extinct at the terminal Pleistocene.' },
+      { kind: 'added', text: '<a href="/near-time/proxies" class="text-ochre-deep hover:text-ink">/near-time/proxies</a> — taxon-substitution matrix with a deliberate "holes" section for niches without viable proxies.' },
+      { kind: 'added', text: '<a href="/one-hundred-camels/critics" class="text-ochre-deep hover:text-ink">/one-hundred-camels/critics</a> — Caro (2007), Rubenstein et al. (2006), and Oliveira-Santos & Fernandez (2010) steel-manned in their own voices, then answered.' },
+      { kind: 'added', text: '<a href="/one-hundred-camels/contribute" class="text-ochre-deep hover:text-ink">/one-hundred-camels/contribute</a> — ten concrete categories of help, each routed through the segmented contact form.' },
+      { kind: 'added', text: '<a href="/near-time/bibliography" class="text-ochre-deep hover:text-ink">/near-time/bibliography</a> — Chicago-ish reference list in six groups, with editorial notes.' },
+      { kind: 'added', text: '<a href="/near-time/timeline" class="text-ochre-deep hover:text-ink">/near-time/timeline</a> — 17-event vertical timeline from ~70 kya to ~2026.' },
+      { kind: 'added', text: '<a href="/field-notes/seed-dispersal" class="text-ochre-deep hover:text-ink">/field-notes/seed-dispersal</a> — first real Field Note; the evolutionary-contract fragment drawn from the Prologue drafts.' },
+      { kind: 'added', text: 'Custom 404 page with site-map grid of eight main routes.' },
+      { kind: 'added', text: 'Mobile hamburger nav using zero-JS <code>&lt;details&gt;/&lt;summary&gt;</code>.' },
+      { kind: 'added', text: 'Print stylesheet. Long-form pages now print cleanly with URL annotations after each link.' },
+      { kind: 'added', text: 'RSS feed at <a href="/feed.xml" class="text-ochre-deep hover:text-ink">/feed.xml</a>, with <code>&lt;link rel="alternate"&gt;</code> discovery in every page\u2019s head.' },
+      { kind: 'added', text: 'Cite-this-site block on <a href="/near-time/sources#cite-this-site" class="text-ochre-deep hover:text-ink">/near-time/sources</a> with Chicago, APA, and MLA citation strings.' },
+      { kind: 'added', text: 'Open-letter section (Section 14) on the experiment page with a mailto form for sign-ons.' },
+      { kind: 'corrected', text: 'Removed a fabricated "eight silent signatories" line from the open-letter draft. The site does not make factual claims about third-party support on the author\u2019s behalf.' },
+      { kind: 'changed', text: 'Footer expanded from four columns to five; separate "Near Time" and "The experiment" navs.' },
+      { kind: 'changed', text: 'Sitemap grew from 15 URLs to 22.' },
+    ],
+  },
+  {
+    date: '2026-04-18',
+    session: 'Session 3',
+    heading: 'Gap-closure pass — credibility surface',
+    changes: [
+      { kind: 'added', text: '<a href="/near-time/glossary" class="text-ochre-deep hover:text-ink">/near-time/glossary</a> — 24 alphabetized working definitions.' },
+      { kind: 'added', text: '<a href="/near-time/sources" class="text-ochre-deep hover:text-ink">/near-time/sources</a> — methodology page covering datasets, confidence ratings, editorial voice, and attribution.' },
+      { kind: 'added', text: '<a href="/one-hundred-camels" class="text-ochre-deep hover:text-ink">/one-hundred-camels</a> — landing page indexing the experiment, adjacent projects, and the critics family.' },
+      { kind: 'added', text: '<a href="/privacy" class="text-ochre-deep hover:text-ink">/privacy</a>, <a href="/terms" class="text-ochre-deep hover:text-ink">/terms</a>, <a href="/data-attribution" class="text-ochre-deep hover:text-ink">/data-attribution</a> stubs.' },
+      { kind: 'changed', text: 'Experiment page gained Section 04 (the family of adjacent work) and Section 11 (what we hear most, answered).' },
+      { kind: 'changed', text: 'About page rewritten — Paleo Foundation section, author note, Person JSON-LD, headshot placeholder.' },
+      { kind: 'added', text: 'Segmented contact form component (<code>ContactForm.astro</code>) with 7 radio categories, mailto + text/plain, no ESP backend.' },
+      { kind: 'changed', text: 'Footer upgraded to four-column grid with brand block, book nav, atlas nav, about+legal nav.' },
+      { kind: 'added', text: 'Canonical, OG, Twitter, JSON-LD, and skip-to-content plumbing in the Base layout.' },
+      { kind: 'added', text: 'robots.txt and sitemap.xml (15 URLs).' },
+      { kind: 'changed', text: 'Color-contrast audit: introduced <code>ochre-deep</code> (#7A4F2D; 6.1:1 on paper) as the body-text-link token. <code>dust</code> documented as reserved-for-non-text. See <code>site/CONTRAST_AUDIT.md</code>.' },
+    ],
+  },
+  {
+    date: '2026-04-18',
+    session: 'Session 2',
+    heading: 'Repositioning — experiment-first framing',
+    changes: [
+      { kind: 'changed', text: 'Homepage rewritten around "what the land eats" and a direct invitation to run the experiment.' },
+      { kind: 'added', text: '<a href="/the-book/excerpt" class="text-ochre-deep hover:text-ink">/the-book/excerpt</a> — the full Prologue, typeset for reading, with endnotes and jump-back arrows.' },
+      { kind: 'added', text: '<a href="/one-hundred-camels/the-experiment" class="text-ochre-deep hover:text-ink">/one-hundred-camels/the-experiment</a> — twelve-section proposal at first ship; now fifteen.' },
+      { kind: 'added', text: '<a href="/near-time/stories/one-hundred-camels" class="text-ochre-deep hover:text-ink">/near-time/stories/one-hundred-camels</a> — Vignette #1, 31 footnotes, interactive-component placeholders described in place.' },
+      { kind: 'changed', text: '<a href="/about" class="text-ochre-deep hover:text-ink">/about</a> — promoted from placeholder with author note and Martin dedication relocated from the homepage.' },
+      { kind: 'added', text: 'Rewrite script extended to handle nested routes and href fragments.' },
+    ],
+  },
+  {
+    date: '2026-04-18',
+    session: 'Session 1',
+    heading: 'Skeleton',
+    changes: [
+      { kind: 'added', text: 'Homepage, six placeholder pages, Base layout, Nav, Footer, ToolCard, PlaceholderPage components.' },
+      { kind: 'added', text: 'Typographic system (Fraunces / Inter / Source Serif 4) and color tokens.' },
+      { kind: 'added', text: 'Post-build script that rewrites root-absolute paths for file:// viewing.' },
+    ],
+  },
+];
+
+const kindBadge = {
+  added: { label: 'added', cls: 'bg-moss/20 border-moss/40 text-moss' },
+  changed: { label: 'changed', cls: 'bg-ochre/15 border-ochre/40 text-ochre-deep' },
+  corrected: { label: 'corrected', cls: 'bg-bone border-ink/40 text-ink font-semibold' },
+  removed: { label: 'removed', cls: 'bg-ink/10 border-ink/30 text-ink/70' },
+};
+---
+
+<Base title={title} description={description} canonical="https://sustainabilitydiet.com/changelog" readingBar>
+  <article class="mx-auto max-w-3xl px-6 py-16">
+
+    <p class="small-caps text-xs text-ochre mb-3">Changelog</p>
+    <h1 class="font-display text-5xl md:text-6xl tracking-tight leading-[1.02] mb-6">
+      What has changed.
+    </h1>
+    <p class="text-xl text-ink/75 leading-relaxed font-serif max-w-2xl mb-4">
+      The site is a living document. Every session's additions, changes,
+      corrections, and removals, in reverse chronological order.
+    </p>
+    <p class="font-serif text-base text-ink/60 leading-relaxed max-w-2xl">
+      Corrections are flagged separately from additions. A reader who read
+      a claim here last month and comes back today should be able to see
+      whether the page they read still says what it said.
+    </p>
+
+    <hr class="hairline my-10" />
+
+    <div class="space-y-16">
+      {entries.map(entry => (
+        <section>
+          <header class="mb-6">
+            <p class="small-caps text-xs text-ochre-deep tracking-wide mb-1">
+              {entry.date} · {entry.session}
+            </p>
+            <h2 class="font-display text-2xl md:text-3xl tracking-tight leading-tight">
+              {entry.heading}
+            </h2>
+          </header>
+          <ul class="space-y-3">
+            {entry.changes.map(c => (
+              <li class="flex gap-3 items-baseline">
+                <span class={`small-caps text-[0.65rem] tracking-wide border px-2 py-0.5 flex-shrink-0 ${kindBadge[c.kind].cls}`}>
+                  {kindBadge[c.kind].label}
+                </span>
+                <span class="font-serif text-base md:text-lg text-ink/85 leading-relaxed" set:html={c.text}></span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
+    </div>
+
+    <section class="mt-16 pt-10 border-t border-ink/15 font-serif text-ink/70 leading-relaxed">
+      <p>
+        If you spot a claim that's wrong or a source that's been superseded,
+        send it through <a href="/about#contact" class="text-ochre-deep hover:text-ink">the contact form</a>
+        with &ldquo;Correction&rdquo; selected. Substantive corrections ship here
+        with attribution unless you prefer otherwise.
+      </p>
+    </section>
+
+  </article>
+</Base>

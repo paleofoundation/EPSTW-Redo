@@ -1,0 +1,217 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const title = 'Orphaned fruits — The Sustainability Diet';
+const description = 'A reference table of North American anachronistic fruits — plants whose Pleistocene seed-dispersers are gone. After Janzen & Martin (1982).';
+
+// Each row: plant, scientific, fruit/signal, proposed extinct disperser(s), current state, confidence (A/B/C).
+// Confidence follows conservative interpretations of the secondary literature:
+// A — named in Janzen & Martin 1982 or strongly corroborated since (osage, honey locust, avocado, Kentucky coffeetree, desert gourd)
+// B — widely cited as probable (pawpaw, persimmon, mastodon grape, honey mesquite)
+// C — proposed but contested or partial (black walnut, hickory — many rodents also disperse)
+const fruits = [
+  {
+    common: 'Osage orange',
+    scientific: 'Maclura pomifera',
+    fruit: 'Softball-sized syncarp, bitter, latex-milky, rots on the ground where it falls. No mouth in North America handles it now.',
+    dispersers: 'Mammoth (Mammuthus), mastodon (Mammut), ground sloths, Western camel (Camelops).',
+    now: 'Native range collapsed to the Red River basin. Survives because Native people, then settlers, planted it as living fence. Horses reluctantly. Squirrels chew the seeds but rarely move them.',
+    confidence: 'A',
+  },
+  {
+    common: 'Honey locust',
+    scientific: 'Gleditsia triacanthos',
+    fruit: 'Long, twisted, sugar-pulpy pod. Thorns on the trunk run higher than any extant native browser can reach — evidence of a fence against something taller.',
+    dispersers: 'Mammoth, mastodon, ground sloths, gomphotheres.',
+    now: 'Cattle and other introduced livestock disperse by passing seeds intact. Without them, seedlings drop where the pod rots and most do not germinate.',
+    confidence: 'A',
+  },
+  {
+    common: 'Kentucky coffeetree',
+    scientific: 'Gymnocladus dioicus',
+    fruit: 'Hard-shelled pod with toxic pulp around stony seeds. Must be mechanically scarified — either by teeth or by decades of weather — to germinate.',
+    dispersers: 'Mastodon, mammoth, ground sloths.',
+    now: 'Almost exclusively propagated by humans. Wild reproduction is so rare it is functionally an ornamental species now. The textbook orphan.',
+    confidence: 'A',
+  },
+  {
+    common: 'Avocado',
+    scientific: 'Persea americana',
+    fruit: 'Large single seed, fat-rich flesh, far too big for any living Central American mammal to swallow and pass intact.',
+    dispersers: 'Gomphotheres (Cuvieronius, Notiomastodon), ground sloths, possibly Toxodon.',
+    now: 'Survives entirely on human cultivation. The canonical textbook case for "a fruit dispersed into a mouth that no longer exists."',
+    confidence: 'A',
+  },
+  {
+    common: 'Pawpaw',
+    scientific: 'Asimina triloba',
+    fruit: 'The largest native edible fruit in North America. Soft, fragrant, large-seeded, ferments on the ground within days of ripening.',
+    dispersers: 'Mastodon, ground sloths (Megalonyx), possibly gomphotheres.',
+    now: 'Spreads almost entirely by clonal root suckers. Seed-from-fruit recruitment is rare. Grows best along stream corridors where humans or floods occasionally do the work.',
+    confidence: 'B',
+  },
+  {
+    common: 'American persimmon',
+    scientific: 'Diospyros virginiana',
+    fruit: 'Large tannic astringent fruit, edible only after frost-softening. Seeds need passage through a gut or long weathering.',
+    dispersers: 'Mastodon, ground sloths; smaller role for extant opossum and raccoon.',
+    now: 'Persists in the Southeast largely through opossums and livestock. Range much reduced from likely Pleistocene extent.',
+    confidence: 'B',
+  },
+  {
+    common: 'Buffalo gourd',
+    scientific: 'Cucurbita foetidissima',
+    fruit: 'Bitter cucurbitacin-loaded gourd, toxic to most extant mammals. Seeds coated in flesh that modern gut cannot process without retching.',
+    dispersers: 'Mastodon, ground sloths (cucurbitacins are mild to large herbivores but lethal to modern rodents — the trait only makes sense around an extinct palate).',
+    now: 'Clonal desert herb. Does reproduce but the fruit evolved for a consumer that does not exist.',
+    confidence: 'A',
+  },
+  {
+    common: 'Mastodon grape',
+    scientific: 'Vitis shuttleworthii and close kin',
+    fruit: 'Thick-skinned, sour, large-seeded grapes — far heavier and less palatable than the grapes extant birds and mammals prefer.',
+    dispersers: 'Mastodon, ground sloths, possibly gomphotheres.',
+    now: 'Restricted range in the Southeast. Reproduces locally but range is shadow of likely Pleistocene extent.',
+    confidence: 'B',
+  },
+  {
+    common: 'Honey mesquite',
+    scientific: 'Prosopis glandulosa',
+    fruit: 'Long sugary pod that drops and rots unless eaten. Seeds germinate best after gut passage.',
+    dispersers: 'Mammoth, mastodon, ground sloths, Western camel.',
+    now: 'Spread dramatically by introduced cattle over the past 150 years — to the point of being treated as invasive in its own native range. An orphan that found a surrogate.',
+    confidence: 'B',
+  },
+  {
+    common: 'Black walnut',
+    scientific: 'Juglans nigra',
+    fruit: 'Hard-husked nut far larger than any extant North American rodent caches efficiently. Larger than ice-age red squirrels handled comfortably.',
+    dispersers: 'Mastodon and ground sloths proposed; squirrels handle small fraction today.',
+    now: 'Reproduces but with clumped recruitment near parents. The pre-extinction ecology was almost certainly different.',
+    confidence: 'C',
+  },
+];
+---
+
+<Base title={title} description={description} canonical="https://sustainabilitydiet.com/near-time/orphaned-fruits" readingBar>
+  <article class="mx-auto max-w-5xl px-6 py-16">
+
+    <p class="small-caps text-xs text-ochre mb-3">Near Time · Reference</p>
+    <h1 class="font-display text-5xl md:text-6xl tracking-tight leading-[1.02] mb-6">
+      Orphaned&nbsp;fruits
+    </h1>
+    <p class="text-xl text-ink/75 leading-relaxed font-serif max-w-3xl">
+      A fruit is a message to a mouth. When the mouth goes extinct, the fruit is still spoken into the world — it just stops being heard. This is a short reference list of North American plants whose Pleistocene dispersers are gone, and what each plant does now that nothing receives the message.
+    </p>
+
+    <div class="mt-8 small-caps text-xs text-ink/60 tracking-wide">
+      After Janzen &amp; Martin (1982) · see <a href="/near-time/sources" class="text-ochre hover:text-ochre-deep">sources &amp; methodology</a>
+    </div>
+
+    <hr class="hairline my-12" />
+
+    <section class="prose-reading max-w-none mb-16">
+      <p class="font-serif text-lg leading-relaxed text-ink/85 mb-6">
+        In 1982, Daniel Janzen and Paul Martin published <em>Neotropical Anachronisms: The Fruits the Gomphotheres Ate</em>. They noticed that certain Central American plants produced fruit of a size, sugar-load, and toughness that no living animal was physically equipped to process. The fruit would fall and rot. The animals that should have been eating it — gomphotheres, mastodons, ground sloths, Western camels — had been gone for roughly ten thousand years.
+      </p>
+      <p class="font-serif text-lg leading-relaxed text-ink/85 mb-6">
+        The plants did not know. They continued to produce the advertisement. The message just went nowhere.
+      </p>
+      <p class="font-serif text-lg leading-relaxed text-ink/85 mb-6">
+        The same logic applies across North America. Below is a short list of plants whose seed-dispersal strategy only makes sense if you assume the ice-age megafauna are still alive. They aren't. The plants persist where humans have accidentally taken on the dispersal role (fences, livestock, roadsides, backyards) or in small native pockets where they reproduce clonally. Without that accident, several of them would already be gone.
+      </p>
+      <p class="font-serif text-lg leading-relaxed text-ink/85">
+        The table below is deliberately small. Each entry is either named in Janzen &amp; Martin or strongly corroborated since. A fuller list lives in the bibliography.
+      </p>
+    </section>
+
+    <section class="mb-16">
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse text-sm">
+          <thead>
+            <tr class="border-b-2 border-ink/30 text-left">
+              <th class="py-3 pr-4 align-bottom font-display font-medium text-base">Plant</th>
+              <th class="py-3 pr-4 align-bottom font-display font-medium text-base">What the fruit says</th>
+              <th class="py-3 pr-4 align-bottom font-display font-medium text-base">Who it was saying it to</th>
+              <th class="py-3 pr-4 align-bottom font-display font-medium text-base">Where it stands now</th>
+              <th class="py-3 pr-2 align-bottom font-display font-medium text-base text-center w-20">Conf.</th>
+            </tr>
+          </thead>
+          <tbody>
+            {fruits.map(f => (
+              <tr class="border-b border-ink/10 align-top">
+                <td class="py-5 pr-4">
+                  <div class="font-display text-lg leading-tight">{f.common}</div>
+                  <div class="italic text-ink/60 text-xs mt-1">{f.scientific}</div>
+                </td>
+                <td class="py-5 pr-4 text-ink/80 leading-relaxed">{f.fruit}</td>
+                <td class="py-5 pr-4 text-ink/80 leading-relaxed">{f.dispersers}</td>
+                <td class="py-5 pr-4 text-ink/80 leading-relaxed">{f.now}</td>
+                <td class="py-5 pr-2 text-center">
+                  <span class={`inline-block px-2 py-1 rounded text-xs small-caps ${
+                    f.confidence === 'A' ? 'bg-moss/20 text-moss' :
+                    f.confidence === 'B' ? 'bg-ochre/20 text-ochre-deep' :
+                    'bg-ink/10 text-ink/60'
+                  }`}>{f.confidence}</span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="mt-6 text-xs text-ink/60 leading-relaxed max-w-3xl">
+        <p class="mb-2"><span class="small-caps tracking-wide">Confidence key:</span></p>
+        <p class="mb-1"><span class="inline-block px-2 py-0.5 rounded bg-moss/20 text-moss small-caps text-xs mr-2">A</span> Named in Janzen &amp; Martin 1982 or strongly corroborated by subsequent work.</p>
+        <p class="mb-1"><span class="inline-block px-2 py-0.5 rounded bg-ochre/20 text-ochre-deep small-caps text-xs mr-2">B</span> Widely cited as probable, but dispersal ecology includes living partners as well as extinct ones.</p>
+        <p><span class="inline-block px-2 py-0.5 rounded bg-ink/10 text-ink/60 small-caps text-xs mr-2">C</span> Proposed. Contested or partial — extant rodents, birds, or livestock may be doing some of the work.</p>
+      </div>
+    </section>
+
+    <section class="prose-reading max-w-none mb-16">
+      <h2 class="font-display text-3xl tracking-tight mb-6 mt-16">Four things to take from this list</h2>
+
+      <h3 class="font-display text-xl tracking-tight mt-10 mb-3">1. Most orphaned fruits are not rare. They are common in the wrong way.</h3>
+      <p class="font-serif text-lg leading-relaxed text-ink/85 mb-4">
+        Osage orange, honey locust, and pawpaw are not endangered species in the classical sense. They persist. They reproduce. But they persist as shadows — hedge rows, accidental backyard trees, clonal understory patches — not as a functional role in a functional ecosystem. Extinction has two speeds. This is the slow one.
+      </p>
+
+      <h3 class="font-display text-xl tracking-tight mt-10 mb-3">2. Livestock are doing work, badly, that the original disperser did well.</h3>
+      <p class="font-serif text-lg leading-relaxed text-ink/85 mb-4">
+        Cattle are why honey locust and honey mesquite have held their range. Cattle are also why mesquite is now treated as invasive in its own native country. A surrogate disperser is not neutral — it comes with a body size, a ranging pattern, a dung chemistry, and a cultural context that were not part of the original contract. The right question is almost never <em>should we have a disperser at all</em>. It is <em>which one, and under what conditions</em>.
+      </p>
+
+      <h3 class="font-display text-xl tracking-tight mt-10 mb-3">3. These plants are the argument for the experiment.</h3>
+      <p class="font-serif text-lg leading-relaxed text-ink/85 mb-4">
+        When <a href="/one-hundred-camels/the-experiment" class="text-ochre">the experiment</a> proposes a hundred camels on a hundred thousand acres with a specific mix of trees planted out, the trees on the list are not ornamental. They are osage orange, honey locust, and Kentucky coffeetree — the three plants whose disperser guild <em>Camelops hesternus</em> was squarely inside. A rewilded pasture without them tests nothing. A rewilded pasture with them tests whether the message can still be received.
+      </p>
+
+      <h3 class="font-display text-xl tracking-tight mt-10 mb-3">4. The confidence column is honest, not decorative.</h3>
+      <p class="font-serif text-lg leading-relaxed text-ink/85 mb-4">
+        Paleoecology does not get to watch the interaction directly. It gets fossils, pollen, coprolites, and seed morphology. A few of the cases (osage, avocado, Kentucky coffeetree) are as close to certain as deep-time biology gets. Others (black walnut, hickory) are contested because living rodents genuinely do some of the work, and the pre-extinction ecology is inferred rather than reconstructed. Treating those differently on this page is a small honesty.
+      </p>
+    </section>
+
+    <div class="mt-16 pt-8 border-t border-ink/10 flex flex-col sm:flex-row gap-4">
+      <a
+        href="/one-hundred-camels/the-experiment"
+        class="inline-block px-6 py-3 bg-ink text-paper text-sm small-caps hover:bg-ochre transition-colors"
+      >
+        See the experiment →
+      </a>
+      <a
+        href="/near-time/proxies"
+        class="inline-block px-6 py-3 border border-ink text-ink text-sm small-caps hover:bg-ink hover:text-paper transition-colors"
+      >
+        Proxies table →
+      </a>
+      <a
+        href="/near-time/sources"
+        class="inline-block px-6 py-3 border border-ink/30 text-ink/80 text-sm small-caps hover:border-ink hover:text-ink transition-colors"
+      >
+        Sources &amp; methodology →
+      </a>
+    </div>
+
+  </article>
+</Base>

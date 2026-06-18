@@ -1,0 +1,246 @@
+---
+import Base from '../layouts/Base.astro';
+import ContactForm from '../components/ContactForm.astro';
+
+const title = 'The Book — The Sustainability Diet';
+const description = 'The Sustainability Diet: A Framework for Eating Systems That Survive. A book by Karen Pendergrass, forthcoming from Victory Belt. The long-form argument the rest of this site is a companion to.';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Book',
+  name: 'The Sustainability Diet',
+  alternateName: 'The Sustainability Diet: A Framework for Eating Systems That Survive',
+  author: {
+    '@type': 'Person',
+    name: 'Karen Pendergrass',
+    url: 'https://sustainabilitydiet.com/about',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Victory Belt Publishing',
+  },
+  inLanguage: 'en',
+  bookFormat: 'https://schema.org/Paperback',
+  about: [
+    'Pleistocene rewilding',
+    'food systems',
+    'ecological resilience',
+    'sustainability',
+  ],
+  workExample: {
+    '@type': 'Book',
+    url: 'https://sustainabilitydiet.com/the-book/excerpt',
+    name: 'The Sustainability Diet — Prologue',
+  },
+};
+
+// Three-act structure of the book. Intentionally light on chapter titles
+// (they may revise); heavier on argument arc.
+const parts = [
+  {
+    label: 'Part I',
+    title: 'Where we come from',
+    blurb: 'The headwaters of the argument. Paul Martin\'s rewilding vision, the terminal-Pleistocene extinctions, what Indigenous stewardship actually did on this continent, and why the starting baseline for "sustainable" is older and stranger than most readers think.',
+  },
+  {
+    label: 'Part II',
+    title: 'What we eat now',
+    blurb: 'The four-axis framework. Survivability as the missing axis. The framework applied to the two dominant industrial food systems, then to the pastured-meat alternatives, then to the rewilding systems that score well on all four axes and are currently excluded from serious consideration.',
+  },
+  {
+    label: 'Part III',
+    title: 'What could come back',
+    blurb: 'The regional chapters. Great Plains and Southwest. Eastern forests. The Pacific coast and the Florida peninsula. The bioregional and urban chapters. Then the ask: one hundred camels, an osage orange orchard, one hundred thousand acres, twenty-five years, pre-registered failure criteria.',
+  },
+];
+
+// What the book does NOT pretend to be. Stated plainly, per the project README.
+const not = [
+  'Not a Paleo diet book. The author has revised significantly on this since 2012; microbiome individuality means there is no universal human diet.',
+  'Not a polemic against vegetarians, Salatin, Savory, Pollan, or any other figure in the food-systems conversation. Disagreement where warranted, in good faith, with intellectual fairness.',
+  'Not a categorical takedown of monocultures. Monocultures have improvement potential; the world changes; backward is not the only direction.',
+  'Not a personal brand vehicle. No "Pendergrass Score." The framework, if named, is named descriptively.',
+  'Not a money-making project. The book exists because it should exist.',
+];
+---
+
+<Base title={title} description={description} canonical="https://sustainabilitydiet.com/the-book" jsonLd={jsonLd} readingBar>
+
+  <article class="mx-auto max-w-4xl px-6 py-16">
+
+    <p class="small-caps text-xs text-ochre mb-3">The Book · Forthcoming · Victory Belt</p>
+    <h1 class="font-display text-5xl md:text-7xl tracking-tight leading-[1.00] mb-6">
+      The Sustainability Diet
+    </h1>
+    <p class="font-display text-2xl md:text-3xl text-ink/70 tracking-tight leading-tight mb-10 max-w-3xl">
+      A Framework for Eating Systems That Survive
+    </p>
+
+    <div class="font-serif text-lg md:text-xl text-ink/85 leading-relaxed space-y-6 max-w-reading">
+      <p>
+        <em>The Sustainability Diet</em> is a book by Karen Pendergrass,
+        in revision as of April 2026 and forthcoming from Victory Belt.
+        It is a tribute to Paul S. Martin’s rewilding vision, made
+        accessible to general readers who will not otherwise encounter him.
+        Its job is to put Martin’s reframing of &ldquo;native,&rdquo; his
+        Pleistocene baseline, and his rewilding proposal back into circulation
+        for a generation that needs them.
+      </p>
+      <p>
+        The author is the lens. Martin is the protagonist of the ideas.
+      </p>
+      <p>
+        The argument is laid out in three parts and ends with a specific,
+        falsifiable ask: one hundred dromedary camels on one hundred
+        thousand acres of rangeland, for twenty-five years, with
+        pre-registered failure criteria, as a proof-of-concept for whether
+        a narrow form of Pleistocene rewilding is worth testing at scale.
+      </p>
+    </div>
+
+    <hr class="hairline my-14" />
+
+    {/* Prologue CTA — the real reading experience */}
+    <section class="mb-16 border-2 border-ink p-8 md:p-10 bg-bone/40">
+      <p class="small-caps text-xs text-ochre-deep mb-3">Read now</p>
+      <h2 class="font-display text-3xl md:text-4xl tracking-tight leading-tight mb-4">
+        The Prologue, in full.
+      </h2>
+      <p class="font-serif text-base md:text-lg text-ink/80 leading-relaxed mb-6 max-w-3xl">
+        The opening chapter, typeset for reading, with endnotes and
+        jump-back arrows. Roughly twenty minutes. If you want to know
+        whether the rest of the book is for you, this is the page.
+      </p>
+      <a href="/the-book/excerpt" class="inline-flex items-center gap-2 px-6 py-3 bg-ink text-paper hover:bg-ochre transition-colors text-sm small-caps">
+        Read the Prologue →
+      </a>
+    </section>
+
+    {/* Structure */}
+    <section class="mb-16">
+      <h2 class="small-caps text-xs text-ochre mb-6">The shape of the book</h2>
+      <div class="space-y-8">
+        {parts.map(p => (
+          <article class="grid md:grid-cols-[8rem_1fr] gap-4 md:gap-8 border-l-2 border-ink/15 pl-6 md:pl-8">
+            <div>
+              <p class="small-caps text-xs text-ochre-deep tracking-wide">{p.label}</p>
+              <p class="font-display text-xl md:text-2xl tracking-tight leading-tight">
+                {p.title}
+              </p>
+            </div>
+            <p class="font-serif text-base md:text-lg text-ink/80 leading-relaxed">
+              {p.blurb}
+            </p>
+          </article>
+        ))}
+      </div>
+      <p class="mt-8 font-serif text-sm text-ink/55 leading-relaxed max-w-3xl">
+        Chapter titles are intentionally not listed yet — they may revise
+        before the book ships. The argument arc above is stable.
+      </p>
+    </section>
+
+    {/* Dedication */}
+    <section class="mb-16 max-w-2xl font-serif italic text-ink/70 text-center py-10 border-y border-ink/10">
+      <p class="text-lg md:text-xl leading-relaxed">
+        Dedicated to Paul S. Martin (1928–2010),<br />
+        who saw what the continent had been,<br />
+        and named it clearly enough<br />
+        that the rest of us could follow.
+      </p>
+    </section>
+
+    {/* What it isn't */}
+    <section class="mb-16">
+      <h2 class="small-caps text-xs text-ochre mb-4">What this book is not</h2>
+      <p class="font-serif text-base md:text-lg text-ink/80 leading-relaxed mb-6 max-w-3xl">
+        A reader who has encountered the author’s earlier work, the
+        Paleo Foundation, or the rewilding conversation in general may
+        have specific expectations about what a book with this title
+        would argue. It is worth stating clearly, up front, what the
+        book is not.
+      </p>
+      <ul class="space-y-3 max-w-3xl">
+        {not.map(line => (
+          <li class="font-serif text-base md:text-lg text-ink/80 leading-relaxed pl-4 border-l border-ink/15">
+            {line}
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    {/* Authorial posture */}
+    <section class="mb-16">
+      <h2 class="small-caps text-xs text-ochre mb-4">Authorial posture</h2>
+      <div class="font-serif text-base md:text-lg text-ink/85 leading-relaxed space-y-4 max-w-3xl">
+        <p>
+          <strong>Open to being wrong.</strong> The author has changed her
+          mind on major points over sixteen years and the book reflects
+          that. Where her earlier position was the opposite, she says so.
+        </p>
+        <p>
+          <strong>Asking for proof of concept, not certainty.</strong>
+          Critics have legitimate concerns. The book does not decry them.
+          It asks for room to test the ideas.
+        </p>
+        <p>
+          <strong>Crediting predecessors generously.</strong> Martin,
+          Donlan, Savory, Tree, Monbiot (where credit is due), Ridley
+          (for the monoculture-improvement revision), M. Kat Anderson,
+          and others get full and fair acknowledgment.
+        </p>
+        <p>
+          <strong>Steelmanning before critique.</strong> Every figure or
+          position the book disagrees with is presented in its strongest
+          formulation first.
+        </p>
+      </div>
+    </section>
+
+    <hr class="hairline my-14" />
+
+    {/* Hear when it ships */}
+    <section id="hear-when-it-ships" class="mb-16 scroll-mt-24">
+      <h2 class="font-display text-3xl md:text-4xl tracking-tight leading-tight mb-3">
+        Hear when it ships.
+      </h2>
+      <p class="font-serif text-base md:text-lg text-ink/80 leading-relaxed mb-8 max-w-3xl">
+        One or two notes over the next year or so, both short, both
+        specific. When the book gets a release date, a cover, or a
+        pre-order link, you’ll hear about it. That’s the whole promise.
+      </p>
+      <ContactForm
+        idPrefix="book"
+        subjectPrefix="[Sustainability Diet book / "
+        categories={[
+          { value: 'Reader updates', label: 'Hear when it ships — add me to the short list.' },
+          { value: 'Press', label: 'Press or review copy — I write for a publication that would cover it.' },
+          { value: 'Editorial', label: 'Editorial / quotation — I want to quote, translate, or excerpt.' },
+        ]}
+      />
+    </section>
+
+    {/* CTAs out */}
+    <section class="mt-12 pt-8 border-t border-ink/15 grid md:grid-cols-3 gap-4">
+      <a href="/near-time" class="block border border-ink/20 bg-paper p-5 hover:bg-bone/30 hover:border-ink transition-colors">
+        <p class="font-display text-lg tracking-tight mb-1">Open the atlas →</p>
+        <p class="text-sm text-ink/70 leading-snug">
+          The companion paleo-ecological reference.
+        </p>
+      </a>
+      <a href="/one-hundred-camels/the-experiment" class="block border border-ink/20 bg-paper p-5 hover:bg-bone/30 hover:border-ink transition-colors">
+        <p class="font-display text-lg tracking-tight mb-1">See the experiment →</p>
+        <p class="text-sm text-ink/70 leading-snug">
+          The proposal the book is asking someone to run.
+        </p>
+      </a>
+      <a href="/fourth-axis" class="block border border-ink/20 bg-paper p-5 hover:bg-bone/30 hover:border-ink transition-colors">
+        <p class="font-display text-lg tracking-tight mb-1">The Fourth Axis →</p>
+        <p class="text-sm text-ink/70 leading-snug">
+          The concept at the core of the framework.
+        </p>
+      </a>
+    </section>
+
+  </article>
+</Base>

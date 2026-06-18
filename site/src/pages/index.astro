@@ -1,0 +1,221 @@
+---
+import Base from '../layouts/Base.astro';
+import ToolCard from '../components/ToolCard.astro';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Book',
+      '@id': 'https://sustainabilitydiet.com/#book',
+      name: 'The Sustainability Diet',
+      author: {
+        '@type': 'Person',
+        name: 'Karen Pendergrass',
+      },
+      inLanguage: 'en',
+      about: [
+        'Sustainability',
+        'Food systems',
+        'Pleistocene rewilding',
+        'Ecology',
+        'Restoration ecology',
+      ],
+      description: "A forthcoming book by Karen Pendergrass proposing survivability as the missing axis of food-system evaluation and arguing for large-landscape restoration as its honest endpoint.",
+      url: 'https://sustainabilitydiet.com/',
+    },
+    {
+      '@type': 'WebSite',
+      '@id': 'https://sustainabilitydiet.com/#website',
+      url: 'https://sustainabilitydiet.com/',
+      name: 'The Sustainability Diet',
+      description: 'Companion site and atlas for the forthcoming book by Karen Pendergrass.',
+      publisher: {
+        '@type': 'Person',
+        name: 'Karen Pendergrass',
+      },
+    },
+  ],
+};
+---
+
+<Base
+  title="The Sustainability Diet — a book by Karen Pendergrass"
+  description="The companion site to the forthcoming book by Karen Pendergrass. Survivability as the missing axis of food-system evaluation, an atlas of what this continent has forgotten, and an experiment the book is asking someone to let us run."
+  jsonLd={jsonLd}
+>
+  <!-- Hero -->
+  <section class="mx-auto max-w-6xl px-6 pt-24 pb-28">
+    <p class="small-caps text-xs text-ochre mb-8">A forthcoming book by Karen Pendergrass</p>
+    <h1 class="font-display text-5xl md:text-7xl leading-[1.05] tracking-tight max-w-5xl">
+      The sustainability diet isn't only what humans eat.
+    </h1>
+    <div class="mt-10 font-display text-3xl md:text-4xl leading-snug text-ink/80 max-w-4xl space-y-1">
+      <p>It's what eats the land &mdash; the grazers, the browsers, the seed-carriers.</p>
+      <p>What those mouths used to be.</p>
+      <p>What they are now.</p>
+      <p>What they could be again.</p>
+    </div>
+  </section>
+
+  <!-- Thesis / disease framing -->
+  <section class="border-t border-ink/10 bg-bone/40">
+    <div class="mx-auto max-w-6xl px-6 py-20">
+      <p class="font-serif text-xl md:text-2xl leading-relaxed text-ink/90 max-w-reading mb-8">
+        Most sustainability writing treats desertification as a
+        problem to argue about. This book treats it as a disease.
+        Diseases get diagnosed. They get treated. They get studied
+        in the specific animals and landscapes where they occur,
+        not in committee rooms.
+      </p>
+      <p class="font-serif text-lg md:text-xl leading-relaxed text-ink/75 max-w-reading">
+        The sustainability framework most of us have inherited
+        &mdash; economic, social, environmental &mdash; describes
+        a food system's present state. A fourth axis,
+        <em>survivability</em>, describes how it behaves when
+        the inputs fail. Applied honestly, the framework points
+        at the restoration of landscapes, and of the animals that
+        once made them work.
+      </p>
+      <p class="font-serif text-lg md:text-xl leading-relaxed text-ink/75 max-w-reading mt-6">
+        The experiment this site proposes borrows the register
+        of a house flip, honestly: buy a parcel that has been
+        desertifying for a century at its distressed basis, put
+        the right animals and the right trees on it, run it as
+        a closed-loop system for a decade with honest monitoring,
+        and let the exit be defined in advance &mdash; sold,
+        kept, easement-protected, or returned to the commons.
+      </p>
+      <div class="mt-10">
+        <a
+          href="/one-hundred-camels/the-experiment"
+          class="inline-flex items-center gap-2 px-6 py-3 bg-ink text-paper hover:bg-ochre transition-colors text-sm small-caps"
+        >
+          Read the proposal
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Three tools -->
+  <section class="mx-auto max-w-6xl px-6 py-24">
+    <div class="mb-12 flex items-end justify-between gap-8 flex-wrap">
+      <div>
+        <div class="small-caps text-xs text-ochre mb-3">Start here</div>
+        <h2 class="font-display text-3xl md:text-4xl tracking-tight">
+          Three ways to walk in.
+        </h2>
+      </div>
+      <p class="font-serif text-ink/70 max-w-md">
+        Each tool is drawn from a chapter of the book
+        and lives as its own interactive piece of the site.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <ToolCard
+        title="Near Time"
+        kicker="The atlas"
+        href="/near-time"
+      >
+        What stood where you're standing. Pleistocene fauna
+        mapped to their fossil record, paired with the plants
+        they left behind, and the experiments trying to bring
+        them back.
+      </ToolCard>
+
+      <ToolCard
+        title="The Fourth Axis"
+        kicker="The framework"
+        href="/fourth-axis"
+      >
+        A tool for scoring food systems against the question
+        most sustainability frameworks don't ask: what happens
+        when the inputs fail?
+      </ToolCard>
+
+      <ToolCard
+        title="One Hundred Camels"
+        kicker="The experiment"
+        href="/one-hundred-camels"
+      >
+        Rewilding experiments already under way, and the one
+        the book is asking to run. American Prairie. Pleistocene
+        Park. A concrete proposal framed as a land flip: buy
+        distressed, restore with a missing mouth and the right
+        trees, exit at a defined disposition.
+      </ToolCard>
+    </div>
+  </section>
+
+  <!-- Book section -->
+  <section class="border-t border-ink/10">
+    <div class="mx-auto max-w-6xl px-6 py-24 grid md:grid-cols-12 gap-12 items-start">
+      <div class="md:col-span-4">
+        <!-- Book cover placeholder -->
+        <div class="aspect-[2/3] bg-bone border border-ink/15 flex items-center justify-center relative overflow-hidden">
+          <div class="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
+            <div class="small-caps text-xs text-ink/40 mb-6">Cover to come</div>
+            <div class="font-display text-2xl leading-tight text-ink/70">
+              The Sustainability Diet
+            </div>
+            <div class="mt-4 text-xs text-ink/40 font-body italic max-w-[18ch]">
+              A Framework for Eating Systems That Survive
+            </div>
+            <div class="mt-8 text-xs text-ink/40 small-caps">Karen Pendergrass</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="md:col-span-8">
+        <div class="small-caps text-xs text-ochre mb-4">The book</div>
+        <h2 class="font-display text-4xl md:text-5xl tracking-tight leading-[1.1] mb-8">
+          The Sustainability Diet
+        </h2>
+        <p class="font-serif text-lg text-ink/75 leading-relaxed mb-6 max-w-reading">
+          A fourth axis for the sustainability framework, and
+          an argument for where it points when you follow it
+          honestly. The book is written, in part, to make the
+          case for running the experiment the Prologue names.
+        </p>
+        <blockquote class="border-l-2 border-ochre pl-6 my-10 font-serif italic text-lg text-ink/80 max-w-reading">
+          I would like, somewhere in my life, to see one hundred
+          camels in an osage orange orchard.
+          <footer class="mt-3 not-italic text-sm text-ink/50 small-caps">
+            From the Prologue
+          </footer>
+        </blockquote>
+        <p class="font-serif text-ink/75 leading-relaxed mb-8 max-w-reading">
+          Forthcoming. The full Prologue is posted here first.
+          An excerpt from Chapter 2 follows.
+        </p>
+        <div class="flex gap-4 flex-wrap">
+          <a
+            href="/the-book"
+            class="inline-flex items-center gap-2 px-6 py-3 bg-ink text-paper hover:bg-ochre transition-colors text-sm small-caps"
+          >
+            About the book
+          </a>
+          <a
+            href="/the-book/excerpt"
+            class="inline-flex items-center gap-2 px-6 py-3 border border-ink/20 hover:border-ink transition-colors text-sm small-caps"
+          >
+            Read the Prologue
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing beat -->
+  <section class="border-t border-ink/10 bg-bone/40">
+    <div class="mx-auto max-w-6xl px-6 py-24 text-center">
+      <p class="font-display text-2xl md:text-3xl leading-snug text-ink/80 max-w-3xl mx-auto">
+        The continent is a library that has lost most of
+        its librarians, and it is somehow still trying to
+        operate.
+      </p>
+      <p class="small-caps text-xs text-ink/40 mt-6">From the Prologue</p>
+    </div>
+  </section>
+</Base>

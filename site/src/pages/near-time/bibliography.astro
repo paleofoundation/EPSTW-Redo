@@ -1,0 +1,204 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const title = 'Bibliography — The Sustainability Diet';
+const description = 'Canonical reference list for the ecological, paleontological, and restoration-science claims made across the site.';
+
+// Each entry: citation (Chicago-ish author-date with italics), doi/url (optional), note (optional).
+const groups = [
+  {
+    heading: 'Foundational synthesis',
+    blurb: 'Books and landmark papers that the site\'s framing rests on. If you read only three things, read these.',
+    entries: [
+      {
+        citation: 'Martin, Paul S. 2005. <em>Twilight of the Mammoths: Ice Age Extinctions and the Rewilding of America.</em> Berkeley: University of California Press.',
+        note: 'The canonical English-language synthesis of the terminal-Pleistocene extinctions and the case for functional restoration. The dedication at the front of this site is to Martin.',
+      },
+      {
+        citation: 'MacPhee, Ross D. E. (ed.). 1999. <em>Extinctions in Near Time: Causes, Contexts, and Consequences.</em> New York: Kluwer Academic / Plenum.',
+        note: 'Where the phrase "Near Time" that this atlas is named after comes from. The multi-author volume that re-framed the last fifty thousand years as a single extinction event.',
+      },
+      {
+        citation: 'Janzen, Daniel H., and Paul S. Martin. 1982. "Neotropical Anachronisms: The Fruits the Gomphotheres Ate." <em>Science</em> 215 (4528): 19&ndash;27.',
+        doi: 'https://doi.org/10.1126/science.215.4528.19',
+        note: 'The foundational paper on anachronistic fruits. The entire orphaned-fruits table on this site is a downstream consequence of this argument.',
+      },
+    ],
+  },
+  {
+    heading: 'Pleistocene rewilding — the proposal and its critics',
+    blurb: 'The live conversation in the peer-reviewed literature about whether proxy substitution is a conservation strategy or an ecological category error.',
+    entries: [
+      {
+        citation: 'Donlan, C. Josh, et al. 2005. "Re-wilding North America." <em>Nature</em> 436 (7053): 913&ndash;914.',
+        doi: 'https://doi.org/10.1038/436913a',
+        note: 'The original. Twelve signatories. Proposed releasing African cheetahs, elephants, lions, and camels on private reserves in the Great Plains. The flare that started the literature.',
+      },
+      {
+        citation: 'Donlan, C. Josh, et al. 2006. "Pleistocene Rewilding: An Optimistic Agenda for Twenty-First Century Conservation." <em>American Naturalist</em> 168 (5): 660&ndash;681.',
+        doi: 'https://doi.org/10.1086/508027',
+        note: 'The expanded, book-length version of the Nature flare. Where the argument gets laid out with its reasoning and its escape hatches.',
+      },
+      {
+        citation: 'Rubenstein, Dustin R., Daniel I. Rubenstein, Paul W. Sherman, and Thomas A. Gavin. 2006. "Pleistocene Park: Does Re-Wilding North America Represent Sound Conservation for the 21st Century?" <em>Biological Conservation</em> 132 (2): 232&ndash;238.',
+        doi: 'https://doi.org/10.1016/j.biocon.2006.04.003',
+        note: 'The first systematic critique. The "asymmetric risk" argument is developed here.',
+      },
+      {
+        citation: 'Caro, Tim. 2007. "The Pleistocene Re-Wilding Gambit." <em>Trends in Ecology &amp; Evolution</em> 22 (6): 281&ndash;283.',
+        doi: 'https://doi.org/10.1016/j.tree.2007.03.001',
+        note: 'The sharpest short-form critique. The "proxies are not the same species" argument in its cleanest form.',
+      },
+      {
+        citation: 'Oliveira-Santos, Luiz G. R., and Fernando A. S. Fernandez. 2010. "Pleistocene Rewilding, Frankenstein Ecosystems, and an Alternative Conservation Agenda." <em>Conservation Biology</em> 24 (1): 4&ndash;5.',
+        doi: 'https://doi.org/10.1111/j.1523-1739.2009.01379.x',
+        note: 'The "baseline question" critique and its strongest short-form expression.',
+      },
+    ],
+  },
+  {
+    heading: 'Orphaned fruits and specific plant cases',
+    blurb: 'Downstream work testing the Janzen-Martin anachronism hypothesis on specific North American plant species.',
+    entries: [
+      {
+        citation: 'Zaya, David N., and Henry F. Howe. 2009. "The Anomalous Kentucky Coffeetree: Megafaunal Fruit Sinking to Extinction?" <em>Oecologia</em> 161 (2): 221&ndash;226.',
+        doi: 'https://doi.org/10.1007/s00442-009-1372-3',
+        note: 'Hard case for Kentucky coffeetree as the textbook orphan.',
+      },
+      {
+        citation: 'Barlow, Connie. 2000. <em>The Ghosts of Evolution: Nonsensical Fruit, Missing Partners, and Other Ecological Anachronisms.</em> New York: Basic Books.',
+        note: 'Book-length treatment of orphaned fruits for a general audience. Accessible entry into the Janzen-Martin frame.',
+      },
+      {
+        citation: 'Guimarães Jr., Paulo R., Mauro Galetti, and Pedro Jordano. 2008. "Seed Dispersal Anachronisms: Rethinking the Fruits Extinct Megafauna Ate." <em>PLoS ONE</em> 3 (3): e1745.',
+        doi: 'https://doi.org/10.1371/journal.pone.0001745',
+        note: 'Empirical re-evaluation of which tropical fruits are actually anachronistic. Trims the list and strengthens what remains.',
+      },
+    ],
+  },
+  {
+    heading: 'Camelops and North American Camelidae',
+    blurb: 'The paleontology and phylogeny of the species the experiment is built around.',
+    entries: [
+      {
+        citation: 'Heintzman, Peter D., Grant D. Zazula, James A. Cahill, Alberto V. Reyes, Ross D. E. MacPhee, and Beth Shapiro. 2015. "Genomic Data from Extinct North American Camelops Revise Camel Evolutionary History." <em>Molecular Biology and Evolution</em> 32 (9): 2433&ndash;2440.',
+        doi: 'https://doi.org/10.1093/molbev/msv128',
+        note: 'The paper that nails down Camelops\'s relationship to extant camels. Places Camelops as sister to Old World camels, not to llamas.',
+      },
+      {
+        citation: 'Honey, James G., John A. Harrison, Donald R. Prothero, and Michael S. Stevens. 1998. "Camelidae." In <em>Evolution of Tertiary Mammals of North America</em>, edited by C. M. Janis, K. M. Scott, and L. L. Jacobs, 439&ndash;462. Cambridge: Cambridge University Press.',
+        note: 'The standard reference on Camelidae fossil record in North America. Where the "forty million years" figure on this site comes from.',
+      },
+    ],
+  },
+  {
+    heading: 'Adjacent projects',
+    blurb: 'Contemporary restoration and rewilding projects whose operational reality the experiment draws from.',
+    entries: [
+      {
+        citation: 'Lorimer, Jamie, and Clemens Driessen. 2014. "Wild Experiments at the Oostvaardersplassen: Rethinking Environmentalism in the Anthropocene." <em>Transactions of the Institute of British Geographers</em> 39 (2): 169&ndash;181.',
+        doi: 'https://doi.org/10.1111/tran.12030',
+        note: 'The reflective account of what worked and what did not at Oostvaardersplassen. Required reading on welfare-protocol design.',
+      },
+      {
+        citation: 'Tree, Isabella. 2018. <em>Wilding: The Return of Nature to a British Farm.</em> London: Picador.',
+        note: 'The Knepp estate\'s story in the voice of one of its stewards. Operational detail on how a rewilding project is funded, staffed, and argued for.',
+      },
+      {
+        citation: 'Zimov, Sergey A. 2005. "Pleistocene Park: Return of the Mammoth\'s Ecosystem." <em>Science</em> 308 (5723): 796&ndash;798.',
+        doi: 'https://doi.org/10.1126/science.1113442',
+        note: 'The Siberian Pleistocene Park proposal. Adjacent hypothesis, different continent.',
+      },
+    ],
+  },
+  {
+    heading: 'Primary data sources',
+    blurb: 'The datasets the site\'s interactive components draw on, cited here for transparency.',
+    entries: [
+      {
+        citation: 'Paleobiology Database (PBDB). Accessed 2026. <a href="https://paleobiodb.org" class="text-ochre-deep">paleobiodb.org</a>.',
+        note: 'Licensed CC-BY. The primary source of occurrence data for extinct taxa on the Near Time atlas.',
+      },
+      {
+        citation: 'Neotoma Paleoecology Database. Accessed 2026. <a href="https://www.neotomadb.org" class="text-ochre-deep">neotomadb.org</a>.',
+        note: 'Licensed CC-BY-4.0. Pollen, macrofossil, and late-Quaternary paleoecological data.',
+      },
+      {
+        citation: 'GBIF: Global Biodiversity Information Facility. Accessed 2026. <a href="https://www.gbif.org" class="text-ochre-deep">gbif.org</a>.',
+        note: 'Species occurrence data for extant ranges.',
+      },
+      {
+        citation: 'USDA PLANTS Database. Natural Resources Conservation Service. Accessed 2026. <a href="https://plants.usda.gov" class="text-ochre-deep">plants.usda.gov</a>.',
+        note: 'Public domain. Plant distribution and ecological attributes for North American species.',
+      },
+      {
+        citation: 'iNaturalist. Accessed 2026. <a href="https://www.inaturalist.org" class="text-ochre-deep">inaturalist.org</a>.',
+        note: 'Community-verified observation data. Selected photos used under the contributor\'s declared CC license; attribution on each image.',
+      },
+    ],
+  },
+];
+---
+
+<Base title={title} description={description} canonical="https://sustainabilitydiet.com/near-time/bibliography" readingBar>
+  <article class="mx-auto max-w-4xl px-6 py-16">
+
+    <p class="small-caps text-xs text-ochre mb-3">Near Time · Reference</p>
+    <h1 class="font-display text-5xl md:text-6xl tracking-tight leading-[1.02] mb-6">
+      Bibliography
+    </h1>
+    <p class="text-xl text-ink/75 leading-relaxed font-serif max-w-3xl">
+      A canonical reference list for the ecological, paleontological, and restoration-science claims made across this site. Not exhaustive &mdash; organized by load-bearing relevance, so a reader who wants to check a specific claim can find it quickly.
+    </p>
+
+    <div class="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-xs small-caps tracking-wide">
+      {groups.map(g => (
+        <a href={`#${g.heading.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`} class="text-ochre-deep hover:text-ink">
+          {g.heading} →
+        </a>
+      ))}
+    </div>
+
+    <hr class="hairline my-12" />
+
+    {groups.map(g => (
+      <section id={g.heading.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')} class="mb-16 scroll-mt-24">
+        <h2 class="font-display text-2xl tracking-tight mb-3 pb-2 border-b-2 border-ink/30">{g.heading}</h2>
+        <p class="font-serif italic text-ink/70 text-base leading-relaxed mb-8 max-w-3xl">
+          {g.blurb}
+        </p>
+        <ol class="space-y-6 font-serif text-[1.02rem] leading-[1.7] text-ink/90 list-none pl-0">
+          {g.entries.map(e => (
+            <li class="border-l-2 border-ochre/40 pl-5">
+              <p set:html={e.citation}></p>
+              {e.doi && (
+                <p class="text-sm text-ink/60 mt-1">
+                  <a href={e.doi} class="text-ochre-deep hover:text-ink break-all">{e.doi}</a>
+                </p>
+              )}
+              {e.note && (
+                <p class="text-sm text-ink/70 italic mt-2 leading-relaxed">{e.note}</p>
+              )}
+            </li>
+          ))}
+        </ol>
+      </section>
+    ))}
+
+    <div class="mt-16 pt-8 border-t border-ink/10 flex flex-col sm:flex-row gap-4">
+      <a
+        href="/near-time/sources"
+        class="inline-block px-6 py-3 bg-ink text-paper text-sm small-caps hover:bg-ochre transition-colors"
+      >
+        Sources &amp; methodology →
+      </a>
+      <a
+        href="/near-time/glossary"
+        class="inline-block px-6 py-3 border border-ink text-ink text-sm small-caps hover:bg-ink hover:text-paper transition-colors"
+      >
+        Glossary →
+      </a>
+    </div>
+
+  </article>
+</Base>

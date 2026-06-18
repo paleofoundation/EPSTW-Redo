@@ -1,0 +1,130 @@
+---
+import Base from '../layouts/Base.astro';
+
+const title = 'Site map — The Sustainability Diet';
+const description = 'Every page on the site, grouped and annotated. The full index.';
+
+const groups = [
+  {
+    heading: 'Start',
+    blurb: 'For readers arriving cold. Two minutes in, you\'ll know what this is.',
+    links: [
+      { href: '/', label: 'Home', note: 'The primary landing. Thesis, the three tools, the invitation.' },
+      { href: '/start', label: 'Start here', note: 'The two-minute version of the whole project.' },
+      { href: '/faq', label: 'FAQ', note: 'Recurring reader questions, answered.' },
+    ],
+  },
+  {
+    heading: 'The book',
+    blurb: 'The book itself, and the Prologue readable in full.',
+    links: [
+      { href: '/the-book', label: 'The Book', note: 'What the book is, structure, hear when it ships.' },
+      { href: '/the-book/excerpt', label: 'The Prologue', note: 'The opening chapter in full, typeset for reading, with endnotes.' },
+      { href: '/fourth-axis', label: 'The Fourth Axis', note: 'The concept the book turns on: survivability as the missing axis.' },
+    ],
+  },
+  {
+    heading: 'The experiment',
+    blurb: 'The specific proposal the book is asking someone to run.',
+    links: [
+      { href: '/one-hundred-camels', label: 'One Hundred Camels', note: 'Index: the experiment, adjacent projects, critics, contribute.' },
+      { href: '/one-hundred-camels/the-experiment', label: 'The experiment', note: 'Fifteen-section proposal with timeline, falsification list, open letter, and ask.' },
+      { href: '/one-hundred-camels/critics', label: 'Critics and counter-positions', note: 'The best arguments against Pleistocene rewilding, in the critics\' voices, then answered.' },
+      { href: '/one-hundred-camels/contribute', label: 'Contribute', note: 'Ten concrete categories of help the project needs.' },
+    ],
+  },
+  {
+    heading: 'Near Time (the atlas)',
+    blurb: 'The paleo-ecological reference. Matrices, timeline, bibliography, glossary, sources, and the first regional story.',
+    links: [
+      { href: '/near-time', label: 'Near Time landing', note: 'The atlas index.' },
+      { href: '/near-time/stories/one-hundred-camels', label: 'Regional story: One Hundred Camels', note: 'Vignette #1. Camelops, orphaned fruits, the experimental protocol, 31 footnotes.' },
+      { href: '/near-time/orphaned-fruits', label: 'Orphaned fruits', note: 'Janzen-Martin matrix of 10 plants whose dispersers went extinct.' },
+      { href: '/near-time/proxies', label: 'Proxies', note: 'Taxon-substitution matrix, including the "holes" where no good proxy exists.' },
+      { href: '/near-time/timeline', label: 'Timeline', note: 'Seventeen events from ~70 kya to ~2026.' },
+      { href: '/near-time/bibliography', label: 'Bibliography', note: 'Every source the atlas cites, in six groups.' },
+      { href: '/near-time/further-reading', label: 'Further reading', note: 'Twelve books and papers, ranked, curated, opinionated.' },
+      { href: '/near-time/glossary', label: 'Glossary', note: '24 working definitions used across the atlas.' },
+      { href: '/near-time/sources', label: 'Sources & methodology', note: 'Datasets, confidence ratings, editorial voice, how to cite this site.' },
+    ],
+  },
+  {
+    heading: 'Field Notes',
+    blurb: 'Short-form essays and fragments running alongside the book.',
+    links: [
+      { href: '/field-notes', label: 'Field Notes index', note: 'Published essays + the planned pipeline.' },
+      { href: '/field-notes/seed-dispersal', label: 'Seed dispersal and the evolutionary contract', note: 'First real essay. Drawn from a passage cut from the Prologue.' },
+      { href: '/feed.xml', label: 'RSS feed', note: 'Subscribe with any RSS reader.' },
+    ],
+  },
+  {
+    heading: 'About and meta',
+    blurb: 'Who the author is, and how the site is run.',
+    links: [
+      { href: '/about', label: 'About', note: 'Karen Pendergrass, the Paleo Foundation, the fourteen-year arc, contact.' },
+      { href: '/changelog', label: 'Changelog', note: 'What has been added, changed, corrected, or removed. Session by session.' },
+      { href: '/map', label: 'Site map', note: 'This page.' },
+    ],
+  },
+  {
+    heading: 'Legal and attribution',
+    blurb: 'Where the fine print lives.',
+    links: [
+      { href: '/privacy', label: 'Privacy', note: 'What the site does and does not collect.' },
+      { href: '/terms', label: 'Terms', note: 'Copyright, license, no-advice disclaimer.' },
+      { href: '/data-attribution', label: 'Data attribution', note: 'Per-source license blocks for every dataset the atlas uses.' },
+    ],
+  },
+];
+---
+
+<Base title={title} description={description} canonical="https://sustainabilitydiet.com/map">
+  <article class="mx-auto max-w-4xl px-6 py-16">
+
+    <p class="small-caps text-xs text-ochre mb-3">Site map</p>
+    <h1 class="font-display text-5xl md:text-6xl tracking-tight leading-[1.02] mb-6">
+      Everything on the site.
+    </h1>
+    <p class="text-xl text-ink/75 leading-relaxed font-serif max-w-2xl">
+      Every page, grouped, with one line on what each is for. If you\'re
+      looking for something specific, this is probably faster than the nav.
+    </p>
+
+    <hr class="hairline my-10" />
+
+    <div class="space-y-14">
+      {groups.map(g => (
+        <section>
+          <h2 class="font-display text-2xl md:text-3xl tracking-tight leading-tight mb-2">
+            {g.heading}
+          </h2>
+          <p class="font-serif text-base text-ink/65 leading-relaxed mb-6 max-w-2xl">
+            {g.blurb}
+          </p>
+          <ul class="space-y-4">
+            {g.links.map(l => (
+              <li class="grid md:grid-cols-[1fr_2fr] gap-x-6 gap-y-1 border-l-2 border-ink/10 pl-4 hover:border-ochre transition-colors">
+                <a href={l.href} class="font-display text-base md:text-lg tracking-tight text-ink hover:text-ochre transition-colors">
+                  {l.label}
+                </a>
+                <p class="font-serif text-sm md:text-base text-ink/70 leading-relaxed">
+                  {l.note}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
+    </div>
+
+    <section class="mt-16 pt-10 border-t border-ink/15 font-serif text-ink/70 leading-relaxed">
+      <p>
+        This page is hand-maintained; the machine-readable sitemap for search
+        engines is at <a href="/sitemap.xml" class="text-ochre-deep hover:text-ink">/sitemap.xml</a>.
+        If a new page has shipped that isn\'t on this page, that\'s an
+        oversight — send word through <a href="/about#contact" class="text-ochre-deep hover:text-ink">the contact form</a>.
+      </p>
+    </section>
+
+  </article>
+</Base>

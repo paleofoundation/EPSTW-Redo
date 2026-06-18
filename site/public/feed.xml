@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Field Notes — The Sustainability Diet</title>
+    <link>https://sustainabilitydiet.com/field-notes</link>
+    <description>Short-form essays, fragments, and ideas running alongside The Sustainability Diet. Karen Pendergrass.</description>
+    <language>en-us</language>
+    <copyright>Copyright 2026 Karen Pendergrass</copyright>
+    <atom:link href="https://sustainabilitydiet.com/feed.xml" rel="self" type="application/rss+xml"/>
+
+    <item>
+      <title>Seed dispersal and the evolutionary contract</title>
+      <link>https://sustainabilitydiet.com/field-notes/seed-dispersal</link>
+      <guid>https://sustainabilitydiet.com/field-notes/seed-dispersal</guid>
+      <pubDate>Thu, 16 Apr 2026 00:00:00 GMT</pubDate>
+      <description>When I eat fruit I still swallow the seeds. Their dispersal is unlikely. I half-ass honor my end of the evolutionary contract, nonetheless. A short essay drawn from a passage pulled from the Prologue of The Sustainability Diet, on megafaunal fruit syndrome, the seed-dispersal contract, and the fruits whose mouths went extinct.</description>
+    </item>
+
+  </channel>
+</rss>

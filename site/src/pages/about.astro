@@ -1,0 +1,209 @@
+---
+import Base from '../layouts/Base.astro';
+import ContactForm from '../components/ContactForm.astro';
+
+const generalCategories = [
+  { value: 'Editorial or general', label: 'Editorial or general question about the book.' },
+  { value: 'Press', label: 'Press or media inquiry.' },
+  { value: 'Land opportunity', label: 'I have land that may fit the experiment criteria.' },
+  { value: 'Capital or foundation', label: 'Capital, or a foundation relationship to bring.' },
+  { value: 'Scientific collaboration', label: 'Scientific collaboration on the atlas or the experiment.' },
+  { value: 'Correction or critique', label: 'A correction, an objection, or a sharper version of an argument.' },
+  { value: 'Reader updates', label: 'I would like to be told when the book ships. No other mail.' },
+];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Karen Pendergrass',
+  jobTitle: 'Author; founder and director, Paleo Foundation',
+  affiliation: {
+    '@type': 'Organization',
+    name: 'Paleo Foundation',
+    url: 'https://paleofoundation.com',
+  },
+  email: 'mailto:karen@paleofoundation.com',
+  url: 'https://sustainabilitydiet.com/about',
+  description: 'Author of the forthcoming book The Sustainability Diet. Founder and director of the Paleo Foundation, which runs the Certified Paleo, Keto Certified, and Heavy Metal Tested & Certified (HMTc) programs.',
+};
+---
+
+<Base
+  title="About — The Sustainability Diet"
+  description="About the site and the author. Karen Pendergrass, Paleo Foundation founder, and the long arc that became The Sustainability Diet."
+  jsonLd={jsonLd}
+>
+  <article class="mx-auto max-w-reading px-6 pt-20 pb-32">
+
+    <p class="small-caps text-xs text-ochre mb-4">About this site</p>
+    <h1 class="font-display text-4xl md:text-5xl tracking-tight leading-tight mb-12">
+      What this site is, and why it exists.
+    </h1>
+
+    <div class="prose-reading text-lg leading-relaxed text-ink/85 space-y-7">
+
+      <p>
+        This is the companion site to <em>The Sustainability Diet</em>,
+        a forthcoming book by Karen Pendergrass. The book proposes a
+        fourth axis for evaluating food systems &mdash;
+        <em>survivability</em>, the question of how a system behaves
+        when its inputs fail &mdash; and, following the axis honestly,
+        arrives at a conclusion the food-systems conversation has
+        mostly refused to reach: that sustainability at landscape
+        scale requires the restoration of landscapes, and of the
+        animals that once made them work.
+      </p>
+
+      <p>
+        The site is not a supplement to the book. It is the part of
+        the argument that did not belong on the page. The fossil
+        occurrences, the orphan-fruit pairings, the rewilding projects
+        already under way, and the experiment the book is asking
+        someone to run are all more useful as interactive objects
+        than as prose footnotes. Where the book makes the case in
+        sentences, the site makes the case in maps, tables, and a
+        proposal with a budget.
+      </p>
+
+      <h2 class="font-display text-2xl md:text-3xl tracking-tight mt-14 mb-6" id="dedication">
+        In tribute to Paul S. Martin.
+      </h2>
+
+      <p>
+        Paul Martin spent most of his career at the University of
+        Arizona trying to put a single observation into wider
+        circulation: that the ecological baseline conservation biology
+        inherited from 1492 captures the moment of European contact
+        and almost nothing ecological about the land itself. By the
+        time Columbus made landfall, more than half the continent's
+        large-bodied fauna had been absent for twelve and a half
+        thousand years. The reference frame was already broken.
+        Martin called the frame "the Columbian Curtain," and he
+        proposed dropping it.
+      </p>
+
+      <p>
+        The book exists because that argument, twenty years after
+        <em>Twilight of the Mammoths</em>, is still outside most
+        popular conservation conversation. The site exists because
+        returning it to the conversation requires more than footnotes.
+      </p>
+
+      <h2 class="font-display text-2xl md:text-3xl tracking-tight mt-14 mb-6" id="author">
+        About the author.
+      </h2>
+
+      <!-- Author block with headshot slot -->
+      <div class="not-prose my-8 grid md:grid-cols-[1fr_2fr] gap-8 items-start">
+        <div aria-hidden="true"
+             class="border border-dashed border-ink/25 bg-bone/30 aspect-square flex items-center justify-center text-center p-6 text-ink/40">
+          <div>
+            <p class="small-caps text-xs mb-2">Author photo</p>
+            <p class="text-xs leading-relaxed">
+              Headshot placeholder.<br>
+              Replace with /public/karen.jpg.
+            </p>
+          </div>
+        </div>
+        <div class="prose-reading text-lg leading-relaxed text-ink/85 space-y-5">
+          <p>
+            Karen Pendergrass is the founder and director of the
+            <a href="https://paleofoundation.com" class="text-ochre hover:underline" rel="noopener">Paleo Foundation</a>,
+            which she has run since 2012. Under the Foundation she
+            built the Certified Paleo program, the Keto Certified
+            program, and the Heavy Metal Tested &amp; Certified (HMTc)
+            program for consumer packaged goods. She writes about
+            food systems, heavy-metals toxicology, and the microbiome.
+          </p>
+          <p>
+            She first drafted a version of this book fourteen years
+            ago and is writing it for the first time now. The positions
+            she held in 2012 are not the positions the current book
+            defends; the intervening decade of microbiome research,
+            heavy-metals work under the Foundation's certification
+            program, and the slow accumulation of rewilding data have
+            changed the argument substantially. Not being able to
+            publish the first version turned out to be the thing that
+            made this version possible.
+          </p>
+        </div>
+      </div>
+
+      <h2 class="font-display text-2xl md:text-3xl tracking-tight mt-14 mb-6" id="paleo-foundation">
+        On the relationship to the Paleo Foundation.
+      </h2>
+
+      <p>
+        The book and the companion site are Karen's own work, written
+        under her own name. The Paleo Foundation is not the publisher
+        and the experiment on the <a href="/one-hundred-camels/the-experiment" class="text-ochre hover:underline">One Hundred Camels proposal page</a>
+        is not a Foundation program. The Foundation's certification
+        work gave this book its data on heavy-metals toxicology in
+        the industrial food supply and on the microbiome consequences
+        of current dietary patterns, and several of the book's
+        factual claims are grounded in work done under the HMTc
+        program. Everything beyond those factual inputs &mdash; the
+        framework, the rewilding argument, the proposal &mdash; is
+        personal.
+      </p>
+
+      <h2 class="font-display text-2xl md:text-3xl tracking-tight mt-14 mb-6" id="contact">
+        Contact.
+      </h2>
+
+      <p>
+        Write. The form below segments inbound by subject so each
+        category reaches the right response path. Responses to
+        experiment-related inquiries may take longer than press ones.
+        Every note is read.
+      </p>
+
+      <div class="my-10">
+        <ContactForm
+          idPrefix="about"
+          categories={generalCategories}
+          subjectPrefix="[Sustainability Diet / "
+        />
+      </div>
+
+      <p class="text-ink/70">
+        If the form does not work for any reason, the direct address
+        is <a href="mailto:karen@paleofoundation.com" class="text-ochre hover:underline">karen@paleofoundation.com</a>.
+      </p>
+
+      <h2 class="font-display text-2xl md:text-3xl tracking-tight mt-14 mb-6" id="press">
+        Press.
+      </h2>
+
+      <p class="text-ink/80">
+        A press kit &mdash; author photo, book metadata, review copies,
+        and a one-page press backgrounder &mdash; will be posted here
+        ahead of publication. Reporters and editors who would like
+        to be on the press list the day the kit posts should select
+        <em>Press</em> on the form above.
+      </p>
+
+      <h2 class="font-display text-2xl md:text-3xl tracking-tight mt-14 mb-6" id="methodology">
+        A note on the data.
+      </h2>
+
+      <p>
+        Everything on the site sourced from a scientific database is
+        attributed at the component level and in the methods block of
+        the page it appears on. The site uses the Paleobiology Database
+        (CC-BY), the Neotoma Paleoecology Database (CC-BY-4.0), USDA
+        PLANTS (public domain), and GBIF and iNaturalist records
+        filtered to permissive licenses. Where the science is actively
+        contested &mdash; terminal-Pleistocene causation, the Younger
+        Dryas impact hypothesis, specific plant&ndash;disperser
+        pairings &mdash; the contest is named plainly and the
+        strongest cases on both sides are cited. The full accounting
+        is on the
+        <a href="/near-time/sources" class="text-ochre hover:underline">sources &amp; methodology page</a>;
+        the vocabulary is on the
+        <a href="/near-time/glossary" class="text-ochre hover:underline">glossary page</a>.
+      </p>
+
+    </div>
+  </article>
+</Base>

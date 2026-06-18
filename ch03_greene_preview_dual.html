@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Sustainability Diet — Chapter III preview (dual sidebar device)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Cinzel:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #2a1a10;
+    --ink-soft: #3d2a1c;
+    --red: #8b1e1e;
+    --red-soft: rgba(139, 30, 30, 0.06);
+    --rule: #a08060;
+    --page: #faf3e0;
+    --stock: #e8dcbe;
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--stock);
+    color: var(--ink);
+    font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.65;
+    font-size: 18px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .note-bar {
+    max-width: 940px;
+    margin: 36px auto 0;
+    padding: 0 72px;
+    font-size: 13px;
+    color: #6b5a48;
+    text-align: center;
+    font-style: italic;
+    line-height: 1.5;
+  }
+  .page {
+    background: var(--page);
+    max-width: 940px;
+    margin: 28px auto 80px;
+    padding: 60px 64px 80px;
+    box-shadow: 0 2px 28px rgba(40, 25, 10, 0.18);
+    position: relative;
+    background-image:
+      radial-gradient(circle at 10% 12%, rgba(139,110,80,0.04), transparent 40%),
+      radial-gradient(circle at 85% 75%, rgba(139,110,80,0.03), transparent 40%);
+  }
+  .folio-top {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--red);
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 36px;
+    border-bottom: 1px solid rgba(139, 30, 30, 0.25);
+    padding-bottom: 16px;
+  }
+  .chapter-num {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 7px;
+    color: var(--red);
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .chapter-title {
+    font-family: 'Cinzel', serif;
+    font-size: 30px;
+    font-weight: 600;
+    text-align: center;
+    margin: 0 0 10px;
+    letter-spacing: 2px;
+    color: var(--ink);
+    line-height: 1.15;
+  }
+  .chapter-ornament {
+    text-align: center;
+    color: var(--red);
+    font-size: 13px;
+    margin-bottom: 36px;
+    letter-spacing: 12px;
+  }
+  .section-heading {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 4px;
+    color: var(--red);
+    text-transform: uppercase;
+    margin: 8px 0 22px;
+    font-weight: 600;
+  }
+
+  /* ——— SPREAD LAYOUT WITH LEFT MARGIN COLUMN ——— */
+  .spread {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    column-gap: 36px;
+    align-items: start;
+  }
+
+  .margin-col {
+    grid-column: 1;
+    padding-top: 6px;
+  }
+  .margin-quote {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    text-align: left;
+    hyphens: none;
+  }
+  .margin-caption {
+    font-family: 'Cinzel', serif;
+    font-style: normal;
+    font-size: 9.5px;
+    letter-spacing: 2.5px;
+    color: var(--red);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    font-weight: 500;
+  }
+  .margin-quote p {
+    margin: 0 0 10px;
+    text-align: left;
+  }
+  .margin-attr {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 12px;
+    color: var(--red);
+    margin-top: 14px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(139, 30, 30, 0.3);
+  }
+  .margin-editor-note {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 11px;
+    color: #8a7256;
+    margin-top: 18px;
+    padding-top: 10px;
+    border-top: 1px dotted rgba(139, 110, 80, 0.5);
+    line-height: 1.4;
+  }
+
+  .main-col {
+    grid-column: 2;
+  }
+  .main-col p {
+    margin: 0 0 1em;
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+  }
+  .drop-cap::first-letter {
+    font-family: 'Cinzel', serif;
+    font-size: 58px;
+    font-weight: 600;
+    float: left;
+    line-height: 0.9;
+    padding: 4px 10px 0 0;
+    color: var(--red);
+  }
+  sup {
+    font-size: 10.5px;
+    color: var(--red);
+    margin-left: 1px;
+    font-family: 'EB Garamond', serif;
+    vertical-align: super;
+    line-height: 0;
+  }
+  em { font-style: italic; }
+
+  /* ——— INLINE BLOCK SIDEBAR (same as Ch 2 preview) ——— */
+  .sidebar {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 15px;
+    line-height: 1.58;
+    font-style: italic;
+    color: var(--ink-soft);
+    background: var(--red-soft);
+    padding: 20px 24px 22px;
+    margin: 28px 0 32px;
+    border-top: 2px solid var(--red);
+    border-bottom: 1px solid rgba(139, 30, 30, 0.25);
+  }
+  .sidebar-type {
+    font-family: 'Cinzel', serif;
+    font-style: normal;
+    font-size: 10.5px;
+    letter-spacing: 3.5px;
+    color: var(--red);
+    text-transform: uppercase;
+    margin-bottom: 2px;
+    font-weight: 500;
+  }
+  .sidebar-title {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 17px;
+    margin-bottom: 12px;
+    line-height: 1.28;
+    color: var(--ink);
+  }
+  .sidebar p {
+    margin: 0 0 10px;
+    text-align: left;
+    hyphens: none;
+  }
+  .sidebar p:last-child { margin-bottom: 0; }
+
+  .section-break {
+    text-align: center;
+    margin: 36px 0 12px;
+    color: var(--red);
+    letter-spacing: 14px;
+    font-size: 13px;
+  }
+
+  .device-key {
+    max-width: 940px;
+    margin: 0 auto 20px;
+    padding: 16px 64px 0;
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 12px;
+    color: #6b5a48;
+    font-style: italic;
+  }
+  .device-key span::before {
+    content: "◆";
+    color: var(--red);
+    margin-right: 6px;
+  }
+
+  @media (max-width: 820px) {
+    .spread { grid-template-columns: 1fr; }
+    .margin-col { border-left: 3px solid var(--red); padding-left: 14px; margin-bottom: 24px; }
+    .page { padding: 40px 32px 56px; margin: 16px 8px; }
+    .note-bar { padding: 0 16px; }
+    .device-key { padding: 0 16px 16px; }
+    .chapter-title { font-size: 24px; }
+    body { font-size: 16px; }
+    .sidebar { margin: 20px 0 24px; padding: 16px 18px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="note-bar">A layout preview of Chapter 3 showing both sidebar devices working on the same page: a <em>margin-column quote strip</em> (left, narrow, italic) carrying an extended primary-source passage in Martin's voice, and an <em>inline block sidebar</em> (main column) expanding a technical term. Not final typography.</div>
+
+<div class="device-key">
+  <span><strong>Source</strong> sidebar — margin-column quote strip (extended primary voice)</span>
+  <span><strong>Definition</strong> sidebar — inline block (argumentative extension in author's voice)</span>
+</div>
+
+<div class="page">
+
+  <div class="folio-top">The Sustainability Diet &nbsp;·&nbsp; Part One &nbsp;·&nbsp; Chapter III</div>
+
+  <div class="chapter-num">Chapter Three</div>
+  <h1 class="chapter-title">Near Time</h1>
+  <div class="chapter-ornament">◆ ◆ ◆</div>
+
+  <div class="spread">
+
+    <!-- ——— LEFT MARGIN COLUMN: SOURCE SIDEBAR ——— -->
+    <aside class="margin-col">
+      <div class="margin-quote">
+        <div class="margin-caption">From Paul S. Martin,<br><em>Twilight of the Mammoths</em> (2005)</div>
+        <p>"A climatic catastrophe forced extinctions in Australia around 46,000 years ago, and in North and South America 10,000 to 12,000 radiocarbon years ago." If so, <span style="text-decoration: underline; text-decoration-thickness: 0.5px; text-underline-offset: 3px;">neither event registered in New Zealand</span>.</p>
+        <p>. . .</p>
+        <p>"I will lay aside impartiality. I think the overkill theorists have the more convincing argument for what happened in America 10,000 years ago."</p>
+        <div class="margin-attr">— P. S. Martin, chs. 7–8</div>
+        <div class="margin-editor-note">[Preview composite; actual margin passage would be selected from the chapter by the author. Shown here to demonstrate placement and register of the Source sidebar device.]</div>
+      </div>
+    </aside>
+
+    <!-- ——— MAIN COLUMN ——— -->
+    <div class="main-col">
+      <div class="section-heading">Overkill, as Martin Made It</div>
+
+      <p class="drop-cap">Martin did not invent the overkill hypothesis. Richard Foster Flint at Yale had floated human involvement earlier. Darwin's contemporary Richard Owen had proposed something similar for New Zealand's moas in the nineteenth century. What Martin did, working through the 1960s, 1970s, and 1980s, often with collaborators in simulation work, comparative island ecology, and radiocarbon calibration, was make the case in a form rigorous enough that climate-centric alternatives had to argue against a specific alternative rather than merely assert their own.<sup>8</sup></p>
+
+      <p>The case, as Martin stated it in <em>Twilight of the Mammoths</em>, rests on three observations about near-time extinctions that climate-centric explanations struggle to accommodate.</p>
+
+      <p>The first is time-transgressiveness. Near-time megafaunal extinctions did not happen at the same moment around the world. Australia's pulse is roughly forty-six thousand years ago. Continental North America's is around twelve to thirteen thousand years ago. New Zealand's moa extinctions occurred less than a thousand years ago. Madagascar's losses date to within the last two thousand years. The Caribbean island sloths persisted into the middle Holocene and disappeared only after human colonization of the islands. What does fit each of these extinction events closely is the arrival of humans on the landmass in question.</p>
+
+      <p>The second is selectivity. Near-time losses fell almost exclusively on large-bodied terrestrial mammals. Trees and shrubs show essentially no contemporaneous extinction in the North American fossil record. Small mammals show essentially none. The earlier Quaternary had repeatedly imposed severe climatic switches on the same flora and fauna without similar losses. If climate was the primary mechanism, its selectivity for mammals above forty-five kilograms — the threshold at which human hunting returns become energetically attractive — would be an extraordinary coincidence. Human predation, by contrast, predicts exactly that size cutoff.</p>
+
+      <p>The third is the uniqueness problem. Climatic changes as dramatic as the Allerød–Younger Dryas switch had occurred repeatedly during the Quaternary. Greenland ice cores record dozens of them. None of the earlier switches, over hundreds of thousands of years, are associated with comparable megafaunal die-offs. For a climatic explanation of the near-time losses to be adequate, the climate shift at the end of the Pleistocene had to be uniquely severe. The ice-core evidence does not obviously support that uniqueness.<sup>10</sup></p>
+
+      <aside class="sidebar">
+        <div class="sidebar-type">Definition</div>
+        <div class="sidebar-title">Blitzkrieg</div>
+        <p>Martin's most vivid framing of the overkill case was also its most contested: a rapid human advance through a continental fauna that had never evolved defenses against human predation. The word, borrowed from the Second World War, carried the image he wanted. A wave that moves faster than the thing it is moving through can respond. The Mosimann simulation gave the image a computational spine: under plausible assumptions, a founding population of a few thousand humans, advancing at the walking pace of subsistence settlement, could have reduced the North American megafauna to nothing in three to five hundred years.</p>
+        <p>Critics took the word itself as polemical, and Martin's later collaborators sometimes softened it to "overkill." The framing remains useful because it points at the mechanism the argument depends on: ecological surprise. A continent that has never seen a particular predator has no selective pressure to evolve defenses against it. When the predator arrives, the defense has to evolve from scratch, and evolution of that speed is not what the fossil record ordinarily shows. The animals that survived were the ones fast enough, small enough, secretive enough, or reproductively productive enough to weather the arrival. Everything else ran into the wave.</p>
+      </aside>
+
+      <p>Martin paired the three criteria with a quantitative demonstration. In 1975, Martin and the statistician James Mosimann published a simulation showing that a founding human population of a few thousand, advancing at plausible rates through naive megafaunal prey, could in principle extinguish the continent's large-bodied mammal fauna in three to five hundred years. The simulation was sensitive to assumptions, but its central finding was robust across a wide band of those assumptions. The claim was not that the simulation proved overkill had happened; it was that a critic could no longer reject overkill on the grounds that a small human population could not plausibly cause continental extinction. A small human population could. That was the point the simulation made, and its significance for the debate was that it shifted the burden of argument.<sup>8</sup></p>
+
+      <p>Martin did not claim the overkill hypothesis was complete. He did claim, openly and with the pugnacity the climate-change camp sometimes found tiresome, that it was the hypothesis most consistent with the global pattern, and that the climate-change camp had a harder time explaining the pattern than they usually admitted.</p>
+
+      <p>It is important to hold the integrity of this argument in view. Martin was not a polemicist. He was a paleoecologist who had spent half a century on the evidence and had reached a considered conclusion. The hypothesis carried his name, fairly, because he had done more than any other researcher in his generation to put it on firm empirical footing. Anyone who wishes to retire the overkill hypothesis, as many working in the field now effectively have, owes Martin the courtesy of retiring it for reasons the evidence supplies, not by gesturing vaguely at discomfort with its implications.</p>
+
+      <div class="section-break">◆ ◆ ◆</div>
+
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

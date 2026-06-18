@@ -1,0 +1,100 @@
+---
+import Base from '../layouts/Base.astro';
+
+const lastUpdated = 'April 2026';
+---
+
+<Base title="Privacy — The Sustainability Diet" description="Privacy policy for sustainabilitydiet.com: what is collected, what is not, and why.">
+  <article class="mx-auto max-w-reading px-6 pt-20 pb-32">
+
+    <p class="small-caps text-xs text-ochre mb-4">Privacy</p>
+    <h1 class="font-display text-4xl md:text-5xl tracking-tight leading-tight mb-4">
+      Privacy.
+    </h1>
+    <p class="small-caps text-xs text-ink/50 mb-12">Last updated: {lastUpdated}</p>
+
+    <div class="prose-reading text-lg leading-relaxed text-ink/85 space-y-7">
+
+      <h2 class="font-display text-2xl md:text-3xl tracking-tight mt-8 mb-6">
+        What this site collects.
+      </h2>
+      <p>
+        The contact forms on this site are mail-client redirections.
+        When you fill in one of the forms, your mail application
+        opens with the form fields pre-filled, and you send the
+        message from your own mail account. The site operator does
+        not receive any data from the form except what you choose
+        to send as an email. There is no form backend, no database,
+        no analytics cookie dropped at submit, no third-party
+        capture.
+      </p>
+      <p>
+        The site uses <strong>no cookies</strong> at present, sets
+        no local storage, and loads no third-party tracking scripts.
+        Fonts are loaded from Google Fonts while the site is in
+        build iteration; this loads stylesheets and font files from
+        Google's CDN and, as part of that, Google's servers receive
+        the HTTP request. Google Fonts' own documentation states
+        that it logs request headers; the site operator does not
+        see that data. Fonts will be self-hosted before the site
+        reaches a permanent domain, at which point Google Fonts
+        will not be loaded at all.
+      </p>
+
+      <h2 class="font-display text-2xl md:text-3xl tracking-tight mt-12 mb-6">
+        What happens to email you send.
+      </h2>
+      <p>
+        Email you send to <a href="mailto:karen@paleofoundation.com" class="text-ochre hover:underline">karen@paleofoundation.com</a>
+        is received and read by Karen Pendergrass. Content is used
+        only to respond to your inquiry. Inquiries are not shared
+        with third parties. Reader-updates inquiries are added to
+        a short list used only to announce the book's publication
+        and, later, major experiment milestones; this list is not
+        shared or sold. Anyone on the reader-updates list can ask
+        to be removed at any time by replying to any message with
+        "remove."
+      </p>
+
+      <h2 class="font-display text-2xl md:text-3xl tracking-tight mt-12 mb-6">
+        Hosting and server logs.
+      </h2>
+      <p>
+        When this site moves to its hosting provider (planned:
+        Vercel), the host will log standard request metadata
+        (IP address, user agent, requested URL, timestamp) for a
+        limited period for security and abuse-prevention purposes.
+        This is hosting-provider-standard and not a feature of the
+        site itself. No logs are read or analyzed by the site
+        operator.
+      </p>
+
+      <h2 class="font-display text-2xl md:text-3xl tracking-tight mt-12 mb-6">
+        When this policy changes.
+      </h2>
+      <p>
+        This page will note the last-updated date at the top of the
+        page. Material changes &mdash; adding analytics, moving to
+        an email-service provider with its own data processing, or
+        adding any third-party capture &mdash; will be noted in the
+        change log below.
+      </p>
+
+      <h2 class="font-display text-2xl md:text-3xl tracking-tight mt-12 mb-6">
+        Change log.
+      </h2>
+      <ul class="font-serif text-ink/75 space-y-2 pl-6 list-disc">
+        <li>{lastUpdated} &mdash; initial policy.</li>
+      </ul>
+
+      <h2 class="font-display text-2xl md:text-3xl tracking-tight mt-12 mb-6">
+        Contact.
+      </h2>
+      <p>
+        Questions about this policy, or requests to remove anything
+        you have sent, go to <a href="mailto:karen@paleofoundation.com" class="text-ochre hover:underline">karen@paleofoundation.com</a>.
+      </p>
+
+    </div>
+  </article>
+</Base>

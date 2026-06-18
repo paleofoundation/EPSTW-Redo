@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500" font-family="EB Garamond, Georgia, serif">
+  <!-- Background -->
+  <rect width="1200" height="1500" fill="#f8f5ed"/>
+
+  <!-- Title -->
+  <text x="600" y="120" text-anchor="middle" font-family="Cinzel, serif" font-size="36" font-weight="600" fill="#1f1410" letter-spacing="3">THE FRAMEWORK,</text>
+  <text x="600" y="170" text-anchor="middle" font-family="Cinzel, serif" font-size="36" font-weight="600" fill="#1f1410" letter-spacing="3">IN ONE DIAGRAM</text>
+  <line x1="500" y1="200" x2="700" y2="200" stroke="#8b1e1e" stroke-width="1"/>
+
+  <!-- Subtitle -->
+  <text x="600" y="240" text-anchor="middle" font-style="italic" font-size="22" fill="#3a2a20">The standard sustainability framework asks how a food system performs now.</text>
+  <text x="600" y="272" text-anchor="middle" font-style="italic" font-size="22" fill="#3a2a20">The survivability axis asks how it performs as the conditions change.</text>
+
+  <!-- Three classical axes as columns -->
+  <!-- Column 1: ECONOMIC -->
+  <rect x="160" y="380" width="220" height="380" fill="#f1e8e1" stroke="#8b1e1e" stroke-width="1.5"/>
+  <text x="270" y="430" text-anchor="middle" font-family="Cinzel, serif" font-size="22" font-weight="600" fill="#8b1e1e" letter-spacing="3">ECONOMIC</text>
+  <text x="270" y="460" text-anchor="middle" font-family="Cinzel, serif" font-size="22" font-weight="600" fill="#8b1e1e" letter-spacing="3">VIABILITY</text>
+  <line x1="200" y1="490" x2="340" y2="490" stroke="#8b1e1e" stroke-width="0.5"/>
+  <text x="270" y="540" text-anchor="middle" font-style="italic" font-size="20" fill="#1f1410">Can the system</text>
+  <text x="270" y="570" text-anchor="middle" font-style="italic" font-size="20" fill="#1f1410">pay its way at the</text>
+  <text x="270" y="600" text-anchor="middle" font-style="italic" font-size="20" fill="#1f1410">farm gate, today?</text>
+  <text x="270" y="660" text-anchor="middle" font-size="18" fill="#3a2a20">Margin. Labor cost.</text>
+  <text x="270" y="690" text-anchor="middle" font-size="18" fill="#3a2a20">Capital outlay.</text>
+  <text x="270" y="720" text-anchor="middle" font-size="18" fill="#3a2a20">Subsidy structure.</text>
+
+  <!-- Column 2: SOCIAL -->
+  <rect x="490" y="380" width="220" height="380" fill="#f1e8e1" stroke="#8b1e1e" stroke-width="1.5"/>
+  <text x="600" y="430" text-anchor="middle" font-family="Cinzel, serif" font-size="22" font-weight="600" fill="#8b1e1e" letter-spacing="3">SOCIAL</text>
+  <text x="600" y="460" text-anchor="middle" font-family="Cinzel, serif" font-size="22" font-weight="600" fill="#8b1e1e" letter-spacing="3">FIT</text>
+  <line x1="530" y1="490" x2="670" y2="490" stroke="#8b1e1e" stroke-width="0.5"/>
+  <text x="600" y="540" text-anchor="middle" font-style="italic" font-size="20" fill="#1f1410">Does it work for</text>
+  <text x="600" y="570" text-anchor="middle" font-style="italic" font-size="20" fill="#1f1410">the people who run it</text>
+  <text x="600" y="600" text-anchor="middle" font-style="italic" font-size="20" fill="#1f1410">and depend on it?</text>
+  <text x="600" y="660" text-anchor="middle" font-size="18" fill="#3a2a20">Labor conditions.</text>
+  <text x="600" y="690" text-anchor="middle" font-size="18" fill="#3a2a20">Access. Affordability.</text>
+  <text x="600" y="720" text-anchor="middle" font-size="18" fill="#3a2a20">Cultural fit.</text>
+
+  <!-- Column 3: ENVIRONMENTAL -->
+  <rect x="820" y="380" width="220" height="380" fill="#f1e8e1" stroke="#8b1e1e" stroke-width="1.5"/>
+  <text x="930" y="430" text-anchor="middle" font-family="Cinzel, serif" font-size="18" font-weight="600" fill="#8b1e1e" letter-spacing="2">ENVIRONMENTAL</text>
+  <text x="930" y="460" text-anchor="middle" font-family="Cinzel, serif" font-size="22" font-weight="600" fill="#8b1e1e" letter-spacing="3">FIT</text>
+  <line x1="860" y1="490" x2="1000" y2="490" stroke="#8b1e1e" stroke-width="0.5"/>
+  <text x="930" y="540" text-anchor="middle" font-style="italic" font-size="20" fill="#1f1410">Does it match</text>
+  <text x="930" y="570" text-anchor="middle" font-style="italic" font-size="20" fill="#1f1410">the place it sits in</text>
+  <text x="930" y="600" text-anchor="middle" font-style="italic" font-size="20" fill="#1f1410">at present?</text>
+  <text x="930" y="660" text-anchor="middle" font-size="18" fill="#3a2a20">Soil. Water.</text>
+  <text x="930" y="690" text-anchor="middle" font-size="18" fill="#3a2a20">Biodiversity.</text>
+  <text x="930" y="720" text-anchor="middle" font-size="18" fill="#3a2a20">Emissions.</text>
+
+  <!-- Bracket connecting the three under "the standard framework" -->
+  <path d="M 160 800 L 160 820 L 1040 820 L 1040 800" fill="none" stroke="#a08060" stroke-width="1.2"/>
+  <text x="600" y="870" text-anchor="middle" font-family="Cinzel, serif" font-size="18" font-weight="500" fill="#5a463a" letter-spacing="4">THE STANDARD FRAMEWORK</text>
+  <text x="600" y="900" text-anchor="middle" font-style="italic" font-size="18" fill="#5a463a">a snapshot of the system as it is</text>
+
+  <!-- Vertical arrow down -->
+  <line x1="600" y1="930" x2="600" y2="990" stroke="#8b1e1e" stroke-width="2"/>
+  <polygon points="590,985 610,985 600,1010" fill="#8b1e1e"/>
+
+  <!-- Survivability axis: horizontal beam -->
+  <rect x="80" y="1050" width="1040" height="160" fill="#8b1e1e" stroke="#8b1e1e" stroke-width="1.5"/>
+  <text x="600" y="1110" text-anchor="middle" font-family="Cinzel, serif" font-size="36" font-weight="600" fill="#fbf6e8" letter-spacing="6">SURVIVABILITY</text>
+  <text x="600" y="1155" text-anchor="middle" font-style="italic" font-size="22" fill="#fbf6e8">does the system keep working as the conditions move?</text>
+  <text x="600" y="1190" text-anchor="middle" font-size="18" fill="#f8f5ed">climate volatility · input depletion · supply shock · time</text>
+
+  <!-- Caption at bottom -->
+  <text x="600" y="1290" text-anchor="middle" font-family="Cinzel, serif" font-size="15" font-weight="500" fill="#5a463a" letter-spacing="3">A FOOD SYSTEM IS WORTH KEEPING ONLY IF IT PASSES ALL FOUR.</text>
+  <text x="600" y="1330" text-anchor="middle" font-style="italic" font-size="20" fill="#3a2a20">A system can score perfectly on all three classical axes</text>
+  <text x="600" y="1360" text-anchor="middle" font-style="italic" font-size="20" fill="#3a2a20">and still fail the fourth. Most twentieth-century food</text>
+  <text x="600" y="1390" text-anchor="middle" font-style="italic" font-size="20" fill="#3a2a20">systems do. The chapters that follow apply the test.</text>
+
+  <!-- Decorative diamond -->
+  <text x="600" y="1450" text-anchor="middle" font-size="22" fill="#8b1e1e">◆</text>
+</svg>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Sustainability Diet — Chapter II preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Cinzel:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #2a1a10;
+    --ink-soft: #3d2a1c;
+    --red: #8b1e1e;
+    --red-soft: rgba(139, 30, 30, 0.06);
+    --rule: #a08060;
+    --page: #faf3e0;
+    --stock: #e8dcbe;
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--stock);
+    color: var(--ink);
+    font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.65;
+    font-size: 18px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .note-bar {
+    max-width: 720px;
+    margin: 36px auto 0;
+    padding: 0 72px;
+    font-size: 13px;
+    color: #6b5a48;
+    text-align: center;
+    font-style: italic;
+    line-height: 1.5;
+  }
+  .page {
+    background: var(--page);
+    max-width: 720px;
+    margin: 28px auto 80px;
+    padding: 64px 80px 88px;
+    box-shadow: 0 2px 28px rgba(40, 25, 10, 0.18);
+    position: relative;
+    background-image:
+      radial-gradient(circle at 10% 12%, rgba(139,110,80,0.04), transparent 40%),
+      radial-gradient(circle at 85% 75%, rgba(139,110,80,0.03), transparent 40%);
+  }
+  .folio-top {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--red);
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 44px;
+    border-bottom: 1px solid rgba(139, 30, 30, 0.25);
+    padding-bottom: 18px;
+  }
+  .chapter-num {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 7px;
+    color: var(--red);
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+  .chapter-title {
+    font-family: 'Cinzel', serif;
+    font-size: 34px;
+    font-weight: 600;
+    text-align: center;
+    margin: 0 0 14px;
+    letter-spacing: 2px;
+    color: var(--ink);
+    line-height: 1.15;
+  }
+  .chapter-ornament {
+    text-align: center;
+    color: var(--red);
+    font-size: 14px;
+    margin-bottom: 52px;
+    letter-spacing: 14px;
+  }
+  p {
+    margin: 0 0 1.05em;
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+  }
+  .drop-cap::first-letter {
+    font-family: 'Cinzel', serif;
+    font-size: 64px;
+    font-weight: 600;
+    float: left;
+    line-height: 0.88;
+    padding: 6px 10px 0 0;
+    color: var(--red);
+  }
+  sup {
+    font-size: 10.5px;
+    color: var(--red);
+    margin-left: 1px;
+    font-family: 'EB Garamond', serif;
+    vertical-align: super;
+    line-height: 0;
+  }
+  em { font-style: italic; }
+
+  /* ——— SIDEBAR BLOCK ——— */
+  .sidebar {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 15px;
+    line-height: 1.58;
+    font-style: italic;
+    color: var(--ink-soft);
+    background: var(--red-soft);
+    padding: 22px 28px 24px;
+    margin: 32px -12px 36px;
+    border-top: 2px solid var(--red);
+    border-bottom: 1px solid rgba(139, 30, 30, 0.25);
+    position: relative;
+  }
+  .sidebar::before {
+    content: "";
+    position: absolute;
+    top: -2px; left: -12px; right: -12px; bottom: 0;
+    border-left: 3px solid var(--red);
+    pointer-events: none;
+    display: none;
+  }
+  .sidebar-type {
+    font-family: 'Cinzel', serif;
+    font-style: normal;
+    font-size: 10.5px;
+    letter-spacing: 3.5px;
+    color: var(--red);
+    text-transform: uppercase;
+    margin-bottom: 2px;
+    font-weight: 500;
+  }
+  .sidebar-title {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 18px;
+    margin-bottom: 14px;
+    line-height: 1.28;
+    color: var(--ink);
+  }
+  .sidebar p {
+    margin: 0 0 10px;
+    text-align: left;
+    hyphens: none;
+  }
+  .sidebar p:last-child { margin-bottom: 0; }
+
+  /* ——— PULL QUOTE ——— */
+  .pull-quote {
+    font-family: 'EB Garamond', serif;
+    font-size: 22px;
+    font-style: italic;
+    color: #5a3d28;
+    text-align: center;
+    margin: 40px 44px;
+    padding: 22px 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    line-height: 1.42;
+  }
+
+  .section-break {
+    text-align: center;
+    margin: 44px 0 12px;
+    color: var(--red);
+    letter-spacing: 14px;
+    font-size: 14px;
+  }
+
+  @media (max-width: 780px) {
+    .page { padding: 40px 32px 56px; margin: 16px 8px; }
+    .note-bar { padding: 0 16px; }
+    .chapter-title { font-size: 26px; }
+    body { font-size: 17px; }
+    .pull-quote { margin: 32px 8px; font-size: 19px; }
+    .sidebar { margin: 24px 0 28px; padding: 18px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="note-bar">A layout preview of Chapter 2 in the <em>48 Laws of Power</em> idiom — cream stock, Garamond body, small-caps typed sidebar headers in oxblood, inline sidebar blocks, ruled pull quote. Not final typography; this is a sketch of how the sidebars work alongside the main text.</div>
+
+<div class="page">
+
+  <div class="folio-top">The Sustainability Diet &nbsp;·&nbsp; Part One</div>
+
+  <div class="chapter-num">Chapter Two</div>
+  <h1 class="chapter-title">The Columbian Curtain</h1>
+  <div class="chapter-ornament">◆ ◆ ◆</div>
+
+  <p class="drop-cap">The story most Americans carry about the horse is this: horses came from Spain. The Spanish brought them in the early 1500s, and before that there were no horses on the continent. This is, as far as it goes, true. It is also among the most misleading true things in the country's ecological imagination, because the sentence after it almost always gets dropped.</p>
+
+  <p>The sentence after it is that horses evolved here.</p>
+
+  <p>The genus <em>Equus</em> originated in North America roughly four million years ago and diversified on this continent for most of its evolutionary history.<sup>1</sup> Horses walked out across the Bering land bridge, populated Eurasia and Africa, and continued to evolve there, eventually producing the animals that would be domesticated on the Eurasian steppe some six thousand years ago. Meanwhile, the horses that had stayed in their continent of origin went on being American horses until the end of the Pleistocene, when all of them disappeared in the same wave of extinctions that took the camels and the mammoths.<sup>2</sup></p>
+
+  <aside class="sidebar">
+    <div class="sidebar-type">Definition</div>
+    <div class="sidebar-title"><em>Equus</em> and the deep equid record</div>
+    <p>The genus <em>Equus</em> — the lineage that includes every living horse, donkey, and zebra — is the crown of a much longer equid story. Before <em>Equus</em> the continent already had a succession of horse-family genera: <em>Dinohippus</em>, its likely direct ancestor, already essentially modern in body plan and single-toed; before that, the three-toed <em>Pliohippus</em>; before that, the grazing and browsing radiation of <em>Merychippus</em> and its contemporaries; and before those, the small, multi-toed browsers of the early Miocene.</p>
+    <p>The equid family has been running on this continent for close to twenty million years. <em>Equus</em> is the last four million of that twenty. When paleontologists say horses evolved in North America, they are not saying one species showed up here, stayed a while, and left. They are saying the entire deep history of the family played out on this continent, and the Spanish ships of the sixteenth century were returning the crown of a tree whose roots had been American the whole time.</p>
+  </aside>
+
+  <aside class="sidebar">
+    <div class="sidebar-type">Case</div>
+    <div class="sidebar-title">The American horses by name</div>
+    <p>The late-Pleistocene equid fauna of North America went by several specific names, and the specifics matter if only to show that this was not one horse but many. <em>Equus scotti</em> was large, stout-bodied, and widely distributed across the southern and central portions of the continent; its body mass places it comfortably within the range of modern domestic horses. <em>Equus conversidens</em> was smaller and more gracile, centered on what is now Mexico and the American Southwest. <em>Equus lambei</em>, the Yukon horse, persisted in the Alaskan and Yukon refugia; the Thistle Creek genome that confirmed the deep relationship between late-Pleistocene American horses and modern <em>Equus caballus</em> came from this population.</p>
+    <p>Other named forms — <em>Equus francisci</em>, <em>Equus complicatus</em>, <em>Equus occidentalis</em> — fill out the record with varying degrees of preservation. The point of the list is not taxonomic tidiness. American horses were a diversified fauna occupying a range of habitats and body sizes, and the wave of terminal-Pleistocene extinctions took the whole set.</p>
+  </aside>
+
+  <p>Genetic work in the last two decades has tightened the story. In 2013 a team led by Ludovic Orlando reported a complete nuclear genome recovered from a horse bone frozen in permafrost at Thistle Creek in the Canadian Yukon. The bone is dated to the middle Pleistocene, around seven hundred thousand years old. The genome clustered within the diversity of modern <em>Equus</em>, confirming that the domestic horse and the Late Pleistocene American horse are close members of a single long-running lineage — the same animal, in a deep sense, with its genetic lights never quite going out.<sup>3</sup> Earlier mitochondrial work by Jaco Weinstock and colleagues had reached a similar conclusion from Alaskan and Yukon Pleistocene material: North American late-Pleistocene horses fell within, not outside, the modern <em>Equus caballus</em> / <em>Equus ferus</em> group.<sup>4</sup> The phylogeny does not particularly care which ships crossed which ocean. A horse on the plains in 1600 is the same kind of animal as a horse on the plains in 15,000 <small>BP</small>. The gap between the two dates is the question.</p>
+
+  <div class="pull-quote">They are not an introduction from elsewhere.<br>They are a homecoming that took the scenic route.</div>
+
+  <p>The gap is also not, by any reasonable ecological measure, a long one. Twelve and a half thousand years sounds like a great deal in the scale of a human life. It is not very much in the scale over which grassland plant communities, ungulate digestive physiology, or soil microbial assemblages evolve. The grasses of the central plains spent tens of millions of years evolving in the presence of large-bodied grazers of the horse's general architecture. Their defenses, their growth habits, their response to compaction and disturbance are calibrated to those animals and to their relatives. Thirteen thousand years of relative quiet on that front is not enough time for those calibrations to disappear. When the Spanish horse arrives on the American plains, it does not enter an ecosystem naive to its body plan. It enters one that has been waiting.</p>
+
+  <p>That gap is what the standard story hides. Told as "the Spanish brought horses," the sentence puts the entire evolutionary record of the genus outside the frame. Told as "horses returned to their continent of origin with the Spanish, after an absence of roughly thirteen thousand years," the sentence includes the record, and the ecological meaning of the animals' arrival changes. They are not an introduction from elsewhere. They are a homecoming that took the scenic route.</p>
+
+  <div class="section-break">◆ ◆ ◆</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,132 @@
+---
+const year = new Date().getFullYear();
+
+const primaryNav = [
+  { href: '/start', label: 'Start here' },
+  { href: '/the-book', label: 'The Book' },
+  { href: '/the-book/excerpt', label: 'Read the Prologue' },
+  { href: '/fourth-axis', label: 'The Fourth Axis' },
+  { href: '/one-hundred-camels/the-experiment', label: 'The Experiment' },
+];
+
+const referenceNav = [
+  { href: '/near-time', label: 'Near Time' },
+  { href: '/near-time/orphaned-fruits', label: 'Orphaned fruits' },
+  { href: '/near-time/proxies', label: 'Proxies' },
+  { href: '/near-time/timeline', label: 'Timeline' },
+  { href: '/near-time/bibliography', label: 'Bibliography' },
+  { href: '/near-time/further-reading', label: 'Further reading' },
+  { href: '/near-time/glossary', label: 'Glossary' },
+  { href: '/near-time/sources', label: 'Sources & methodology' },
+];
+
+const experimentNav = [
+  { href: '/one-hundred-camels', label: 'One Hundred Camels' },
+  { href: '/one-hundred-camels/the-experiment', label: 'The experiment' },
+  { href: '/one-hundred-camels/critics', label: 'Critics' },
+  { href: '/one-hundred-camels/contribute', label: 'Contribute' },
+  { href: '/field-notes', label: 'Field Notes' },
+  { href: '/feed.xml', label: 'RSS feed' },
+];
+
+const aboutNav = [
+  { href: '/about', label: 'About' },
+  { href: '/about#contact', label: 'Contact' },
+  { href: '/about#press', label: 'Press' },
+];
+
+const siteNav = [
+  { href: '/faq', label: 'FAQ' },
+  { href: '/map', label: 'Site map' },
+  { href: '/changelog', label: 'Changelog' },
+];
+
+const legalNav = [
+  { href: '/privacy', label: 'Privacy' },
+  { href: '/terms', label: 'Terms' },
+  { href: '/data-attribution', label: 'Data attribution' },
+];
+---
+
+<footer class="mt-32 border-t border-ink/10 bg-paper">
+  <div class="mx-auto max-w-6xl px-6 py-16">
+
+    <div class="grid md:grid-cols-[1.6fr_1fr_1fr_1fr_1fr] gap-10 mb-12">
+
+      <div>
+        <div class="font-display text-xl tracking-tight mb-3">The Sustainability Diet</div>
+        <p class="text-sm text-ink/70 max-w-sm leading-relaxed">
+          A book by Karen Pendergrass, and a companion atlas of
+          what this continent has forgotten, and what could still
+          return.
+        </p>
+        <p class="text-xs text-ink/50 mt-4 max-w-sm leading-relaxed">
+          A project of Karen Pendergrass, who also founded and runs
+          the <a href="https://paleofoundation.com" class="hover:text-ink transition-colors" rel="noopener">Paleo Foundation</a>.
+          This site is not a Foundation program.
+        </p>
+      </div>
+
+      <nav aria-label="The book">
+        <p class="small-caps text-xs text-ochre mb-4">The book</p>
+        <ul class="space-y-2 text-sm text-ink/70">
+          {primaryNav.map(l => (
+            <li><a href={l.href} class="hover:text-ink transition-colors">{l.label}</a></li>
+          ))}
+        </ul>
+      </nav>
+
+      <nav aria-label="The atlas">
+        <p class="small-caps text-xs text-ochre mb-4">Near Time</p>
+        <ul class="space-y-2 text-sm text-ink/70">
+          {referenceNav.map(l => (
+            <li><a href={l.href} class="hover:text-ink transition-colors">{l.label}</a></li>
+          ))}
+        </ul>
+      </nav>
+
+      <nav aria-label="The experiment">
+        <p class="small-caps text-xs text-ochre mb-4">The experiment</p>
+        <ul class="space-y-2 text-sm text-ink/70">
+          {experimentNav.map(l => (
+            <li><a href={l.href} class="hover:text-ink transition-colors">{l.label}</a></li>
+          ))}
+        </ul>
+      </nav>
+
+      <nav aria-label="About, site, and legal">
+        <p class="small-caps text-xs text-ochre mb-4">About</p>
+        <ul class="space-y-2 text-sm text-ink/70 mb-6">
+          {aboutNav.map(l => (
+            <li><a href={l.href} class="hover:text-ink transition-colors">{l.label}</a></li>
+          ))}
+        </ul>
+        <p class="small-caps text-xs text-ochre mb-4">Site</p>
+        <ul class="space-y-2 text-sm text-ink/70 mb-6">
+          {siteNav.map(l => (
+            <li><a href={l.href} class="hover:text-ink transition-colors">{l.label}</a></li>
+          ))}
+        </ul>
+        <p class="small-caps text-xs text-ochre mb-4">Legal</p>
+        <ul class="space-y-2 text-sm text-ink/70">
+          {legalNav.map(l => (
+            <li><a href={l.href} class="hover:text-ink transition-colors">{l.label}</a></li>
+          ))}
+        </ul>
+      </nav>
+
+    </div>
+
+    <div class="pt-8 border-t border-ink/10 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-ink/55">
+      <p>
+        &copy; {year} Karen Pendergrass. All rights reserved for
+        original text and editorial.
+      </p>
+      <p>
+        Scientific data attributed per dataset on the
+        <a href="/data-attribution" class="hover:text-ink transition-colors">attribution page</a>.
+      </p>
+    </div>
+
+  </div>
+</footer>

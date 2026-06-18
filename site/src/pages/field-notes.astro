@@ -1,0 +1,104 @@
+---
+import Base from '../layouts/Base.astro';
+
+const title = 'Field Notes — The Sustainability Diet';
+const description = 'Short-form essays, fragments, and ideas the book ran past but would not let go of.';
+
+// Canonical essay list. Update when new essays ship.
+const published = [
+  {
+    slug: 'seed-dispersal',
+    date: '2026-04-16',
+    displayDate: 'April 2026',
+    title: 'Seed dispersal and the evolutionary contract',
+    subtitle: 'On what fruit is for, and on the mouth it was aimed at.',
+    readingMinutes: 4,
+    excerpt: "When I eat fruits, I still swallow the seeds. Their dispersal is unlikely. I half-ass honor my end of the evolutionary contract, nonetheless. The thought always bugs me that fruit is the only food besides milk that actually wants to be consumed.",
+  },
+];
+
+// Planned pieces. Visible so the page feels populated; marked as drafts.
+// Ship one of these, delete it from here, and add it to `published` with a real date.
+const planned = [
+  {
+    title: 'The horse, returning native',
+    subtitle: 'A note on the politics of what counts as invasive when the history is only partially told.',
+  },
+  {
+    title: 'Why the camels already know what to do',
+    subtitle: 'Camelids are one of the few guilds whose North American origin is uncontested. What it feels like to reintroduce a species that was never theoretically absent.',
+  },
+  {
+    title: 'Cattle as accidental mesquite',
+    subtitle: 'How introduced livestock rescued an orphaned fruit and turned it into a regional pariah. An ecological cautionary tale in favor of proxies with instructions.',
+  },
+  {
+    title: 'The library in the tallgrass',
+    subtitle: 'A reflection on how much of the knowledge about how this continent worked lives not in books but in soil, seed, and behavior we have almost finished forgetting.',
+  },
+];
+---
+
+<Base title={title} description={description} canonical="https://sustainabilitydiet.com/field-notes">
+  <article class="mx-auto max-w-4xl px-6 py-16">
+
+    <p class="small-caps text-xs text-ochre mb-3">Field Notes</p>
+    <h1 class="font-display text-5xl md:text-6xl tracking-tight leading-[1.02] mb-6">
+      Field&nbsp;Notes
+    </h1>
+    <p class="text-xl text-ink/75 leading-relaxed font-serif max-w-2xl">
+      Short-form writing. Essays, fragments, and stray paragraphs the book ran past but would not let go of. This is where new thinking lands before it earns its way into something longer.
+    </p>
+
+    <div class="mt-6 flex items-center gap-4 text-xs text-ink/55">
+      <a href="/feed.xml" class="small-caps hover:text-ink tracking-wide">RSS feed →</a>
+      <span>·</span>
+      <a href="/about#contact" class="small-caps hover:text-ink tracking-wide">Write me back →</a>
+    </div>
+
+    <hr class="hairline my-16" />
+
+    <section class="mb-16">
+      <h2 class="small-caps text-xs text-ink/60 tracking-wide mb-8">Published</h2>
+      <div class="space-y-16">
+        {published.map(p => (
+          <article class="group">
+            <div class="flex items-center gap-3 text-xs text-ink/55 mb-3 small-caps tracking-wide">
+              <time datetime={p.date}>{p.displayDate}</time>
+              <span>·</span>
+              <span>{p.readingMinutes} min read</span>
+            </div>
+            <h3 class="font-display text-3xl md:text-4xl tracking-tight leading-tight mb-3">
+              <a href={`/field-notes/${p.slug}`} class="hover:text-ochre-deep transition-colors">
+                {p.title}
+              </a>
+            </h3>
+            <p class="font-serif text-lg text-ink/70 italic mb-4">{p.subtitle}</p>
+            <p class="font-serif text-lg text-ink/85 leading-relaxed mb-4 max-w-2xl">
+              {p.excerpt}
+            </p>
+            <a href={`/field-notes/${p.slug}`} class="small-caps text-xs text-ochre-deep hover:text-ink tracking-wide">
+              Read →
+            </a>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="mt-20 pt-12 border-t border-ink/10">
+      <h2 class="small-caps text-xs text-ink/60 tracking-wide mb-8">In the drafting folder</h2>
+      <p class="font-serif text-base text-ink/70 leading-relaxed max-w-2xl mb-10">
+        A working list of pieces partly drafted or fully outlined. They are listed here rather than hidden because the shape of a future essay is often useful in a way the finished essay cannot be. Expect these to shift.
+      </p>
+      <div class="grid md:grid-cols-2 gap-x-12 gap-y-8">
+        {planned.map(p => (
+          <div>
+            <h3 class="font-display text-lg leading-tight mb-2 text-ink/85">{p.title}</h3>
+            <p class="font-serif text-sm text-ink/60 italic leading-relaxed">{p.subtitle}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+  </article>
+</Base>

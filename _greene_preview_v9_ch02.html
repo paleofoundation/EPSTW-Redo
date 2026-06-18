@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Sustainability Diet — Chapter II proof spread</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Cinzel:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     6 x 9 trim, mirrored verso/recto, marginalia on outer edge.
+     Page geometry: 6.0in wide, 9.0in tall.
+       Spine (inner) margin: 0.55in
+       Outer margin: 1.55in (holds marginalia)
+       Top margin: 0.65in
+       Bottom margin: 0.75in
+       Body block: 6 - 0.55 - 1.55 = 3.90in wide
+       Marginalia column inside outer margin: ~1.30in wide,
+       0.20in gutter to the body block.
+     ============================================================ */
+
+  :root {
+    --ink: #1f1410;
+    --ink-soft: #3a2a20;
+    --red: #8b1e1e;
+    --red-soft: rgba(139, 30, 30, 0.06);
+    --rule: #a08060;
+    --paper: #f8f5ed;
+  }
+
+  @page {
+    size: 6in 9in;
+    margin: 0;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #c2b08a;
+    color: var(--ink);
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 10.5pt;
+    line-height: 1.42;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Each .page is one printed page. We hand-place sidebars on the
+     correct outer edge for every page, so verso/recto mirroring is
+     not auto-derived but explicit. This is also how a real compositor
+     would do it. */
+  .page {
+    position: relative;
+    width: 6in;
+    height: 9in;
+    background: var(--paper);
+    page-break-after: always;
+    break-after: page;
+    background-image:
+      radial-gradient(circle at 8% 10%, rgba(139,110,80,0.018), transparent 45%),
+      radial-gradient(circle at 88% 80%, rgba(139,110,80,0.012), transparent 45%);
+    overflow: hidden;
+  }
+  .page:last-child { page-break-after: auto; }
+
+  /* ------- Recto (right page in spread): outer edge is the right ------- */
+  .recto .body {
+    position: absolute;
+    top: 0.65in;
+    bottom: 0.75in;
+    left: 0.55in;
+    width: 3.90in;
+  }
+  .recto .marginalia {
+    position: absolute;
+    top: 1.05in;
+    right: 0.15in;
+    width: 1.30in;
+  }
+  .recto .folio {
+    position: absolute;
+    top: 0.40in;
+    left: 0.55in;
+    right: 0.55in;
+    text-align: right;
+  }
+  .recto .folio .label { float: left; text-align: left; }
+
+  /* ------- Verso (left page in spread): outer edge is the left ------- */
+  .verso .body {
+    position: absolute;
+    top: 0.65in;
+    bottom: 0.75in;
+    right: 0.55in;
+    width: 3.90in;
+  }
+  .verso .marginalia {
+    position: absolute;
+    top: 1.05in;
+    left: 0.15in;
+    width: 1.30in;
+  }
+  .verso .folio {
+    position: absolute;
+    top: 0.40in;
+    left: 0.55in;
+    right: 0.55in;
+    text-align: left;
+  }
+  .verso .folio .label { float: right; text-align: right; }
+
+  /* ------- Folio (running header) ------- */
+  .folio {
+    font-family: 'Cinzel', serif;
+    font-size: 7pt;
+    letter-spacing: 1.8pt;
+    color: var(--red);
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .folio .pn {
+    display: inline-block;
+    font-family: 'EB Garamond', serif;
+    font-size: 9pt;
+    letter-spacing: 0;
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+
+  /* ------- Chapter opener ------- */
+  .chapter-num {
+    font-family: 'Cinzel', serif;
+    font-size: 8.5pt;
+    letter-spacing: 5pt;
+    color: var(--red);
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0.30in 0 0.06in;
+    font-weight: 500;
+  }
+  .chapter-title {
+    font-family: 'Cinzel', serif;
+    font-size: 20pt;
+    font-weight: 600;
+    text-align: center;
+    margin: 0 0 0.08in;
+    letter-spacing: 1.2pt;
+    color: var(--ink);
+    line-height: 1.15;
+  }
+  .chapter-ornament {
+    text-align: center;
+    color: var(--red);
+    font-size: 9pt;
+    margin: 0 0 0.30in;
+    letter-spacing: 9pt;
+    padding-left: 9pt;
+  }
+
+  /* ------- Body text ------- */
+  .body p {
+    margin: 0 0 0.10in;
+    text-align: justify;
+    text-indent: 1.1em;
+    hyphens: auto;
+  }
+  .body p:first-of-type { text-indent: 0; }
+  .body .dc {
+    font-family: 'Cinzel', serif;
+    font-size: 48pt;
+    font-weight: 600;
+    float: left;
+    line-height: 0.85;
+    padding: 4pt 7pt 0 0;
+    color: var(--red);
+  }
+  .body em { font-style: italic; }
+  .body sup {
+    font-size: 6.5pt;
+    color: var(--red);
+    font-family: 'EB Garamond', serif;
+    vertical-align: super;
+    line-height: 0;
+    margin-left: 0.5pt;
+  }
+
+  /* Pull quote (chapter opener) — sits inside the body column to keep
+     focus on the spread, not the marginalia. */
+  .pull-quote {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 11.5pt;
+    line-height: 1.35;
+    color: var(--ink-soft);
+    text-align: center;
+    margin: 0.10in 0.20in 0.16in;
+    padding: 0;
+    border-top: 0.3pt solid rgba(139, 30, 30, 0.45);
+    border-bottom: 0.3pt solid rgba(139, 30, 30, 0.45);
+    padding: 0.10in 0;
+  }
+
+  /* ------- Section heading ------- */
+  .section-heading {
+    font-family: 'Cinzel', serif;
+    font-size: 9pt;
+    letter-spacing: 2.4pt;
+    color: var(--red);
+    text-transform: uppercase;
+    margin: 0.18in 0 0.10in;
+    font-weight: 600;
+    text-align: center;
+  }
+  .section-heading::before,
+  .section-heading::after {
+    content: " ◆ ";
+    color: rgba(139, 30, 30, 0.55);
+    margin: 0 6pt;
+    font-size: 6.5pt;
+    vertical-align: 1pt;
+  }
+
+  /* ------- MARGINALIA ------- */
+  .marginalia {
+    font-size: 8.5pt;
+    line-height: 1.40;
+  }
+  .marginalia .m-type {
+    font-family: 'Cinzel', serif;
+    font-size: 7pt;
+    letter-spacing: 2.2pt;
+    color: var(--red);
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 2pt;
+    line-height: 1.2;
+  }
+  .marginalia .m-title {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 9.5pt;
+    line-height: 1.20;
+    color: var(--ink);
+    margin: 0 0 6pt;
+    padding-bottom: 6pt;
+    border-bottom: 0.3pt solid rgba(139, 30, 30, 0.45);
+  }
+  .marginalia p {
+    margin: 0 0 6pt;
+    text-align: left;
+    color: var(--ink-soft);
+    hyphens: none;
+  }
+  .marginalia p:last-child { margin-bottom: 0; }
+  .marginalia em { font-style: italic; }
+  .marginalia .attr {
+    font-style: italic;
+    font-size: 8pt;
+    color: var(--red);
+    margin-top: 8pt;
+    padding-top: 6pt;
+    border-top: 0.3pt solid rgba(139, 30, 30, 0.30);
+    text-align: right;
+  }
+
+  /* Source sidebar variant — extended primary-source quote */
+  .marginalia.source .m-quote {
+    font-style: italic;
+    font-size: 9pt;
+    line-height: 1.42;
+    color: var(--ink-soft);
+  }
+  .marginalia.source .m-quote p {
+    margin: 0 0 6pt;
+  }
+
+  /* ------- Footnotes (page-bottom) ------- */
+  .footnotes {
+    position: absolute;
+    bottom: 0.50in;
+    font-size: 7.5pt;
+    line-height: 1.32;
+    color: var(--ink-soft);
+    border-top: 0.4pt solid rgba(40,25,10,0.40);
+    padding-top: 5pt;
+    max-width: 3.20in;
+  }
+  .recto .footnotes { left: 0.55in; width: 3.90in; }
+  .verso .footnotes { right: 0.55in; width: 3.90in; }
+  .footnotes p {
+    margin: 0 0 2pt;
+    text-indent: -10pt;
+    padding-left: 10pt;
+  }
+  .footnotes sup {
+    font-size: 6pt;
+    color: var(--red);
+    margin-right: 2pt;
+  }
+
+  /* ------- Folio number block ------- */
+  .pageno-block {
+    position: absolute;
+    bottom: 0.32in;
+    left: 0; right: 0;
+    text-align: center;
+    font-family: 'EB Garamond', serif;
+    font-size: 9pt;
+    color: var(--ink-soft);
+    font-feature-settings: "onum";
+  }
+
+  /* ------- Spread separator (screen only) ------- */
+  @media screen {
+    body { padding: 24px 0; }
+    .page {
+      box-shadow: 0 6px 36px rgba(40, 25, 10, 0.32);
+      margin: 0 auto 28px;
+    }
+  }
+
+  /* ------- Note bar (screen only, hides in print) ------- */
+  .note-bar {
+    background: transparent;
+    color: #5e4c38;
+    font-style: italic;
+    text-align: center;
+    font-size: 11pt;
+    line-height: 1.5;
+    padding: 0 0 18px;
+  }
+  @media print { .note-bar { display: none; } }
+</style>
+</head>
+<body>
+
+<div class="note-bar">
+  Proof spread for <em>The Sustainability Diet</em> — Chapter II, pages 24&ndash;27.<br>
+  Mirrored verso/recto with marginalia on the outer edge of every page.<br>
+  6&times;9 trim. EB Garamond body, Cinzel small caps for kicker labels.
+</div>
+
+<!-- ================== COVER SHEET ================== -->
+<div class="page recto" style="background-image: none;">
+  <div style="position:absolute; top: 1.2in; left: 0.55in; right: 0.55in; text-align: center;">
+    <div style="font-family: 'Cinzel', serif; font-size: 9pt; letter-spacing: 4pt; color: var(--red); text-transform: uppercase; margin-bottom: 0.5in;">A Proposed Interior — Proof Spread</div>
+    <div style="font-family: 'Cinzel', serif; font-size: 26pt; font-weight: 600; line-height: 1.15; letter-spacing: 1.2pt; margin-bottom: 0.18in;">The Sustainability Diet</div>
+    <div style="font-family: 'EB Garamond', serif; font-style: italic; font-size: 12pt; color: var(--ink-soft); margin-bottom: 0.4in;">A Framework for Eating Systems That Survive</div>
+    <div style="font-family: 'Cinzel', serif; font-size: 8.5pt; letter-spacing: 3.5pt; color: var(--red); text-transform: uppercase; margin-bottom: 0.7in;">Karen Pendergrass</div>
+    <div style="text-align: left; font-size: 10.5pt; line-height: 1.55; max-width: 4in; margin: 0 auto; color: var(--ink-soft);">
+      <p style="margin: 0 0 0.16in;">A four-page demonstration of a proposed interior layout for the book, drawn from Chapter II (&ldquo;The Columbian Curtain&rdquo;).</p>
+      <p style="margin: 0 0 0.16in;">The layout reserves the outer margin of every page &mdash; left on verso, right on recto &mdash; for marginalia: short asides in three forms drawn from the text.</p>
+      <p style="margin: 0 0 0.16in;"><span style="font-family: 'Cinzel', serif; font-size: 8pt; letter-spacing: 2pt; color: var(--red); text-transform: uppercase;">Definition</span> &mdash; an analytical clarification.</p>
+      <p style="margin: 0 0 0.16in;"><span style="font-family: 'Cinzel', serif; font-size: 8pt; letter-spacing: 2pt; color: var(--red); text-transform: uppercase;">Case</span> &mdash; a worked example.</p>
+      <p style="margin: 0 0 0.16in;"><span style="font-family: 'Cinzel', serif; font-size: 8pt; letter-spacing: 2pt; color: var(--red); text-transform: uppercase;">Source</span> &mdash; a verbatim primary-voice passage.</p>
+      <p style="margin: 0;">The aesthetic reference is Robert Greene&rsquo;s production work. Final typography, trim, stock, and layout decisions remain the publisher&rsquo;s. This document exists to show the writer&rsquo;s intent.</p>
+    </div>
+  </div>
+  <div style="position: absolute; bottom: 0.55in; left: 0; right: 0; text-align: center; font-family: 'EB Garamond', serif; font-style: italic; font-size: 9pt; color: var(--red);">
+    A four-page proof. Pages 24&ndash;27.
+  </div>
+</div>
+
+<!-- ================== PAGE 24 (verso) ================== -->
+<div class="page verso">
+  <div class="folio">
+    <span class="label">The Sustainability Diet</span>
+    Part One &nbsp;·&nbsp; II
+  </div>
+
+  <div class="marginalia">
+    <div class="m-type">Definition</div>
+    <div class="m-title">Equus and the deep equid record</div>
+    <p>The genus <em>Equus</em> &mdash; the lineage that includes every living horse, donkey, and zebra &mdash; is the crown of a much longer equid story. Before <em>Equus</em>, the continent already had a succession of horse-family genera: <em>Dinohippus</em>, its likely direct ancestor; before that, the three-toed <em>Pliohippus</em>; before that, the radiation of <em>Merychippus</em>.</p>
+    <p>The equid family has been running on this continent for close to twenty million years. <em>Equus</em> is the last four million of that twenty.</p>
+    <p>When paleontologists say horses evolved in North America, they are not saying one species showed up here, stayed a while, and left. They are saying the entire deep history of the family played out on this continent, and the Spanish ships of the sixteenth century were returning the crown of a tree whose roots had been American the whole time.</p>
+  </div>
+
+  <div class="body">
+    <div class="chapter-num">Chapter Two</div>
+    <h1 class="chapter-title">The Columbian Curtain</h1>
+    <div class="chapter-ornament">◆ ◆ ◆</div>
+
+    <p class="drop-cap"><span class="dc">T</span>he story most Americans carry about the horse is this: horses came from Spain. The Spanish brought them in the early 1500s, and before that there were no horses on the continent. This is, as far as it goes, true. It is also among the most misleading true things in the country&rsquo;s ecological imagination, because the sentence after it almost always gets dropped.</p>
+
+    <p>The sentence after it is that horses evolved here.</p>
+
+    <p>The genus <em>Equus</em> originated in North America roughly four million years ago and diversified on this continent for most of its evolutionary history.<sup>1</sup> Horses walked out across the Bering land bridge, populated Eurasia and Africa, and continued to evolve there, eventually producing the animals that would be domesticated on the Eurasian steppe some six thousand years ago. Meanwhile, the horses that had stayed in their continent of origin went on being American horses until the end of the Pleistocene, when all of them disappeared in the same wave of extinctions that took the camels and the mammoths.<sup>2</sup></p>
+  </div>
+
+  <div class="footnotes">
+    <p><sup>1</sup>MacFadden, B. J. (1992). <em>Fossil Horses: Systematics, Paleobiology, and Evolution of the Family Equidae.</em> Cambridge University Press.</p>
+    <p><sup>2</sup>Martin, P. S. (2005). <em>Twilight of the Mammoths.</em> University of California Press, ch. 3.</p>
+  </div>
+
+  <div class="pageno-block">24</div>
+</div>
+
+<!-- ================== PAGE 25 (recto) ================== -->
+<div class="page recto">
+  <div class="folio">
+    <span class="label">The Columbian Curtain</span>
+    II &nbsp;·&nbsp; Part One
+  </div>
+
+  <div class="marginalia">
+    <div class="m-type">Case</div>
+    <div class="m-title">The American horses by name</div>
+    <p>The late-Pleistocene equid fauna of North America went by several specific names, and the specifics matter. <em>Equus scotti</em> was large, stout-bodied, and widely distributed across the southern and central portions of the continent.</p>
+    <p><em>Equus conversidens</em> was smaller and more gracile, centered on what is now Mexico and the American Southwest. <em>Equus lambei</em>, the Yukon horse, persisted in the Alaskan and Yukon refugia; the Thistle Creek genome that confirmed the deep relationship between late-Pleistocene American horses and modern <em>Equus caballus</em> came from this population.</p>
+    <p>The point of the list is not taxonomic tidiness. American horses were a diversified fauna occupying a range of habitats and body sizes, and the wave of terminal-Pleistocene extinctions took the whole set.</p>
+  </div>
+
+  <div class="body">
+    <p style="margin-top: 0;">Genetic work in the last two decades has tightened the story. In 2013 a team led by Ludovic Orlando reported a complete nuclear genome recovered from a horse bone frozen in permafrost at Thistle Creek in the Canadian Yukon. The bone is dated to the middle Pleistocene, around seven hundred thousand years old. The genome clustered within the diversity of modern <em>Equus</em>, confirming that the domestic horse and the late-Pleistocene American horse are close members of a single long-running lineage &mdash; the same animal, in a deep sense, with its genetic lights never quite going out.<sup>3</sup></p>
+
+    <p>Earlier mitochondrial work by Jaco Weinstock and colleagues had reached a similar conclusion from Alaskan and Yukon Pleistocene material: North American late-Pleistocene horses fell within, not outside, the modern <em>Equus caballus</em> / <em>Equus ferus</em> group.<sup>4</sup> The phylogeny does not particularly care which ships crossed which ocean. A horse on the plains in 1600 is the same kind of animal as a horse on the plains in 15,000 BP. The gap between the two dates is the question.</p>
+
+    <p>The gap is also not, by any reasonable ecological measure, a long one. Twelve and a half thousand years sounds like a great deal in the scale of a human life. It is not very much in the scale over which grassland plant communities, ungulate digestive physiology, or soil microbial assemblages evolve. The grasses of the central plains spent tens of millions of years evolving in the presence of large-bodied grazers of the horse&rsquo;s general architecture. Their defenses, their growth habits, their response to compaction and disturbance are calibrated to those animals. Thirteen thousand years of relative quiet on that front is not enough time for those calibrations to disappear. When the Spanish horse arrives on the American plains, it does not enter an ecosystem naive to its body plan. It enters one that has been waiting.</p>
+  </div>
+
+  <div class="footnotes">
+    <p><sup>3</sup>Orlando, L. et al. (2013). &ldquo;Recalibrating <em>Equus</em> evolution using the genome sequence of an early Middle Pleistocene horse.&rdquo; <em>Nature</em> 499 (7456): 74&ndash;78.</p>
+    <p><sup>4</sup>Weinstock, J. et al. (2005). &ldquo;Evolution, systematics, and phylogeography of Pleistocene horses in the New World.&rdquo; <em>PLoS Biology</em> 3 (8): e241.</p>
+  </div>
+
+  <div class="pageno-block">25</div>
+</div>
+
+<!-- ================== PAGE 26 (verso) ================== -->
+<div class="page verso">
+  <div class="folio">
+    <span class="label">The Sustainability Diet</span>
+    Part One &nbsp;·&nbsp; II
+  </div>
+
+  <div class="marginalia source">
+    <div class="m-type">Source</div>
+    <div class="m-title">Paul S. Martin, on the curtain</div>
+    <div class="m-quote">
+      <p>&ldquo;The terms <em>native</em> and <em>exotic</em>, when applied to the American fauna, conceal a choice the user has made about where to begin counting. The choice has been made for centuries. It does not become true through repetition.&rdquo;</p>
+      <p>&ldquo;The continent we walk in is not the natural one. The natural one had elephants in it.&rdquo;</p>
+    </div>
+    <div class="attr">— P. S. Martin,<br><em>Twilight of the Mammoths,</em> chs. 1, 5</div>
+  </div>
+
+  <div class="body">
+    <p style="margin-top: 0;">That gap is what the standard story hides. Told as &ldquo;the Spanish brought horses,&rdquo; the sentence puts the entire evolutionary record of the genus outside the frame. Told as &ldquo;horses returned to their continent of origin with the Spanish, after an absence of roughly thirteen thousand years,&rdquo; the sentence includes the record, and the ecological meaning of the animals&rsquo; arrival changes. They are not an introduction from elsewhere. They are a homecoming that took the scenic route.</p>
+
+    <p>This is the conceptual move the chapter is about. Nothing in the fossil record changes whether we call the horse native or non-native. What changes is our choice of when to start counting.</p>
+
+    <div class="section-heading">The Baseline Is a Choice</div>
+
+    <p>The dominant framework of American conservation treats the year 1492 as the effective ecological baseline for the continent. Animals present here when Columbus made landfall are categorized as native. Animals not present are categorized as non-native, invasive, exotic, or feral, depending on the disposition of the speaker. The vocabulary varies; the baseline does not.</p>
+
+    <p>Paul S. Martin, who spent most of his career as a paleoecologist at the University of Arizona, named this framing the Columbian Curtain. The prologue has introduced it. I want here to take the name more seriously than the prologue had room to. A curtain is the right image. It is not a hard wall. It is a piece of fabric hung at a particular point in time, with everything behind it obscured from view.</p>
+  </div>
+
+  <div class="pageno-block">26</div>
+</div>
+
+<!-- ================== PAGE 27 (recto) ================== -->
+<div class="page recto">
+  <div class="folio">
+    <span class="label">The Columbian Curtain</span>
+    II &nbsp;·&nbsp; Part One
+  </div>
+
+  <!-- This page deliberately has no margin sidebar.
+       Demonstrates that marginalia does not have to be present on every
+       page; the column simply remains empty white space, which a real
+       compositor would also do. -->
+
+  <div class="body">
+    <p style="margin-top: 0;">Martin&rsquo;s argument was not that the curtain is wrong in the sense that 1492 is a fake date. European contact is a real event, and it does mark one of the largest biotic exchanges in the planet&rsquo;s recent history. His argument was that the curtain is arbitrary. There is nothing about the ecological state of North America in 1492 that makes it the correct reference point against which to measure restoration. The continent Columbus encountered had been losing large-bodied fauna for twelve and a half thousand years by the time he arrived.<sup>5</sup> More than forty species of large mammals were already absent from North America before a single Spanish sail appeared on the horizon.</p>
+
+    <p>Calling that assemblage &ldquo;the native condition&rdquo; is a bit like calling a library &ldquo;complete&rdquo; on the strength of its remaining shelves, after most of its collection has been carted off.</p>
+
+    <p>Granted, every historical science has to choose a reference point somewhere. Paleontology works in sliding windows and does not pretend they have natural edges. The choice of 1492 as the baseline for &ldquo;native&rdquo; was not a deliberate scientific decision so much as a cultural inheritance. The framing came downstream from the history we were telling ourselves about the continent. The arrival of Europeans was the episode after which record-keeping, in the form that came to count, began. The animals present at that moment became the reference animals, and the ones that had been here earlier dropped out of the frame along with everything else the record did not carry forward. The baseline is a cultural artifact dressed as an ecological one.</p>
+
+    <p>Notice what the baseline does once it is fixed. A horse that shows up in the sixteenth century is, under this frame, an introduction. A horse that was here in the fourteenth millennium BP is not an ancestor to which the arriving animal is returning; it is an unrelated animal in an unrelated world. A burro roaming the Colorado Plateau is not occupying an ecological niche left behind by extinct American equids; it is a non-native species degrading a native landscape. The entire vocabulary of invasion biology, as applied to these animals, assumes the 1492 baseline. Change the baseline and you do not change whether the animal is doing what it is doing. You change what you call it.</p>
+  </div>
+
+  <div class="footnotes">
+    <p><sup>5</sup>Barnosky, A. D. et al. (2004). &ldquo;Assessing the causes of late Pleistocene extinctions on the continents.&rdquo; <em>Science</em> 306 (5693): 70&ndash;75.</p>
+  </div>
+
+  <div class="pageno-block">27</div>
+</div>
+
+</body>
+</html>

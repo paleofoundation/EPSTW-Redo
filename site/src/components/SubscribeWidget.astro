@@ -1,0 +1,131 @@
+---
+/*
+ * SubscribeWidget — Substack-style email capture.
+ *
+ * Until an ESP (Buttondown) is wired in, submission uses a mailto fallback
+ * with Inquiry-type=Reader-updates so the form is functional without JS
+ * and without a server. When the ESP lands, swap the `action` to the
+ * provider's POST endpoint.
+ *
+ * Variants:
+ *   - hero:     large centered stack, for homepage hero
+ *   - inline:   smaller horizontal form, for article footers
+ *   - compact:  nav / sidebar — no tagline, no note
+ */
+interface Props {
+  variant?: 'hero' | 'inline' | 'compact';
+  title?: string;
+  tagline?: string;
+  note?: string;
+  buttonLabel?: string;
+  idPrefix?: string;
+}
+
+const {
+  variant = 'hero',
+  title,
+  tagline,
+  note,
+  buttonLabel = 'Subscribe',
+  idPrefix = 'sub',
+} = Astro.props;
+
+const mailtoBody = "Subject: Reader updates signup%0D%0A%0D%0AInquiry-type: Reader-updates%0D%0A%0D%0AEmail: ";
+---
+
+{variant === 'hero' && (
+  <div class="w-full max-w-xl mx-auto text-center">
+    {title && (
+      <h2 class="font-display text-2xl md:text-3xl tracking-tight text-ink mb-2">{title}</h2>
+    )}
+    {tagline && (
+      <p class="font-serif text-ink/70 text-base md:text-lg mb-6 leading-relaxed">{tagline}</p>
+    )}
+    <form
+      action={`mailto:karen@paleofoundation.com?subject=Reader%20updates%20signup&body=${mailtoBody}`}
+      method="post"
+      enctype="text/plain"
+      class="flex flex-col sm:flex-row gap-2 w-full"
+    >
+      <label for={`${idPrefix}-email-hero`} class="sr-only">Email address</label>
+      <input
+        id={`${idPrefix}-email-hero`}
+        type="email"
+        name="email"
+        required
+        placeholder="Your email address"
+        class="flex-1 px-4 py-3 bg-paper border border-ink/15 text-ink placeholder-ink/40 text-base focus:border-flame focus:outline-none"
+      />
+      <button
+        type="submit"
+        class="px-6 py-3 bg-flame text-white font-body text-sm small-caps tracking-wider hover:bg-flame-deep transition-colors whitespace-nowrap"
+      >
+        {buttonLabel}
+      </button>
+    </form>
+    {note && (
+      <p class="text-xs text-ink/50 mt-3 font-body">{note}</p>
+    )}
+  </div>
+)}
+
+{variant === 'inline' && (
+  <div class="border border-ink/15 bg-bone/30 p-6 md:p-8 my-12">
+    {title && (
+      <h3 class="font-display text-xl md:text-2xl tracking-tight mb-2">{title}</h3>
+    )}
+    {tagline && (
+      <p class="font-serif text-ink/75 mb-5 leading-relaxed">{tagline}</p>
+    )}
+    <form
+      action={`mailto:karen@paleofoundation.com?subject=Reader%20updates%20signup&body=${mailtoBody}`}
+      method="post"
+      enctype="text/plain"
+      class="flex flex-col sm:flex-row gap-2"
+    >
+      <label for={`${idPrefix}-email-inline`} class="sr-only">Email address</label>
+      <input
+        id={`${idPrefix}-email-inline`}
+        type="email"
+        name="email"
+        required
+        placeholder="your.email@example.com"
+        class="flex-1 px-4 py-2.5 bg-paper border border-ink/15 text-ink placeholder-ink/40 text-sm focus:border-flame focus:outline-none"
+      />
+      <button
+        type="submit"
+        class="px-5 py-2.5 bg-flame text-white font-body text-sm small-caps tracking-wider hover:bg-flame-deep transition-colors whitespace-nowrap"
+      >
+        {buttonLabel}
+      </button>
+    </form>
+    {note && (
+      <p class="text-xs text-ink/50 mt-3 font-body">{note}</p>
+    )}
+  </div>
+)}
+
+{variant === 'compact' && (
+  <form
+    action={`mailto:karen@paleofoundation.com?subject=Reader%20updates%20signup&body=${mailtoBody}`}
+    method="post"
+    enctype="text/plain"
+    class="flex gap-2 items-center"
+  >
+    <label for={`${idPrefix}-email-compact`} class="sr-only">Email address</label>
+    <input
+      id={`${idPrefix}-email-compact`}
+      type="email"
+      name="email"
+      required
+      placeholder="Email"
+      class="px-3 py-2 bg-paper border border-ink/15 text-ink text-sm placeholder-ink/40 w-44 focus:border-flame focus:outline-none"
+    />
+    <button
+      type="submit"
+      class="px-4 py-2 bg-flame text-white font-body text-xs small-caps tracking-wider hover:bg-flame-deep transition-colors whitespace-nowrap"
+    >
+      {buttonLabel}
+    </button>
+  </form>
+)}

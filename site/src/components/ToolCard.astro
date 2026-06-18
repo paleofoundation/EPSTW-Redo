@@ -1,0 +1,24 @@
+---
+interface Props {
+  title: string;
+  href: string;
+  kicker: string;
+  status?: string;
+}
+
+const { title, href, kicker, status = 'Coming soon' } = Astro.props;
+---
+
+<a
+  href={href}
+  class="group block p-8 border border-ink/10 bg-paper hover:border-ochre/50 transition-colors"
+>
+  <div class="small-caps text-xs text-ochre mb-4">{kicker}</div>
+  <h3 class="font-display text-2xl tracking-tight mb-3 group-hover:text-ochre transition-colors">
+    {title}
+  </h3>
+  <p class="text-ink/75 text-sm leading-relaxed">
+    <slot />
+  </p>
+  <div class="small-caps text-xs text-ink/40 mt-6">{status}</div>
+</a>

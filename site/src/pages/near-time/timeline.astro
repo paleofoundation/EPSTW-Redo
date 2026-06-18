@@ -1,0 +1,204 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const title = 'Timeline — The Sustainability Diet';
+const description = 'Pleistocene → Holocene → Anthropocene: the events that anchor the claims made across this site, in one vertical column.';
+
+// Each entry: approx date, label, body. "era" controls the left-side color band.
+// Dates are approximate; "kya" = thousand years ago, "cal BP" = calibrated years before present.
+// Sources are deliberately not footnoted here — the bibliography carries the full citations.
+const events = [
+  {
+    era: 'late-pleistocene',
+    dateLabel: '~70 kya',
+    title: 'Modern humans arrive in Australia',
+    body: 'The first well-documented coincidence between the arrival of anatomically modern humans and a pulse of megafaunal extinction. Diprotodon, Genyornis, Thylacoleo. The pattern that will repeat, with variations, on every continent humans reach over the next fifty thousand years.',
+  },
+  {
+    era: 'late-pleistocene',
+    dateLabel: '~40 kya',
+    title: 'Modern humans reach Europe',
+    body: 'Arrive on a landscape still populated by Neanderthals, cave bears, woolly rhinos, and straight-tusked elephants. Neanderthals and the straight-tusked elephant go extinct by roughly 30 kya. Other European megafauna persist considerably longer, some into the historical period.',
+  },
+  {
+    era: 'late-pleistocene',
+    dateLabel: '~26 – 19 kya',
+    title: 'Last Glacial Maximum',
+    body: 'Ice sheets at their maximum extent across northern North America and Eurasia. Sea level roughly 120 meters below present. The Bering land bridge is wide and walkable. North American biota include mammoths, mastodons, several camelid species (including Camelops hesternus), horses, dire wolves, American cheetah, American lion, saber-tooths, ground sloths, glyptodonts.',
+  },
+  {
+    era: 'late-pleistocene',
+    dateLabel: '~16 – 14 kya',
+    title: 'Humans reach North America',
+    body: 'Exact timing is contested and actively revised. Recent evidence (White Sands footprints, pre-Clovis sites) pushes arrival earlier than the classic 13,000-year Clovis marker. The ice-free corridor opens; coastal migration becomes plausible.',
+  },
+  {
+    era: 'terminal-pleistocene',
+    dateLabel: '~13 kya',
+    title: 'Clovis culture',
+    body: 'The distinctive Clovis fluted-point toolkit appears across North America within a few centuries. Associated closely with mammoth and mastodon kill sites. Whether Clovis was the cause, a symptom, or one of several simultaneous pressures on megafauna is the central debate in terminal-Pleistocene archaeology.',
+  },
+  {
+    era: 'terminal-pleistocene',
+    dateLabel: '~12.9 – 11.7 kya',
+    title: 'Younger Dryas',
+    body: 'Abrupt cooling reversal. Roughly 1,200 years. Environmental stress compounds on populations already in decline. Ends with a rapid warming that marks the formal boundary between the Pleistocene and the Holocene.',
+  },
+  {
+    era: 'terminal-pleistocene',
+    dateLabel: '~13 – 10 kya',
+    title: 'Terminal-Pleistocene extinctions',
+    body: 'North America loses roughly two-thirds of its large-mammal species in a few thousand years. Mammuthus columbi, Mammut americanum, Camelops hesternus, Equus spp., Megalonyx, Eremotherium, Smilodon fatalis, Panthera atrox, Arctodus simus, Miracinonyx — all gone. The causal mix of climate change, human hunting, and disease remains debated, but the outcome is not. This is the extinction the atlas is mapping.',
+    link: '/near-time/proxies',
+    linkLabel: 'See proxies table',
+  },
+  {
+    era: 'holocene',
+    dateLabel: '11.7 kya',
+    title: 'Holocene begins',
+    body: 'The climatic epoch we are officially still in (though many geologists would formalize the Anthropocene as its successor). Warmer, more stable climate. The baseline for most ecological modeling — and the baseline whose legitimacy as a reference state the colonial-rewilding critique questions.',
+  },
+  {
+    era: 'holocene',
+    dateLabel: '~10 – 1 kya',
+    title: 'Indigenous stewardship',
+    body: 'Over the Holocene, Indigenous peoples across the Americas actively shape the continent through burning regimes, selective forestry, bison management, maize and squash and bean domestication, and long-term seed curation. The ecosystems encountered by Europeans in 1492 were not "wilderness." They were deeply managed.',
+  },
+  {
+    era: 'historical',
+    dateLabel: '1492 CE',
+    title: 'Columbian contact',
+    body: 'European arrival triggers the Columbian Exchange — the bidirectional transfer of species, pathogens, and practices across the Atlantic. Horses, pigs, cattle, wheat, smallpox, measles go one way. Maize, potatoes, tomatoes, tobacco, syphilis go the other. Indigenous depopulation of up to 90% reshapes the continental ecology within a century.',
+  },
+  {
+    era: 'historical',
+    dateLabel: '1600 – 1800',
+    title: 'Feral livestock reshape the landscape',
+    body: 'Horses feralize across the Great Plains, arguably returning to a niche their ancestors held before terminal-Pleistocene extinction. Cattle become the dominant large grazer across most of the continent. Mesquite, honey locust, and osage orange find accidental dispersers in the new livestock. An unplanned experiment in proxy substitution unfolds, at scale, without protocol.',
+  },
+  {
+    era: 'historical',
+    dateLabel: '1800 – 1900',
+    title: 'Industrial defaunation',
+    body: 'American bison reduced from roughly 30 million to fewer than a thousand individuals. Passenger pigeon, estimated at 3 – 5 billion birds in 1800, extinct by 1914. Gray wolves extirpated from most of the lower 48. Beaver, cougar, grizzly, and condor ranges collapse. The continent loses, again, most of what was left of its megafaunal structure.',
+  },
+  {
+    era: 'historical',
+    dateLabel: '1930s',
+    title: 'Dust Bowl',
+    body: 'The soil-disturbance consequences of replacing deep-rooted prairie with annual monoculture become continental-scale news. Aldo Leopold is drafting A Sand County Almanac. The word "conservation" begins to mean something structural rather than aesthetic.',
+  },
+  {
+    era: 'modern',
+    dateLabel: '1995',
+    title: 'Yellowstone wolves',
+    body: 'Gray wolves reintroduced to Yellowstone National Park. The trophic cascade that follows (elk behavior change, riparian recovery, beaver population increase, river-channel stabilization) becomes the most-cited modern example of a restored predator reshaping an ecosystem. The first time a North American public can see what a missing species was doing.',
+  },
+  {
+    era: 'modern',
+    dateLabel: '2005',
+    title: 'Donlan et al. propose Pleistocene rewilding',
+    body: 'The flare paper in Nature argues for introducing African elephants, cheetahs, lions, and camels onto private reserves in the Great Plains as proxies for extinct North American megafauna. Triggers the literature that is now the field. The proposal in its original form is not what this project is running — the experiment on this site is narrower, slower, and limited to a single camelid species.',
+    link: '/near-time/bibliography',
+    linkLabel: 'See bibliography',
+  },
+  {
+    era: 'modern',
+    dateLabel: '2010s',
+    title: 'Rewilding as operational practice',
+    body: 'Knepp Estate in the UK, Oostvaardersplassen in the Netherlands, Pleistocene Park in Yakutia, American Prairie in Montana, and Ted Turner\'s Armendaris Ranch in New Mexico all run variations of rewilding protocols at real scale. Each produces its own lessons about welfare, scale, politics, and what "functional restoration" means in practice.',
+    link: '/one-hundred-camels',
+    linkLabel: 'See adjacent projects',
+  },
+  {
+    era: 'present',
+    dateLabel: '~2026',
+    title: 'The experiment this site proposes',
+    body: 'One hundred camels on one hundred thousand acres, measured for twenty-five years, with pre-registered failure criteria. Small enough to stop. Large enough to test something. The proposal is written out at the experiment page.',
+    link: '/one-hundred-camels/the-experiment',
+    linkLabel: 'See the experiment',
+  },
+];
+
+const eraColor = (era) => {
+  switch (era) {
+    case 'late-pleistocene': return 'border-ink/40 bg-ink/5';
+    case 'terminal-pleistocene': return 'border-ochre bg-ochre/10';
+    case 'holocene': return 'border-moss bg-moss/10';
+    case 'historical': return 'border-ink/30 bg-bone/40';
+    case 'modern': return 'border-ink/20 bg-paper';
+    case 'present': return 'border-ochre-deep bg-ochre-deep/10';
+    default: return 'border-ink/20 bg-paper';
+  }
+};
+---
+
+<Base title={title} description={description} canonical="https://sustainabilitydiet.com/near-time/timeline" readingBar>
+  <article class="mx-auto max-w-4xl px-6 py-16">
+
+    <p class="small-caps text-xs text-ochre mb-3">Near Time · Reference</p>
+    <h1 class="font-display text-5xl md:text-6xl tracking-tight leading-[1.02] mb-6">
+      Timeline
+    </h1>
+    <p class="text-xl text-ink/75 leading-relaxed font-serif max-w-3xl">
+      The events that anchor the claims this site makes. Read top to bottom: the ice age and the extinctions it ended with, the Indigenous management period, European arrival and its ecological consequences, and the strange recent stretch in which some of what was lost has begun, cautiously, to come back.
+    </p>
+
+    <hr class="hairline my-12" />
+
+    <div class="relative">
+      <!-- Central timeline axis -->
+      <div class="absolute left-4 md:left-40 top-0 bottom-0 w-px bg-ink/15" aria-hidden="true"></div>
+
+      <div class="space-y-12">
+        {events.map(e => (
+          <div class="relative pl-12 md:pl-48">
+            <!-- Dot -->
+            <div class={`absolute left-4 md:left-40 top-2 -translate-x-1/2 w-3 h-3 rounded-full border-2 ${eraColor(e.era)}`} aria-hidden="true"></div>
+
+            <!-- Date tag (on mobile stacks above; on desktop sits to the left of the line) -->
+            <p class="md:absolute md:left-0 md:top-1 md:w-36 md:text-right md:pr-6 small-caps text-xs text-ochre mb-2 md:mb-0 tracking-wide">
+              {e.dateLabel}
+            </p>
+
+            <div>
+              <h2 class="font-display text-xl md:text-2xl tracking-tight leading-tight mb-3">
+                {e.title}
+              </h2>
+              <p class="font-serif text-base md:text-lg text-ink/85 leading-relaxed">
+                {e.body}
+              </p>
+              {e.link && (
+                <a href={e.link} class="inline-block mt-3 small-caps text-xs text-ochre-deep hover:text-ink tracking-wide">
+                  {e.linkLabel} →
+                </a>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="mt-20 pt-8 border-t border-ink/10 flex flex-col sm:flex-row gap-4">
+      <a
+        href="/one-hundred-camels/the-experiment"
+        class="inline-block px-6 py-3 bg-ink text-paper text-sm small-caps hover:bg-ochre transition-colors"
+      >
+        The experiment →
+      </a>
+      <a
+        href="/near-time"
+        class="inline-block px-6 py-3 border border-ink text-ink text-sm small-caps hover:bg-ink hover:text-paper transition-colors"
+      >
+        ← Back to Near Time
+      </a>
+      <a
+        href="/near-time/bibliography"
+        class="inline-block px-6 py-3 border border-ink/30 text-ink/80 text-sm small-caps hover:border-ink hover:text-ink transition-colors"
+      >
+        Bibliography →
+      </a>
+    </div>
+
+  </article>
+</Base>

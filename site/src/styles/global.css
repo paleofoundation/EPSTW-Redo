@@ -1,0 +1,163 @@
+/* Font loading from Google Fonts — swap to self-hosted for production */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@300..700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply bg-paper text-ink font-body antialiased;
+    font-feature-settings: "kern", "liga", "calt", "ss01";
+  }
+
+  body {
+    @apply min-h-screen;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display;
+    font-feature-settings: "kern", "liga", "ss01";
+  }
+
+  .prose-reading {
+    @apply font-serif max-w-reading;
+  }
+
+  /* Subtle selection */
+  ::selection {
+    @apply bg-ochre/20;
+  }
+
+  /*
+   * Accessibility: site-wide focus ring.
+   * Every interactive element (links, buttons, inputs, summary, details)
+   * receives a consistent keyboard-focus indicator in ochre-deep, which
+   * meets WCAG AA contrast on the paper background and matches the
+   * body-link color used elsewhere. Uses :focus-visible so mouse clicks
+   * don't leave the ring behind.
+   */
+  :focus {
+    outline: none;
+  }
+  :focus-visible {
+    outline: 2px solid #7A4F2D;  /* ochre-deep */
+    outline-offset: 2px;
+    border-radius: 1px;
+  }
+  /* Form controls: focus ring + subtle fill contrast change. */
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: 2px solid #7A4F2D;
+    outline-offset: 1px;
+  }
+}
+
+@layer components {
+  .hairline {
+    @apply border-t border-ink/10;
+  }
+
+  /*
+   * Reading-progress bar for long-form pages.
+   * Pure CSS, using scroll-driven animations (Chrome 115+, Firefox behind a
+   * flag, Safari eventual). Browsers without support get no bar — there is
+   * no JS fallback by design. The bar is a 2px ochre line fixed to the top
+   * of the viewport that scales from 0 to 100% as the user scrolls the
+   * document. Included only on pages that opt in via the `reading-bar`
+   * class on <html>, so it does not appear on the homepage / index pages.
+   */
+  @supports (animation-timeline: scroll()) {
+    .reading-bar::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: #B8752A;  /* ochre */
+      transform-origin: 0 50%;
+      transform: scaleX(0);
+      animation: reading-progress linear;
+      animation-timeline: scroll(root block);
+      z-index: 100;
+      pointer-events: none;
+    }
+    @keyframes reading-progress {
+      to { transform: scaleX(1); }
+    }
+  }
+  @media print {
+    .reading-bar::before { display: none !important; }
+  }
+
+  .small-caps {
+    font-variant: small-caps;
+    letter-spacing: 0.08em;
+  }
+
+  /*
+   * Accessibility: in-body-text links that use the ochre accent are
+   * overridden to the deeper `ochre-deep` shade so they pass WCAG AA
+   * (4.5:1) on the paper background. The original ochre is retained
+   * for decorative UI (kickers, borders, buttons) where AA large-text
+   * (3:1) is sufficient.
+   */
+  .prose-reading a.text-ochre,
+  .prose-reading a.text-ochre:link,
+  .prose-reading a.text-ochre:visited {
+    color: #7A4F2D;
+  }
+  .prose-reading a.text-ochre:hover {
+    color: #5F3E23;
+  }
+}
+
+/*
+ * Print stylesheet.
+ * The site is long-form and readers genuinely print it — academics save the
+ * sources/methodology page, landowners and counsel print the experiment.
+ * Optimize for legibility on paper, not for visual continuity with the screen.
+ */
+@media print {
+  /* Hide structural navigation and any call-to-action buttons. */
+  header, footer, nav { display: none !important; }
+
+  /* Drop the warm paper tone on print — pure black-on-white is more legible
+     and does not burn through a household inkjet's brown cartridge. */
+  html, body { background: #ffffff !important; color: #000000 !important; }
+
+  /* Allow content to span full width; remove max-width constraints that
+     waste the printed page. */
+  article, main, .prose-reading, .max-w-reading { max-width: 100% !important; }
+
+  /* Use a serif body face for print even where the screen version uses a
+     sans body. Easier on the eye at 300dpi. */
+  body { font-family: "Source Serif 4", Georgia, serif !important; }
+
+  /* Don't break inside sections, headings, or tables when avoidable. */
+  h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+  p, li, blockquote, pre, table, figure { page-break-inside: avoid; break-inside: avoid; }
+  section { page-break-inside: auto; }
+
+  /* Links: show the URL in parentheses so the print copy is navigable. */
+  a[href^="http"]::after,
+  a[href^="/"]::after {
+    content: " (" attr(href) ")";
+    font-size: 85%;
+    color: #444444;
+  }
+
+  /* Skip-link is irrelevant in print. */
+  a[href="#main-content"] { display: none !important; }
+
+  /* Tighten typography for paper. */
+  h1 { font-size: 24pt !important; margin-top: 0 !important; }
+  h2 { font-size: 16pt !important; margin-top: 14pt !important; }
+  h3 { font-size: 13pt !important; }
+  p, li { font-size: 11pt !important; line-height: 1.5 !important; }
+
+  /* Keep the ochre accent visible but muted on print. */
+  .text-ochre, .text-ochre-deep { color: #7A4F2D !important; }
+}

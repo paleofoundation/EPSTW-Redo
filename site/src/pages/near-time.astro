@@ -1,0 +1,179 @@
+---
+import Base from '../layouts/Base.astro';
+
+const title = 'Near Time — The Sustainability Diet';
+const description = 'The atlas of what stood here. A companion paleo-ecological reference to the book: who was here, what they did, and what is trying to come back.';
+
+// The primary landing groups for the atlas. Order matters — the first story,
+// the matrices of fruits and proxies, then the references.
+const features = [
+  {
+    href: '/near-time/stories/one-hundred-camels',
+    kicker: 'Regional story · Great Plains / Southwest',
+    title: 'One hundred camels',
+    body: 'The first regional story in the atlas. What the continent lost when Camelops hesternus went extinct, and what a narrowly defined, falsifiable reintroduction experiment might look like. Fossil evidence, Janzen-Martin orphaned fruits, an experimental protocol, and the critics\u2019 objections, all on one long page.',
+    cta: 'Read the story',
+    emphasis: true,
+  },
+];
+
+const matrices = [
+  {
+    href: '/near-time/orphaned-fruits',
+    title: 'Orphaned fruits',
+    body: 'Ten North American plants whose seed-dispersal partners went extinct at the end of the Pleistocene. Each entry names the fossil disperser, the mouth now doing the work (or not), and a confidence rating on how well-supported the anachronism case is.',
+    tag: 'Janzen-Martin table',
+  },
+  {
+    href: '/near-time/proxies',
+    title: 'Proxies',
+    body: 'A taxon-substitution matrix. For each extinct North American megafaunal taxon, what proxy (if any) is being proposed or used, the ecological rationale, the leading objection, and the holes — the niches for which no good proxy exists.',
+    tag: 'Substitution matrix',
+  },
+];
+
+const references = [
+  {
+    href: '/near-time/timeline',
+    title: 'Timeline',
+    body: 'Pleistocene → Holocene → Anthropocene, in one vertical column. The ice-age extinctions, the Indigenous management period, European contact, industrial defaunation, and the cautious beginnings of return.',
+  },
+  {
+    href: '/near-time/bibliography',
+    title: 'Bibliography',
+    body: 'Every primary source the atlas leans on, in Chicago-ish author-date format. Grouped by question: foundational synthesis, the Pleistocene-rewilding proposal and its critics, orphaned fruits, Camelops, adjacent projects, primary data.',
+  },
+  {
+    href: '/near-time/glossary',
+    title: 'Glossary',
+    body: 'The working definitions used across the atlas. "Near time" is the term of art for the last fifty thousand years — the stretch during which humans and megafauna overlapped on every continent except Antarctica.',
+  },
+  {
+    href: '/near-time/sources',
+    title: 'Sources & methodology',
+    body: 'Where fossil occurrence data come from, how confidence ratings are assigned, and how to cite the atlas. Includes pre-formatted citation strings for the project itself.',
+  },
+];
+---
+
+<Base title={title} description={description} canonical="https://sustainabilitydiet.com/near-time">
+  <section class="mx-auto max-w-6xl px-6 pt-24 pb-32">
+
+    <header class="mb-20 max-w-reading">
+      <p class="small-caps text-xs text-ochre mb-4">Near Time</p>
+      <h1 class="font-display text-5xl md:text-6xl tracking-tight leading-[1.05] mb-8">
+        The atlas of what stood here.
+      </h1>
+      <p class="font-serif text-lg md:text-xl leading-relaxed text-ink/75 mb-6">
+        "Near time" is paleontologists' term for roughly the last fifty thousand
+        years — the stretch in which anatomically modern humans and late-Pleistocene
+        megafauna overlapped on every continent except Antarctica, and during which
+        most of the megafauna went extinct. This atlas is a companion to
+        <a href="/the-book" class="text-ochre hover:text-ink underline-offset-4">the book</a>:
+        regional stories, matrices of what was lost and what might fill the vacancy,
+        a timeline, a bibliography, and the working glossary.
+      </p>
+      <p class="font-serif text-base text-ink/65 leading-relaxed">
+        The atlas is opinionated. Entries are confidence-rated where the evidence
+        allows. Where a niche has no plausible proxy, the atlas says so.
+      </p>
+    </header>
+
+    {/* Hero story */}
+    <section class="mb-24">
+      <div class="flex items-baseline gap-6 mb-6">
+        <h2 class="small-caps text-xs text-ochre">Regional stories</h2>
+      </div>
+      {features.map(item => (
+        <article class="border-2 border-ink p-8 md:p-10 bg-bone/40">
+          <p class="small-caps text-xs text-ochre-deep mb-3">{item.kicker}</p>
+          <h3 class="font-display text-3xl md:text-4xl tracking-tight leading-tight mb-5">
+            <a href={item.href} class="hover:text-ochre transition-colors">{item.title}</a>
+          </h3>
+          <p class="font-serif text-base md:text-lg text-ink/80 leading-relaxed mb-6 max-w-reading">
+            {item.body}
+          </p>
+          <a href={item.href} class="inline-flex items-center gap-2 px-5 py-2.5 bg-ink text-paper hover:bg-ochre transition-colors text-sm small-caps">
+            {item.cta} →
+          </a>
+        </article>
+      ))}
+      <p class="mt-6 font-serif text-sm text-ink/55 leading-relaxed">
+        More regional stories will arrive over time — the Channel Islands and the dwarf mammoth, the Llanos and their proxy-megafauna question, the Florida peninsula. One at a time, with the same structure.
+      </p>
+    </section>
+
+    {/* The two matrices */}
+    <section class="mb-24">
+      <div class="flex items-baseline gap-6 mb-3">
+        <h2 class="small-caps text-xs text-ochre">Matrices</h2>
+      </div>
+      <p class="font-serif text-ink/70 leading-relaxed max-w-reading mb-10">
+        Two structured tables that run under every regional story. The first maps
+        plants still carrying the signature of an absent disperser to the fossil
+        species that likely ate their fruit. The second maps extinct North American
+        megafauna to the candidate proxies, if any, that might do their ecological work.
+      </p>
+      <div class="grid md:grid-cols-2 gap-6">
+        {matrices.map(item => (
+          <article class="border border-ink/15 p-6 bg-bone/20 flex flex-col">
+            <p class="small-caps text-xs text-ochre-deep mb-3">{item.tag}</p>
+            <h3 class="font-display text-xl tracking-tight leading-tight mb-4">
+              <a href={item.href} class="hover:text-ochre transition-colors">{item.title}</a>
+            </h3>
+            <p class="text-ink/75 leading-relaxed text-[0.975rem] mb-5 flex-grow">
+              {item.body}
+            </p>
+            <a href={item.href} class="inline-flex items-center gap-2 text-sm text-ochre-deep hover:text-ink small-caps">
+              Open the matrix →
+            </a>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    {/* Reference material */}
+    <section class="mb-16">
+      <div class="flex items-baseline gap-6 mb-3">
+        <h2 class="small-caps text-xs text-ochre">Reference</h2>
+      </div>
+      <p class="font-serif text-ink/70 leading-relaxed max-w-reading mb-10">
+        The supporting apparatus. Everything the atlas cites, in the form a reader
+        would want if they wanted to re-check a claim.
+      </p>
+      <div class="grid md:grid-cols-2 gap-6">
+        {references.map(item => (
+          <article class="border border-ink/15 p-6 bg-paper flex flex-col">
+            <h3 class="font-display text-xl tracking-tight leading-tight mb-3">
+              <a href={item.href} class="hover:text-ochre transition-colors">{item.title}</a>
+            </h3>
+            <p class="text-ink/75 leading-relaxed text-[0.975rem] mb-4 flex-grow">
+              {item.body}
+            </p>
+            <a href={item.href} class="inline-flex items-center gap-2 text-sm text-ochre-deep hover:text-ink small-caps">
+              Open →
+            </a>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <hr class="hairline my-16" />
+
+    <section class="max-w-reading font-serif text-ink/70 leading-relaxed">
+      <p>
+        Near Time is not a comprehensive encyclopedia of the late Pleistocene.
+        It is a working atlas scoped to the claims the book makes. Entries are
+        added when a regional story is ready to carry weight. Confidence ratings
+        and objections are part of every entry where the evidence is not clean.
+      </p>
+      <p class="mt-4">
+        For the sister index of large-landscape restoration work, see
+        <a href="/one-hundred-camels" class="text-ochre hover:underline">One Hundred Camels</a>.
+        For short-form essays and fragments running alongside the book, see
+        <a href="/field-notes" class="text-ochre hover:underline">Field Notes</a>.
+      </p>
+    </section>
+
+  </section>
+</Base>

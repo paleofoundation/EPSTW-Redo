@@ -1,0 +1,1218 @@
+---
+import Base from '../../layouts/Base.astro';
+
+// Jump-nav TOC. 15 sections on this page is enough to warrant it.
+// Anchor IDs: s01..s13 for numbered sections; sections 14 and 15 keep
+// their semantic IDs (open-letter, contact) so inbound links don't rot.
+const toc = [
+  { id: 's01', n: '01', label: 'The wish, said plainly' },
+  { id: 's02', n: '02', label: 'What flipping the ground means here' },
+  { id: 's03', n: '03', label: 'The hypothesis' },
+  { id: 's04', n: '04', label: 'Why camels. Why osage orange' },
+  { id: 's05', n: '05', label: 'The family of work this belongs to' },
+  { id: 's06', n: '06', label: 'The site' },
+  { id: 's07', n: '07', label: 'The herd' },
+  { id: 's08', n: '08', label: 'The plantings' },
+  { id: 's09', n: '09', label: 'Timeline' },
+  { id: 's10', n: '10', label: 'What we would measure' },
+  { id: 's11', n: '11', label: 'What would tell us the hypothesis is wrong' },
+  { id: 's12', n: '12', label: 'What we hear most, answered' },
+  { id: 's13', n: '13', label: 'What is being asked' },
+  { id: 's14', n: '14', label: 'What this is not' },
+  { id: 'open-letter', n: '15', label: 'Put your name to it' },
+  { id: 'contact', n: '16', label: 'If you can help in a larger way' },
+];
+---
+
+<Base title="The Experiment — The Sustainability Diet" description="A concrete proposal: a parcel of desertified ground bought distressed, one hundred camels, an osage orange orchard, and a five-year MVP into a ten-year flip window. The experiment the book's Epilogue asks someone to let us run." readingBar>
+  <article class="mx-auto max-w-reading px-6 pt-20 pb-32">
+
+    <header class="mb-14">
+      <p class="small-caps text-xs text-ochre mb-4">The proposal</p>
+      <h1 class="font-display text-4xl md:text-5xl tracking-tight leading-tight mb-6">
+        One hundred camels. An osage orange orchard.
+        A measurement series that runs long enough to mean anything.
+      </h1>
+      <p class="font-serif text-lg md:text-xl leading-relaxed text-ink/75 max-w-reading">
+        This page is the experiment the book is asking
+        someone to let us run. If you have land, capital
+        to underwrite a distressed-land acquisition, or the
+        authority to grant permission, it was written for you.
+      </p>
+    </header>
+
+    {/* Jump-nav — collapsed by default on mobile, expanded on desktop */}
+    <details class="mb-14 border border-ink/20 bg-bone/30 print:hidden" open>
+      <summary class="cursor-pointer select-none px-5 py-3 small-caps text-xs text-ochre-deep tracking-wide hover:bg-bone/60">
+        Sixteen sections · jump to
+      </summary>
+      <nav class="px-5 pb-5 pt-1 border-t border-ink/10">
+        <ol class="grid sm:grid-cols-2 gap-x-6 gap-y-1">
+          {toc.map(t => (
+            <li>
+              <a href={`#${t.id}`} class="group flex items-baseline gap-3 py-1 font-serif text-ink/80 hover:text-ink">
+                <span class="small-caps text-[0.65rem] text-ochre-deep tabular-nums tracking-wide flex-shrink-0 w-6">
+                  {t.n}
+                </span>
+                <span class="text-sm md:text-base leading-snug group-hover:underline decoration-ochre underline-offset-4">
+                  {t.label}
+                </span>
+              </a>
+            </li>
+          ))}
+        </ol>
+      </nav>
+    </details>
+
+    <div class="prose-reading text-lg leading-[1.7] text-ink/90 space-y-7">
+
+      <!-- Section 1: The wish, said plainly -->
+      <section id="s01" class="scroll-mt-24">
+        <div class="small-caps text-xs text-ochre mb-3">01</div>
+        <h2 class="font-display text-2xl md:text-3xl tracking-tight mb-6">
+          The wish, said plainly.
+        </h2>
+
+        <blockquote class="border-l-2 border-ochre pl-6 my-8 font-serif italic text-xl text-ink/85 max-w-reading">
+          I would like, somewhere in my life, to see one hundred
+          camels in an osage orange orchard.
+          <footer class="mt-3 not-italic text-sm text-ink/50 small-caps">
+            From the Prologue
+          </footer>
+        </blockquote>
+
+        <p>
+          The Prologue ends on a sentence that is easy to read as a
+          turn of phrase. It is not. It is a specification. A hundred
+          camels because that is enough for a small, real herd. An
+          osage orange orchard because those trees produce a fruit no
+          modern animal on the continent will eat, and that fact is
+          the cleanest available proof that something about the
+          landscape has been broken for a very long time. The
+          sentence names the animals, the plants, and the
+          arrangement. What it leaves unsaid is the observation
+          platform: a working site, a measurement protocol, and
+          enough time to tell whether anything has changed.
+        </p>
+
+        <p>
+          The rest of this page is what the sentence leaves unsaid.
+        </p>
+      </section>
+
+      <!-- Section 2: What flipping the ground means here -->
+      <section id="s02" class="scroll-mt-24">
+        <div class="small-caps text-xs text-ochre mb-3">02</div>
+        <h2 class="font-display text-2xl md:text-3xl tracking-tight mb-6">
+          What &ldquo;flipping the ground&rdquo; means here.
+        </h2>
+
+        <p>
+          The Epilogue names the register: <em>bought distressed,
+          returned to function by putting the right animals back on
+          it and the right trees in it, running as a closed-loop
+          system for a decade with honest monitoring, and then sold,
+          or kept, or left to the commons, whichever way the
+          experiment wants to go once the experiment has been run.</em>
+          That sentence is the frame this proposal is written in.
+        </p>
+
+        <p>
+          A research-farm framing would ask a landowner with working
+          ground to host a decade of experiments. This proposal does
+          the opposite. It wants acreage that is <em>sick</em> at
+          acquisition &mdash; thinning cover, bare ground above ten
+          percent, declining carbon, priced down from comparable
+          ground for a reason. Desertifying ground is already losing
+          value. The people running the experiment are the ones for
+          whom that loss of value is the point. We want to know what
+          a parcel like that becomes when a missing mouth is put back
+          on it and enough calendar is allowed to pass.
+        </p>
+
+        <p>
+          &ldquo;Flipped&rdquo; also names the thing a long-duration
+          research project most needs and most lacks: an exit. At
+          the close of the ten-year window, the parcel takes a
+          disposition that has been defined in advance, not
+          negotiated after the signal is read. There are four
+          candidates, and a funder or landowner can commit to any
+          one of them as the terminal condition of the experiment.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-6 not-prose my-8 font-body">
+          <div class="border border-ink/15 p-5 bg-bone/30">
+            <div class="small-caps text-xs text-ochre mb-2">Disposition A</div>
+            <div class="font-display text-base mb-2">Sold at restored valuation.</div>
+            <p class="text-sm text-ink/75 leading-relaxed">
+              If a private-capital syndicate underwrote the
+              acquisition, this disposition returns the difference
+              between the distressed basis and the restored value
+              to the underwriters. The signal this produces to
+              adjacent land markets is the one that matters most:
+              restoration creates land value, and the market
+              learns from that the way it learns from anything
+              else.
+            </p>
+          </div>
+
+          <div class="border border-ink/15 p-5 bg-bone/30">
+            <div class="small-caps text-xs text-ochre mb-2">Disposition B</div>
+            <div class="font-display text-base mb-2">Retained and extended.</div>
+            <p class="text-sm text-ink/75 leading-relaxed">
+              If the closed-loop test indicates the hypothesis has
+              held at this site, the parcel is held through Year 25
+              for the long recruitment signal &mdash; do the
+              camel-dispersed osage orange seedlings reach
+              reproductive age and re-seed on their own? This is
+              the disposition the researchers would prefer. It is
+              also the most expensive.
+            </p>
+          </div>
+
+          <div class="border border-ink/15 p-5 bg-bone/30">
+            <div class="small-caps text-xs text-ochre mb-2">Disposition C</div>
+            <div class="font-display text-base mb-2">Easement-protected.</div>
+            <p class="text-sm text-ink/75 leading-relaxed">
+              The parcel is sold to an adjacent working landowner
+              or a conservation buyer under a perpetual easement
+              that preserves the closed-loop structure. The
+              underwriters take a discounted return; the landscape
+              keeps the intervention in place.
+            </p>
+          </div>
+
+          <div class="border border-ink/15 p-5 bg-bone/30">
+            <div class="small-caps text-xs text-ochre mb-2">Disposition D</div>
+            <div class="font-display text-base mb-2">Returned to the commons.</div>
+            <p class="text-sm text-ink/75 leading-relaxed">
+              Transferred to a tribal nation, a public land trust,
+              or a permanent-steward non-profit. The underwriters
+              take the loss; the restoration is treated as
+              non-market. This is the disposition most consistent
+              with the Epilogue&rsquo;s final line.
+            </p>
+          </div>
+        </div>
+
+        <p>
+          The rest of this page describes the research. The
+          research is what makes the flip meaningful. The flip
+          frame is what makes the research fundable without a
+          donor pipeline.
+        </p>
+      </section>
+
+      <!-- Section 3: The hypothesis -->
+      <section id="s03" class="scroll-mt-24">
+        <div class="small-caps text-xs text-ochre mb-3">03</div>
+        <h2 class="font-display text-2xl md:text-3xl tracking-tight mb-6">
+          The hypothesis.
+        </h2>
+
+        <p>
+          Desertification is usually framed as an environmental
+          problem. The book reframes it as a disease. A landscape
+          metabolizes; it takes in water, sun, seed, and forage,
+          and it processes them through a set of biotic loops that
+          include the mouths of the animals that live on it. Remove
+          a load-bearing mouth and the loops do not simply downsize.
+          They fail in specific ways. Fruit falls and rots where it
+          fell. Shrubs encroach because nothing crops them. Forage
+          over-matures and choke-mulches itself. Seeds wait in the
+          wrong places for dispersers that are not coming. The
+          familiar symptoms of desertification &mdash; thinning ground
+          cover, compaction, reduced infiltration, lower soil carbon,
+          hotter surface temperatures &mdash; follow.
+        </p>
+
+        <p>
+          The predictive claim being tested: in a western North
+          American landscape with documented Pleistocene
+          <em>Camelops</em> occurrence, a browsing proxy at
+          ecologically meaningful density, paired with targeted
+          plantings of a plant family whose dispersers are missing,
+          will produce measurable changes in soil carbon, water
+          infiltration, seed dispersal, and vegetation composition
+          on a decadal timescale, in directions consistent with the
+          loop-restoration hypothesis.
+        </p>
+
+        <p class="font-serif text-ink/75 italic">
+          The predictive claim is narrow on purpose. Running the
+          experiment does not require settling the broader
+          Pleistocene-rewilding debate. It requires a site, a herd,
+          an orchard, a monitoring protocol, and enough calendar.
+        </p>
+      </section>
+
+      <!-- Section 4: Why camels, why osage -->
+      <section id="s04" class="scroll-mt-24">
+        <div class="small-caps text-xs text-ochre mb-3">04</div>
+        <h2 class="font-display text-2xl md:text-3xl tracking-tight mb-6">
+          Why camels. Why osage orange.
+        </h2>
+
+        <p>
+          Camels are not gomphotheres. They are closer in body plan,
+          gut size, and browsing habit to the missing mouths of the
+          late-Pleistocene American West than any other large mammal
+          currently available on the continent. Camelidae evolved
+          in North America. Modern dromedaries and Bactrians are
+          descended from North American emigrants that crossed into
+          Eurasia via Beringia and diversified there. <em>Camelops
+          hesternus</em>, the Western camel, is the closer kin of
+          modern Old World camels than any living llama is.<sup><a href="#fn1" id="ref1">1</a></sup>
+          The gap between a dromedary and a <em>Camelops</em> is real
+          but smaller than the gap between any plausible alternative
+          proxy and the animal that used to be here.
+        </p>
+
+        <p>
+          Osage orange (<em>Maclura pomifera</em>) is the cleanest
+          test organism in the anachronistic-fruit literature. The
+          fruit is large, grainy, latex-bearing, inedible to
+          essentially every extant North American vertebrate, and
+          produced in quantity anyway. A tree with a bumper crop
+          looks like a tree producing for no one. It is the
+          observation Janzen and Martin built their 1982 paper
+          around.<sup><a href="#fn2" id="ref2">2</a></sup> The question
+          this experiment asks of the tree is the question Janzen
+          and Martin asked of the literature: what does the fruit
+          look like when it has a mouth again?
+        </p>
+
+        <p>
+          Ancillary plantings extend the diagnostic. Honey locust
+          (<em>Gleditsia triacanthos</em>) produces a long sugary
+          pod with comparable orphan characteristics. Kentucky
+          coffeetree (<em>Gymnocladus dioicus</em>) produces heavy
+          toxic pods with an even more restricted extant disperser
+          set.<sup><a href="#fn3" id="ref3">3</a></sup> Mesquite
+          (<em>Prosopis</em> spp.) and several native <em>Acacia</em>
+          are included because their pods are within the documented
+          dietary range of modern camelids and are native to sites
+          with realistic soil-water profiles for the target region.
+        </p>
+      </section>
+
+      <!-- Section 5: The family of work -->
+      <section id="s05" class="scroll-mt-24">
+        <div class="small-caps text-xs text-ochre mb-3">05</div>
+        <h2 class="font-display text-2xl md:text-3xl tracking-tight mb-6">
+          The family of work this belongs to.
+        </h2>
+
+        <p>
+          This experiment is not a first-of-kind in spirit. It
+          belongs to a two-decade cluster of large-landscape
+          restoration and megafaunal-proxy projects that have been
+          run with various degrees of rigor and various theories
+          of change. Situating the proposal inside that family is
+          honest and useful: it clarifies what this project borrows,
+          what it changes, and what it is deliberately not.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-6 not-prose my-8 font-body">
+          <div class="border border-ink/15 p-6 bg-bone/30">
+            <div class="small-caps text-xs text-ochre mb-2">Adjacent project</div>
+            <div class="font-display text-lg mb-2">American Prairie</div>
+            <p class="text-sm text-ink/75 leading-relaxed">
+              Montana. Assembling a three-million-acre grassland
+              reserve on the northern Great Plains, reintroducing
+              bison as the keystone grazer. The theory of change is
+              land aggregation and ungulate-driven grassland
+              restoration at continental scale.
+            </p>
+            <p class="text-sm text-ink/60 leading-relaxed mt-3">
+              <em>What this borrows:</em> the commitment to
+              long-duration monitoring and the willingness to work
+              at landscape, not plot, scale.<br>
+              <em>What this changes:</em> a deeper baseline. Bison
+              is post-glacial; the loop this project is asking about
+              pre-dates bison.
+            </p>
+          </div>
+
+          <div class="border border-ink/15 p-6 bg-bone/30">
+            <div class="small-caps text-xs text-ochre mb-2">Adjacent project</div>
+            <div class="font-display text-lg mb-2">Pleistocene Park</div>
+            <p class="text-sm text-ink/75 leading-relaxed">
+              Northeast Siberia. Sergey and Nikita Zimov's long-running
+              mammoth-steppe restoration, using large herbivores as
+              the tool. Target: permafrost stabilization through
+              grazing-mediated albedo and soil-temperature change.
+            </p>
+            <p class="text-sm text-ink/60 leading-relaxed mt-3">
+              <em>What this borrows:</em> the explicit use of a
+              megafaunal proxy to test an ecological-feedback
+              hypothesis, and the discipline of measuring soil-level
+              outcomes rather than charismatic ones.<br>
+              <em>What this changes:</em> the target is
+              desertification, not permafrost. The climate regime,
+              the plant community, the proxy animal, and the failure
+              modes are all different.
+            </p>
+          </div>
+
+          <div class="border border-ink/15 p-6 bg-bone/30">
+            <div class="small-caps text-xs text-ochre mb-2">Adjacent project</div>
+            <div class="font-display text-lg mb-2">Armendaris Ranch</div>
+            <p class="text-sm text-ink/75 leading-relaxed">
+              New Mexico. Ted Turner's Chihuahuan Desert ranch, home
+              to the long-running Bolson tortoise reintroduction
+              (the first North American return of a Pleistocene
+              survivor to its ecological range) and ongoing
+              experimental work on desert grassland recovery under
+              large-ungulate management.
+            </p>
+            <p class="text-sm text-ink/60 leading-relaxed mt-3">
+              <em>What this borrows:</em> the private-land,
+              long-horizon, single-operator governance model that
+              makes decadal commitments possible.<br>
+              <em>What this changes:</em> the experiment is not
+              tortoise-scale. The question is whether a browsing
+              proxy at ungulate body mass can reopen a specific
+              plant&ndash;disperser loop.
+            </p>
+          </div>
+
+          <div class="border border-ink/15 p-6 bg-bone/30">
+            <div class="small-caps text-xs text-ochre mb-2">Adjacent project</div>
+            <div class="font-display text-lg mb-2">Oostvaardersplassen &amp; Knepp</div>
+            <p class="text-sm text-ink/75 leading-relaxed">
+              Netherlands and England. Two European rewilding
+              experiments using cattle and horse lineages as proxies
+              for aurochs and tarpan, with very different ethical
+              outcomes (Oostvaardersplassen's winter mortality
+              controversy on one hand, Knepp's publicly celebrated
+              regeneration on the other).
+            </p>
+            <p class="text-sm text-ink/60 leading-relaxed mt-3">
+              <em>What this borrows:</em> the usefulness of
+              &ldquo;closest available proxy&rdquo; logic, and the
+              hard lesson that welfare protocols have to be built
+              in at the start, not bolted on after a winter goes
+              badly.<br>
+              <em>What this changes:</em> in an arid North American
+              system, the proxy, the forage, and the failure modes
+              are different; Oostvaardersplassen's lessons apply
+              in the welfare framework more than in the species choice.
+            </p>
+          </div>
+        </div>
+
+        <p>
+          The honest positioning: this experiment borrows the
+          long-horizon governance of Armendaris, the measurement
+          discipline of Pleistocene Park, the landscape aggregation
+          intuition of American Prairie, and the welfare lessons
+          of Oostvaardersplassen &mdash; and deliberately uses a
+          proxy animal and a target loop that none of them test.
+          The question this project asks has, as far as I can find,
+          not been asked in this form anywhere.<sup><a href="#fn4" id="ref4">4</a></sup>
+        </p>
+      </section>
+
+      <!-- Section 6: The site -->
+      <section id="s06" class="scroll-mt-24">
+        <div class="small-caps text-xs text-ochre mb-3">06</div>
+        <h2 class="font-display text-2xl md:text-3xl tracking-tight mb-6">
+          The site.
+        </h2>
+
+        <p>
+          The experiment wants a degraded-rangeland parcel in the
+          American Southwest or northern Mexico with the following
+          characteristics.
+        </p>
+
+        <ul class="space-y-3 font-serif text-ink/85 pl-6 list-disc">
+          <li>
+            <strong>Size.</strong> Five hundred to one thousand
+            contiguous acres, fenceable, with enough topographic
+            variation to host both shrubland and partial-shade
+            hedgerow plantings.
+          </li>
+          <li>
+            <strong>Historic range.</strong> Inside or adjacent to
+            documented <em>Camelops</em> occurrence per the
+            Paleobiology Database. This is not a romantic
+            requirement; it ensures the soil and plant communities
+            are ones that once processed a camelid's mouth.
+          </li>
+          <li>
+            <strong>Climate.</strong> Annual precipitation of roughly
+            200 to 400 millimeters. Aridland or semi-aridland, not
+            true desert; not moist enough to confound the
+            desertification signal.
+          </li>
+          <li>
+            <strong>Baseline degradation.</strong> Visible signs of
+            current-condition stress &mdash; bare ground above ten
+            percent, thinning perennial cover, active erosion, or
+            measured declines in soil carbon over the last two
+            decades. A site that is already fine will not test the
+            hypothesis.
+          </li>
+          <li>
+            <strong>Governance.</strong> A single landholder or a
+            small consortium with ten-year-plus commitment horizon.
+            Federal grazing lease land is not suitable; too many
+            cross-cutting authorities.
+          </li>
+          <li>
+            <strong>Neighbors.</strong> Buffer distance from row-crop
+            agriculture sufficient to prevent camel wander into
+            planted fields. An adjacent or upstream tribal nation
+            should be consulted before any site is selected; no
+            site proceeds without consultation.
+          </li>
+        </ul>
+      </section>
+
+      <!-- Section 7: The herd -->
+      <section id="s07" class="scroll-mt-24">
+        <div class="small-caps text-xs text-ochre mb-3">07</div>
+        <h2 class="font-display text-2xl md:text-3xl tracking-tight mb-6">
+          The herd.
+        </h2>
+
+        <p>
+          One hundred dromedaries (<em>Camelus dromedarius</em>),
+          sex ratio approximately 1 male per 10 females, sourced
+          from established North American working herds. Dromedaries
+          rather than Bactrians for the target climate. The herd
+          size is a floor: enough animals that herd behavior is
+          real, not enough that the stocking rate exceeds what the
+          land can support at the target density. Ten-year carrying
+          capacity is recalculated from ground-cover data in years
+          three, five, and seven.
+        </p>
+
+        <p>
+          Animal welfare is not a side consideration. Body condition
+          scoring, reproductive success, and mortality are reported
+          annually. If any of the three deteriorates beyond protocol
+          thresholds, the stocking rate drops. The experiment is
+          designed to answer a question about the land. It is not
+          designed to demonstrate what camels can be made to endure.
+        </p>
+      </section>
+
+      <!-- Section 8: The plantings -->
+      <section id="s08" class="scroll-mt-24">
+        <div class="small-caps text-xs text-ochre mb-3">08</div>
+        <h2 class="font-display text-2xl md:text-3xl tracking-tight mb-6">
+          The plantings.
+        </h2>
+
+        <p>
+          The osage orange orchard is the diagnostic feature and is
+          planted at orchard density across a ten- to twenty-acre
+          block inside the larger site. Sourced from established
+          regional stock. Planted with shade shelters and drip
+          irrigation for the first three years to guarantee
+          establishment; irrigation then removed to test the
+          loop-restoration hypothesis under natural precipitation.
+        </p>
+
+        <p>
+          Ancillary plantings &mdash; honey locust, Kentucky
+          coffeetree, and mesquite &mdash; are established in
+          replicated plots across the larger site at multiple
+          densities to give a crude dose-response curve. Native
+          grasses and forbs are not re-seeded; the hypothesis is
+          that the loop, once closed, does some of that work itself.
+          If it does not, the null result is informative.
+        </p>
+      </section>
+
+      <!-- Section 9: Timeline -->
+      <section id="s09" class="scroll-mt-24">
+        <div class="small-caps text-xs text-ochre mb-3">09</div>
+        <h2 class="font-display text-2xl md:text-3xl tracking-tight mb-6">
+          Timeline.
+        </h2>
+
+        <p>
+          The experiment runs in two committed phases, with a
+          defined third phase that is only entered if the second
+          signals green. Phase ends are pre-registered go/no-go
+          points, not status checkpoints: each one publishes what
+          it found, whether or not the next phase is triggered.
+        </p>
+
+        <ul class="space-y-4 font-serif text-ink/85 pl-6 list-disc">
+          <li>
+            <strong>Years 0&ndash;1. Site preparation.</strong>
+            Parcel acquired at distressed basis. Baseline surveys
+            of soil carbon, soil depth, infiltration, vegetation
+            cover, species composition, and invertebrate and
+            small-vertebrate communities. Permits secured. Tribal
+            consultation completed. Perimeter fencing built. A
+            paired control site is identified and contracted.
+          </li>
+          <li>
+            <strong>Years 1&ndash;5. The MVP phase.</strong>
+            Camels introduced in two cohorts. Plantings established.
+            Irrigation runs for the orchard block Years 1&ndash;3,
+            then is removed. Monitoring protocol operates
+            continuously. This is the window in which the proximate
+            questions are answerable: fruit consumption, gut-passage
+            germination, dispersal distance from mother trees,
+            early ground-cover and infiltration response, welfare
+            stability of the herd. Phase ends with a
+            <strong>Year-5 go/no-go</strong> against the
+            pre-registered failure criteria (Section 11) and a
+            public report, regardless of outcome.
+          </li>
+          <li>
+            <strong>Years 5&ndash;10. The flip window.</strong>
+            Only entered if the Year-5 signal is interpretable
+            and not-falsifying. This is the phase the Epilogue
+            names explicitly: a decade of closed-loop operation
+            with honest monitoring, after which the parcel takes
+            one of the four defined dispositions set out in
+            Section 02. This is the window in which soil-carbon
+            change at 0&ndash;30 cm, shifts in species composition,
+            and early seedling recruitment away from mother trees
+            become detectable.
+          </li>
+          <li>
+            <strong>Years 10&ndash;25. The closed-loop coda.</strong>
+            Optional. Only pursued under Disposition B (retained
+            and extended), and only because one tree generation
+            of osage orange is the single question that cannot
+            be answered on a decadal horizon. Whether the
+            camel-dispersed seedlings reach reproductive age and
+            re-seed the orchard without further camel intervention
+            &mdash; this is the final closed-loop diagnostic, and
+            it needs fifteen more years than the flip window
+            provides.
+          </li>
+        </ul>
+
+        <p>
+          The headline commitment is five years. The fundable
+          commitment is ten. Twenty-five is the answer to a
+          specific tree-generation question that most funders and
+          landowners should not be asked to underwrite in advance.
+        </p>
+      </section>
+
+      <!-- Section 10: Measurements -->
+      <section id="s10" class="scroll-mt-24">
+        <div class="small-caps text-xs text-ochre mb-3">10</div>
+        <h2 class="font-display text-2xl md:text-3xl tracking-tight mb-6">
+          What we would measure.
+        </h2>
+
+        <p>
+          All measurements are taken against a baseline established
+          in Year 0 and against a paired control site in the same
+          region that receives no intervention.
+        </p>
+
+        <ul class="space-y-3 font-serif text-ink/85 pl-6 list-disc">
+          <li>Soil organic carbon, at 0&ndash;10 cm and 10&ndash;30 cm, on a permanent grid.</li>
+          <li>Water infiltration rate (double-ring infiltrometer) at permanent stations.</li>
+          <li>Bulk density and penetration resistance.</li>
+          <li>Perennial ground cover percentage, measured by transect and by aerial imagery.</li>
+          <li>Plant species richness and composition.</li>
+          <li>Seedling density at varying distances from mother osage orange trees.</li>
+          <li>Observed and camera-trapped camel fruit-consumption events.</li>
+          <li>Germination-rate comparison: seeds passed through the camel gut versus seeds collected from fallen fruit.</li>
+          <li>Dung-deposition mapping and nutrient analysis of dung piles.</li>
+          <li>Invertebrate biomass (pitfall, yellow-pan).</li>
+          <li>Small-vertebrate occurrence (camera trap, acoustic).</li>
+          <li>Near-surface soil temperature and moisture at permanent stations.</li>
+          <li>Camel body condition, reproductive success, and mortality.</li>
+        </ul>
+      </section>
+
+      <!-- Section 11: Failure criteria -->
+      <section id="s11" class="scroll-mt-24">
+        <div class="small-caps text-xs text-ochre mb-3">11</div>
+        <h2 class="font-display text-2xl md:text-3xl tracking-tight mb-6">
+          What would tell us the hypothesis is wrong.
+        </h2>
+
+        <p>
+          The experiment is framed to be falsifiable at two
+          pre-registered gates. Failure at either gate triggers
+          the defined stop &mdash; publish the null, wind the
+          parcel down to its named disposition, and do not roll
+          forward to the next phase.
+        </p>
+
+        <p class="font-serif small-caps text-xs text-ochre mt-6 mb-2">
+          Year-5 gate (MVP phase)
+        </p>
+
+        <ul class="space-y-3 font-serif text-ink/85 pl-6 list-disc">
+          <li>
+            Camels decline or refuse osage orange fruit at
+            ecologically meaningful rates after establishment.
+          </li>
+          <li>
+            Seeds passed through the camel gut show equal or lower
+            germination rates than fallen-fruit controls across
+            two fruiting seasons.
+          </li>
+          <li>
+            Perennial ground cover and infiltration rate show no
+            trend toward the control &mdash; or move <em>against</em>
+            the hypothesis &mdash; by Year 5.
+          </li>
+          <li>
+            Camel welfare metrics fail protocol thresholds and the
+            herd cannot be sustained at ecologically meaningful
+            density without supplementary feed.
+          </li>
+        </ul>
+
+        <p class="font-serif small-caps text-xs text-ochre mt-6 mb-2">
+          Year-10 gate (flip-window close)
+        </p>
+
+        <ul class="space-y-3 font-serif text-ink/85 pl-6 list-disc">
+          <li>
+            Seedling recruitment away from mother trees is
+            statistically indistinguishable from the no-camel
+            control site by Year 10.
+          </li>
+          <li>
+            Soil carbon at 0&ndash;30 cm does not increase relative
+            to control by Year 10.
+          </li>
+          <li>
+            Perennial ground cover does not increase relative to
+            control by Year 10.
+          </li>
+        </ul>
+
+        <p>
+          A failed result does not invalidate the broader Pleistocene
+          rewilding argument; a single-site failure would constrain
+          it. The committed position of the project is that a
+          falsifiable failure is more valuable than a cautious
+          non-answer.
+        </p>
+      </section>
+
+      <!-- Section 12: Objections -->
+      <section id="s12" class="scroll-mt-24">
+        <div class="small-caps text-xs text-ochre mb-3">12</div>
+        <h2 class="font-display text-2xl md:text-3xl tracking-tight mb-6">
+          What we hear most, answered.
+        </h2>
+
+        <p>
+          Six objections surface immediately when a thoughtful
+          reader hears the proposal. They are stated here in their
+          strongest form, then answered as directly as the project
+          can answer them. None of the answers below are the last
+          word, and each one invites follow-up from anyone who
+          wants to push harder on them.
+        </p>
+
+        <div class="space-y-8 not-prose font-body my-8">
+
+          <div class="border-l-2 border-ochre pl-6">
+            <p class="small-caps text-xs text-ochre mb-2">Objection</p>
+            <p class="font-display text-xl text-ink mb-3 leading-snug">
+              &ldquo;Aren't camels invasive?&rdquo;
+            </p>
+            <p class="text-ink/80 leading-relaxed">
+              &ldquo;Invasive&rdquo; is a status assigned against a
+              reference baseline. The Columbian baseline that
+              conservation biology inherited treats camels as
+              non-native because they weren't present in 1492. A
+              Pleistocene baseline has camelids as continental
+              residents for the better part of forty million years,
+              absent for the last twelve and a half thousand.<sup><a href="#fn5" id="ref5">5</a></sup>
+              The experiment does not claim dromedaries are native;
+              it claims they are the closest available proxy for a
+              native ecological function that has been missing for
+              an evolutionarily brief span. Risk of unintended spread
+              is the thing the full perimeter fencing, the 10-year
+              welfare and carrying-capacity protocol, and the
+              pre-registered site-scale boundaries are designed
+              to manage.
+            </p>
+          </div>
+
+          <div class="border-l-2 border-ochre pl-6">
+            <p class="small-caps text-xs text-ochre mb-2">Objection</p>
+            <p class="font-display text-xl text-ink mb-3 leading-snug">
+              &ldquo;What about disease?&rdquo;
+            </p>
+            <p class="text-ink/80 leading-relaxed">
+              Camel-to-livestock and camel-to-wildlife pathogen
+              transmission is a real concern, most seriously around
+              MERS-CoV, brucellosis, and a small set of parasitic
+              loads. USDA APHIS clearance at import and animal
+              movement, a closed herd after establishment, quarterly
+              veterinary screening, and siting rules that put the
+              herd at defensible distance from adjacent livestock
+              are the answer in protocol form. In practice: the
+              herd is sourced from established North American
+              working dromedary stock that has already cleared
+              these screens, not from imported animals, which
+              reduces the incoming-pathogen surface area
+              considerably.
+            </p>
+          </div>
+
+          <div class="border-l-2 border-ochre pl-6">
+            <p class="small-caps text-xs text-ochre mb-2">Objection</p>
+            <p class="font-display text-xl text-ink mb-3 leading-snug">
+              &ldquo;What about water? In a drying climate?&rdquo;
+            </p>
+            <p class="text-ink/80 leading-relaxed">
+              Dromedaries' water requirements are substantially
+              below those of cattle at comparable body mass &mdash;
+              on the order of 30 to 60 litres per animal per week
+              under the target climate, drawn from existing surface
+              water or low-volume supplemental. The herd's water
+              footprint at 100 head is under what the site would
+              already supply to a marginal cow-calf operation at
+              the same stocking rate by body mass. If the hypothesis
+              is right and infiltration improves, site-scale water
+              availability should increase over the measurement
+              window, not decrease. If infiltration does not improve,
+              that is part of the failure signal.
+            </p>
+          </div>
+
+          <div class="border-l-2 border-ochre pl-6">
+            <p class="small-caps text-xs text-ochre mb-2">Objection</p>
+            <p class="font-display text-xl text-ink mb-3 leading-snug">
+              &ldquo;What about welfare &mdash; winter, predators,
+              boredom, injury?&rdquo;
+            </p>
+            <p class="text-ink/80 leading-relaxed">
+              Welfare is protocol, not afterthought. Body condition
+              scoring, reproductive success, and mortality are
+              reported annually against pre-specified thresholds;
+              failure of any of the three triggers stocking-rate
+              reduction or supplemental feed. The lesson of
+              Oostvaardersplassen is that welfare thresholds
+              announced at the start are less painful for everyone,
+              including the animals, than thresholds negotiated
+              during a bad winter. The target climate is inside
+              the dromedary's established tolerance range; predator
+              pressure in the target region is primarily coyote
+              and does not typically threaten adult camelids.
+            </p>
+          </div>
+
+          <div class="border-l-2 border-ochre pl-6">
+            <p class="small-caps text-xs text-ochre mb-2">Objection</p>
+            <p class="font-display text-xl text-ink mb-3 leading-snug">
+              &ldquo;Isn't it ethically fraught to introduce a
+              species for ecological engineering?&rdquo;
+            </p>
+            <p class="text-ink/80 leading-relaxed">
+              The project treats this objection as real and
+              unresolved, not as pushed past. The experiment is
+              not an introduction at continental or even ecoregional
+              scale; it is a fenced, monitored, time-boxed site.
+              Tribal consultation is a hard prerequisite, not a
+              courtesy, and any site in proximity to a tribal
+              nation does not proceed without active partnership.
+              The ethical objection that cannot be answered by
+              protocol &mdash; that this kind of engineering is
+              the wrong stance to take toward a landscape at all
+              &mdash; is acknowledged, and it is one of the reasons
+              the outcome measure includes whether the land
+              eventually stops needing intervention.
+            </p>
+          </div>
+
+          <div class="border-l-2 border-ochre pl-6">
+            <p class="small-caps text-xs text-ochre mb-2">Objection</p>
+            <p class="font-display text-xl text-ink mb-3 leading-snug">
+              &ldquo;Why not just use bison, or cattle, or nothing
+              at all?&rdquo;
+            </p>
+            <p class="text-ink/80 leading-relaxed">
+              Bison-led grassland restoration is a real and
+              partially-tested intervention and is what American
+              Prairie is running. It tests a different hypothesis:
+              a post-glacial grazer restoring a post-glacial
+              grassland. The question this experiment asks is
+              whether a browser proxy at body mass can reopen a
+              specific plant&ndash;disperser loop that pre-dates
+              bison. Cattle are a poor proxy for the browsing
+              function in question; their mouth, gut, and behavior
+              don't do the job the missing mouth did. &ldquo;Nothing
+              at all&rdquo; is the status quo, and the status quo
+              is the control site. The experiment is, precisely,
+              the question of whether the status quo is the best
+              available answer.
+            </p>
+          </div>
+
+        </div>
+
+        <p class="font-serif italic text-ink/70">
+          If none of these answers is yours and you have a harder
+          one, send it. The experiment gets stronger by hearing
+          objections sharper than the ones on this page.
+        </p>
+      </section>
+
+      <!-- Section 13: What's being asked -->
+      <section id="s13" class="scroll-mt-24">
+        <div class="small-caps text-xs text-ochre mb-3">13</div>
+        <h2 class="font-display text-2xl md:text-3xl tracking-tight mb-6">
+          What is being asked.
+        </h2>
+
+        <p>
+          The ask is structured to match the phase structure above.
+          Each phase names its own capital, commitment, and exit.
+          Nothing in Phase 2 is asked of anyone in Phase 1 who does
+          not want to continue.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-6 not-prose my-8 font-body">
+          <div class="border border-ink/15 p-6 bg-bone/30">
+            <div class="small-caps text-xs text-ochre mb-2">Phase 1 &mdash; MVP (Y0&ndash;5)</div>
+            <div class="font-display text-lg mb-3">Acquire, establish, answer.</div>
+            <p class="text-sm text-ink/75 leading-relaxed mb-3">
+              <strong>Land.</strong> 500&ndash;1,000 contiguous
+              acres meeting the site characteristics in Section 06.
+              <em>Acquired at distressed valuation</em>, not
+              donated. Fee-simple or lease-to-purchase.
+            </p>
+            <p class="text-sm text-ink/75 leading-relaxed mb-3">
+              <strong>Capital.</strong> Roughly US$3.5&ndash;4.5M
+              all-in: acquisition, perimeter fencing, herd purchase
+              and transport, orchard and ancillary plantings, the
+              Year-0 baseline, and five years of staffing,
+              veterinary care, and monitoring.
+            </p>
+            <p class="text-sm text-ink/75 leading-relaxed">
+              <strong>Commitment.</strong> Five years. A single,
+              bounded research horizon that ends with a go/no-go
+              and a public report, regardless of outcome.
+            </p>
+          </div>
+
+          <div class="border border-ink/15 p-6 bg-bone/30">
+            <div class="small-caps text-xs text-ochre mb-2">Phase 2 &mdash; Flip (Y5&ndash;10)</div>
+            <div class="font-display text-lg mb-3">Hold, measure, dispose.</div>
+            <p class="text-sm text-ink/75 leading-relaxed mb-3">
+              <strong>Trigger.</strong> Year-5 data
+              not-falsifying against the pre-registered criteria
+              (Section 11). Independent replication of the MVP
+              at a second site is welcomed and sought.
+            </p>
+            <p class="text-sm text-ink/75 leading-relaxed mb-3">
+              <strong>Capital.</strong> Additional
+              US$1.5&ndash;2M for five years of continued
+              operations, monitoring, and disposition preparation.
+            </p>
+            <p class="text-sm text-ink/75 leading-relaxed">
+              <strong>Exit.</strong> At Year 10 the parcel takes
+              one of the four named dispositions (Section 02):
+              sold at restored valuation, retained through Year
+              25, easement-protected, or returned to the commons.
+              The disposition is committed at Year 7 to give the
+              market time to price the signal in.
+            </p>
+          </div>
+        </div>
+
+        <p>Two asks, independent of phase:</p>
+
+        <ul class="space-y-4 font-serif text-ink/85 pl-6 list-disc">
+          <li>
+            <strong>Permissions.</strong> USDA APHIS clearance
+            for the herd; state agricultural permitting;
+            IACUC-equivalent animal welfare oversight; tribal
+            consultation where relevant; IRB if the project
+            takes on any human-subject research around adjacent
+            communities.
+          </li>
+          <li>
+            <strong>A committee that holds back.</strong> The
+            single most commonly failed condition of
+            long-duration ecological experiments is a governance
+            body that cannot leave the site alone. A commitment
+            not to intervene during either measurement window is
+            asked of every funding and land-holding party.
+          </li>
+        </ul>
+
+        <p class="font-serif italic text-ink/70 mt-6">
+          The distinction between <em>patron</em> and
+          <em>underwriter</em> matters here. A patron donates;
+          an underwriter buys a distressed parcel and sells,
+          keeps, or transfers it at a defined exit. Both are
+          welcome. The proposal is written so that either can fit.
+        </p>
+      </section>
+
+      <!-- Section 14: What this is not -->
+      <section id="s14" class="scroll-mt-24">
+        <div class="small-caps text-xs text-ochre mb-3">14</div>
+        <h2 class="font-display text-2xl md:text-3xl tracking-tight mb-6">
+          What this is not.
+        </h2>
+
+        <p>
+          It is not agritourism. It is not a petting zoo. It is not
+          a rewilding demonstration project in the marketing sense
+          of that phrase; there is no ribbon-cutting and no
+          donor-tier plaque on a camel. It is not a program of the
+          Paleo Foundation or any certification program and will
+          not be branded as one. It is not a Pleistocene Park sister
+          site; Pleistocene Park is a different experiment, on a
+          different continent, at different latitude, testing a
+          related but distinct hypothesis. And it is not a one-shot
+          proof; the null result is informative, and the protocol
+          is designed to produce data whether the hypothesis holds
+          or does not.
+        </p>
+      </section>
+
+      <!-- Section 15: Open letter / signatories -->
+      <section id="open-letter" class="scroll-mt-24">
+        <div class="small-caps text-xs text-ochre mb-3">15</div>
+        <h2 class="font-display text-2xl md:text-3xl tracking-tight mb-6">
+          Put your name to it.
+        </h2>
+
+        <p>
+          If you have read to this point and want this experiment to
+          happen, the smallest useful action is to add your name to
+          the short list of people who have said so publicly. The
+          list is not a petition. It does not try to force any policy
+          decision. Its only purpose is to make visible, to the first
+          landowner or first funder who is about to spend a year
+          deciding, that they are not the only one taking this
+          seriously.
+        </p>
+
+        <div class="not-prose my-8 border-l-2 border-ochre pl-6 py-2 bg-bone/20">
+          <p class="font-serif italic text-ink/85 leading-relaxed mb-0">
+            I support running the One Hundred Camels experiment as
+            described on this page. I understand it is a proposal, not
+            a program, and that adding my name does not obligate me
+            financially or legally. It signals that I think the
+            hypothesis is worth testing, the measurement plan is honest,
+            the failure criteria are real, and the work should proceed
+            when the land, the capital, and the committee are in place.
+          </p>
+        </div>
+
+        <div class="not-prose my-8">
+          <form
+            action="mailto:karen@paleofoundation.com?subject=One%20Hundred%20Camels%20%E2%80%94%20add%20my%20name"
+            method="post"
+            enctype="text/plain"
+            class="border border-ink/15 bg-paper p-6 md:p-8 font-body space-y-5"
+          >
+            <input type="hidden" name="Inquiry-type" value="Open-letter signatory" />
+
+            <div>
+              <label for="sig-name" class="small-caps text-xs text-ochre mb-2 block">Name as it should appear</label>
+              <input id="sig-name" name="Name" type="text" required
+                class="w-full border border-ink/20 bg-paper px-3 py-2 text-ink focus:outline-none focus:border-ochre" />
+            </div>
+
+            <div>
+              <label for="sig-email" class="small-caps text-xs text-ochre mb-2 block">Email (for verification; not published)</label>
+              <input id="sig-email" name="Email" type="email" required
+                class="w-full border border-ink/20 bg-paper px-3 py-2 text-ink focus:outline-none focus:border-ochre" />
+            </div>
+
+            <div>
+              <label for="sig-affiliation" class="small-caps text-xs text-ochre mb-2 block">Affiliation or identifier to list beside your name <span class="text-ink/40 normal-case tracking-normal">(optional — landowner, rancher, scientist, reader, etc.)</span></label>
+              <input id="sig-affiliation" name="Affiliation" type="text"
+                class="w-full border border-ink/20 bg-paper px-3 py-2 text-ink focus:outline-none focus:border-ochre" />
+            </div>
+
+            <div>
+              <label for="sig-note" class="small-caps text-xs text-ochre mb-2 block">Optional note <span class="text-ink/40 normal-case tracking-normal">(will not be published without asking)</span></label>
+              <textarea id="sig-note" name="Note" rows="3"
+                class="w-full border border-ink/20 bg-paper px-3 py-2 text-ink focus:outline-none focus:border-ochre"></textarea>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-4 pt-2">
+              <button type="submit"
+                class="inline-flex items-center px-6 py-3 bg-ochre text-paper hover:bg-ochre-deep transition-colors text-sm small-caps">
+                Add my name
+              </button>
+              <p class="text-xs text-ink/55 max-w-sm">
+                Your email is used only to confirm the signature is real. Names appear on the page below within a week, unless you ask to remain a silent signatory.
+              </p>
+            </div>
+          </form>
+        </div>
+
+        <div class="not-prose my-10">
+          <p class="small-caps text-xs text-ink/60 tracking-wide mb-4">Current signatories</p>
+          <ul class="font-serif text-ink/85 leading-relaxed space-y-1">
+            <li><span class="font-medium">Karen Pendergrass</span> <span class="text-ink/55">— author, Paleo Foundation</span></li>
+            <li class="text-ink/55 italic text-sm pt-2">This list will grow as signatures come in. If you would like to sign silently — name held in a private ledger rather than listed publicly — say so in the note field.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Section 16: Contact -->
+      <section id="contact" class="scroll-mt-24">
+        <div class="small-caps text-xs text-ochre mb-3">16</div>
+        <h2 class="font-display text-2xl md:text-3xl tracking-tight mb-6">
+          If you can help in a larger way.
+        </h2>
+
+        <p>
+          Land, capital, permitting authority, or scientific
+          collaboration &mdash; if any of those describe you, the
+          form below is structured to segment the inquiry so it
+          reaches the right response path.
+        </p>
+
+        <div class="not-prose my-8">
+          <form
+            action="mailto:karen@paleofoundation.com"
+            method="post"
+            enctype="text/plain"
+            class="border border-ink/15 bg-bone/20 p-6 md:p-8 font-body space-y-6"
+          >
+            <div>
+              <label class="small-caps text-xs text-ochre mb-3 block">
+                I am writing because
+              </label>
+              <div class="space-y-2 text-ink/85">
+                <label class="flex items-start gap-3 cursor-pointer">
+                  <input type="radio" name="Inquiry-type" value="I have land that may fit the site criteria" class="mt-1" />
+                  <span>I have land that may fit the site criteria.</span>
+                </label>
+                <label class="flex items-start gap-3 cursor-pointer">
+                  <input type="radio" name="Inquiry-type" value="I have capital or a foundation relationship" class="mt-1" />
+                  <span>I have capital, or a foundation relationship to bring.</span>
+                </label>
+                <label class="flex items-start gap-3 cursor-pointer">
+                  <input type="radio" name="Inquiry-type" value="I have permitting authority or regulatory scope" class="mt-1" />
+                  <span>I have permitting authority, or regulatory scope, relevant to this work.</span>
+                </label>
+                <label class="flex items-start gap-3 cursor-pointer">
+                  <input type="radio" name="Inquiry-type" value="I have scientific expertise to contribute" class="mt-1" />
+                  <span>I have scientific expertise to contribute (paleoecology, rangeland, animal welfare, soil, plant science).</span>
+                </label>
+                <label class="flex items-start gap-3 cursor-pointer">
+                  <input type="radio" name="Inquiry-type" value="Press" class="mt-1" />
+                  <span>I am a reporter or editor working on a story.</span>
+                </label>
+                <label class="flex items-start gap-3 cursor-pointer">
+                  <input type="radio" name="Inquiry-type" value="Objection or critique" class="mt-1" />
+                  <span>I have an objection or critique I want on the record.</span>
+                </label>
+                <label class="flex items-start gap-3 cursor-pointer">
+                  <input type="radio" name="Inquiry-type" value="Reader updates only" class="mt-1" />
+                  <span>I would like to be told when the book ships and when the experiment breaks ground. No other mail.</span>
+                </label>
+              </div>
+            </div>
+
+            <div>
+              <label for="ex-name" class="small-caps text-xs text-ochre mb-2 block">Your name</label>
+              <input id="ex-name" name="Name" type="text" required
+                class="w-full border border-ink/20 bg-paper px-3 py-2 text-ink placeholder-ink/40 focus:outline-none focus:border-ochre" />
+            </div>
+
+            <div>
+              <label for="ex-email" class="small-caps text-xs text-ochre mb-2 block">Email</label>
+              <input id="ex-email" name="Email" type="email" required
+                class="w-full border border-ink/20 bg-paper px-3 py-2 text-ink placeholder-ink/40 focus:outline-none focus:border-ochre" />
+            </div>
+
+            <div>
+              <label for="ex-affiliation" class="small-caps text-xs text-ochre mb-2 block">Affiliation <span class="text-ink/40 normal-case tracking-normal">(optional)</span></label>
+              <input id="ex-affiliation" name="Affiliation" type="text"
+                class="w-full border border-ink/20 bg-paper px-3 py-2 text-ink placeholder-ink/40 focus:outline-none focus:border-ochre" />
+            </div>
+
+            <div>
+              <label for="ex-message" class="small-caps text-xs text-ochre mb-2 block">Message</label>
+              <textarea id="ex-message" name="Message" rows="6" required
+                class="w-full border border-ink/20 bg-paper px-3 py-2 text-ink placeholder-ink/40 focus:outline-none focus:border-ochre"></textarea>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-4 pt-2">
+              <button type="submit"
+                class="inline-flex items-center px-6 py-3 bg-ink text-paper hover:bg-ochre transition-colors text-sm small-caps">
+                Send
+              </button>
+              <p class="text-xs text-ink/55 max-w-sm">
+                The form opens your mail client with the message
+                pre-filled. If it does not, write directly to
+                <a href="mailto:karen@paleofoundation.com" class="text-ochre hover:underline">karen@paleofoundation.com</a>
+                and note which of the categories above you fall in.
+              </p>
+            </div>
+          </form>
+        </div>
+
+        <p class="font-serif italic text-ink/70">
+          Responses may take longer than a press inquiry. Every note is read.
+        </p>
+      </section>
+
+    </div>
+
+    <!-- Footnotes -->
+    <hr class="hairline my-16" />
+
+    <section class="text-sm text-ink/70 space-y-4 font-serif leading-relaxed">
+      <h2 class="small-caps text-xs text-ochre mb-4">Notes</h2>
+      <p id="fn1">
+        <strong>1.</strong> Heintzman, P. D., Zazula, G. D., Cahill,
+        J. A., Reyes, A. V., MacPhee, R. D. E., &amp; Shapiro, B. (2015).
+        Genomic data from extinct North American <em>Camelops</em>
+        revise camel evolutionary history. <em>Molecular Biology and
+        Evolution</em>, 32(9), 2433&ndash;2440.
+        <a href="#ref1" class="text-ochre hover:underline">&#8617;</a>
+      </p>
+      <p id="fn2">
+        <strong>2.</strong> Janzen, D. H., &amp; Martin, P. S. (1982).
+        Neotropical anachronisms: the fruits the gomphotheres ate.
+        <em>Science</em>, 215(4528), 19&ndash;27.
+        <a href="#ref2" class="text-ochre hover:underline">&#8617;</a>
+      </p>
+      <p id="fn3">
+        <strong>3.</strong> Zaya, D. N., &amp; Howe, H. F. (2009).
+        The anomalous Kentucky coffeetree: megafaunal fruit sinking
+        to extinction? <em>Oecologia</em>, 161(2), 221&ndash;226.
+        <a href="#ref3" class="text-ochre hover:underline">&#8617;</a>
+      </p>
+      <p id="fn4">
+        <strong>4.</strong> Adjacent-projects descriptions synthesize
+        publicly available project statements from American Prairie
+        (americanprairie.org), the Pleistocene Park Foundation
+        (pleistocenepark.ru), Ted Turner Reserves (Armendaris Ranch
+        and the Bolson tortoise program), and published accounts of
+        Oostvaardersplassen (Lorimer &amp; Driessen, 2014) and Knepp
+        (Tree, 2018). Assessments of what this project borrows and
+        changes are the author's, not the projects'.
+        <a href="#ref4" class="text-ochre hover:underline">&#8617;</a>
+      </p>
+      <p id="fn5">
+        <strong>5.</strong> Heintzman et al. (2015), cited in note 1;
+        also Martin, P. S. (2005). <em>Twilight of the Mammoths.</em>
+        University of California Press. The Camelidae fossil record
+        in North America extends to roughly forty million years
+        before present; Camelops hesternus is dated to approximately
+        thirteen thousand years before present at its youngest.
+        <a href="#ref5" class="text-ochre hover:underline">&#8617;</a>
+      </p>
+    </section>
+
+  </article>
+</Base>

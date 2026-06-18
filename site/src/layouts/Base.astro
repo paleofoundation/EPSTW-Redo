@@ -1,0 +1,74 @@
+---
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogType?: 'website' | 'article' | 'book';
+  ogImage?: string;
+  canonical?: string;
+  jsonLd?: Record<string, any> | null;
+  // Opt-in reading-progress bar for long-form pages. See global.css; the
+  // bar uses CSS scroll-driven animations (no JS) and degrades silently on
+  // browsers without support.
+  readingBar?: boolean;
+}
+
+const {
+  title = 'The Sustainability Diet',
+  description = 'A book by Karen Pendergrass and a companion atlas of what this continent has forgotten, and what could still return.',
+  ogType = 'website',
+  ogImage,
+  canonical,
+  jsonLd = null,
+  readingBar = false,
+} = Astro.props;
+
+const siteName = 'The Sustainability Diet';
+---
+
+<!doctype html>
+<html lang="en" class={readingBar ? 'reading-bar' : undefined}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+
+    {canonical && <link rel="canonical" href={canonical} />}
+
+    <!-- RSS feed discovery -->
+    <link rel="alternate" type="application/rss+xml" title="Field Notes — The Sustainability Diet" href="/feed.xml" />
+
+    <!-- Open Graph -->
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={ogType} />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    {ogImage && <meta name="twitter:image" content={ogImage} />}
+
+    {jsonLd && (
+      <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    )}
+  </head>
+  <body>
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-ink focus:text-paper focus:text-sm focus:small-caps">
+      Skip to content
+    </a>
+    <Nav />
+    <main id="main-content">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

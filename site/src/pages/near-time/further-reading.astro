@@ -1,0 +1,182 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const title = 'Further reading — The Sustainability Diet';
+const description = 'A curated, opinionated annotated reading list for anyone who wants to go deeper than the atlas. Different from the bibliography; this one is ranked and argues for each book.';
+
+// Ordered list. Rank 1 = the book to read first if you only read one after this one.
+// Not comprehensive; the bibliography is comprehensive. This is a curation.
+const books = [
+  {
+    rank: 1,
+    author: 'Paul S. Martin',
+    year: 2005,
+    title: 'Twilight of the Mammoths: Ice Age Extinctions and the Rewilding of America',
+    publisher: 'University of California Press',
+    why: 'The headwater. The book that reframes "native" as a time-depth question and makes the Pleistocene-baseline argument that the rest of this field is still working out. Martin\'s prose is warmer than academic readers expect. The book is also the reason the author of The Sustainability Diet wrote hers.',
+    hard: 'medium',
+  },
+  {
+    rank: 2,
+    author: 'George Monbiot',
+    year: 2013,
+    title: 'Feral: Rewilding the Land, the Sea, and Human Life',
+    publisher: 'University of Chicago Press',
+    why: 'The best-written introduction to rewilding as a practice rather than an idea. The Welsh-upland argument — that subsidized sheep grazing is impoverishing the uplands rather than preserving them — is the clearest case study in the literature. Monbiot is a polemicist; the book is better than the polemics.',
+    hard: 'easy',
+  },
+  {
+    rank: 3,
+    author: 'Isabella Tree',
+    year: 2018,
+    title: 'Wilding: Returning Nature to Our Farm',
+    publisher: 'Picador',
+    why: 'The Knepp memoir. Tree and Charles Burrell\'s twenty-year rewilding experiment at Knepp Estate, told honestly, including the welfare-threshold questions that get hand-waved elsewhere. Read after Monbiot. Then read it again when someone tells you rewilding is easy.',
+    hard: 'easy',
+  },
+  {
+    rank: 4,
+    author: 'Ross D. E. MacPhee',
+    year: 1999,
+    title: 'Extinctions in Near Time: Causes, Contexts, and Consequences',
+    publisher: 'Kluwer Academic / Plenum',
+    why: 'Technical and edited; not a one-sitting read. The book from which the term "near time" comes, and the single best collection of the evidence behind the terminal-Pleistocene extinctions. The contributors disagree with each other, which is the point. Start with the chapters by MacPhee, Steadman, and Grayson.',
+    hard: 'hard',
+  },
+  {
+    rank: 5,
+    author: 'Daniel H. Janzen and Paul S. Martin',
+    year: 1982,
+    title: 'Neotropical Anachronisms: The Fruits the Gomphotheres Ate',
+    publisher: 'Science (journal article, not a book)',
+    why: 'Thirteen pages. The paper that named the anachronistic-fruits hypothesis and gave the book that underwrites the <a href="/near-time/orphaned-fruits" class="text-ochre-deep hover:text-ink">orphaned-fruits matrix</a> on this site. Read it before or instead of any secondary summary.',
+    hard: 'medium',
+  },
+  {
+    rank: 6,
+    author: 'Connie Barlow',
+    year: 2000,
+    title: 'The Ghosts of Evolution: Nonsensical Fruit, Missing Partners, and Other Ecological Anachronisms',
+    publisher: 'Basic Books',
+    why: 'The general-audience companion to the Janzen-Martin paper. Walks the reader through which fruits are orphaned and what their actual dispersers were. Occasionally over-confident where the evidence is thin. Still the most accessible door into the concept.',
+    hard: 'easy',
+  },
+  {
+    rank: 7,
+    author: 'C. Josh Donlan et al.',
+    year: 2005,
+    title: 'Re-wilding North America',
+    publisher: 'Nature (journal article)',
+    why: 'The flare paper. Three pages. Reasonable people disagree with it. Everyone working in the field has read it. The experiment on this site is narrower and slower than what Donlan et al. proposed, but the lineage is direct.',
+    hard: 'medium',
+  },
+  {
+    rank: 8,
+    author: 'Tim Caro',
+    year: 2007,
+    title: 'The Pleistocene Re-wilding Gambit',
+    publisher: 'Trends in Ecology & Evolution (journal article)',
+    why: 'The best short critique of the Donlan proposal. Six pages. Read it alongside Donlan 2005; the conversation between the two is more useful than either alone. The <a href="/one-hundred-camels/critics" class="text-ochre-deep hover:text-ink">critics page</a> steel-mans this argument at length.',
+    hard: 'medium',
+  },
+  {
+    rank: 9,
+    author: 'Dan Flores',
+    year: 2016,
+    title: 'American Serengeti: The Last Big Animals of the Great Plains',
+    publisher: 'University Press of Kansas',
+    why: 'The Holocene-baseline companion volume. Flores is the working historian of the Great Plains and the best writer on bison, pronghorn, wolf, grizzly, and horse at continental scale. Read this before anyone tries to tell you there was nothing to lose.',
+    hard: 'easy',
+  },
+  {
+    rank: 10,
+    author: 'M. Kat Anderson',
+    year: 2005,
+    title: 'Tending the Wild: Native American Knowledge and the Management of California\'s Natural Resources',
+    publisher: 'University of California Press',
+    why: 'The corrective to anyone who reads rewilding literature and comes away thinking pre-contact North America was "wilderness." Anderson documents the burn regimes, forestry practices, and active management that shaped California\'s ecosystems for thousands of years. The rewilding conversation needs this book to stay honest.',
+    hard: 'medium',
+  },
+  {
+    rank: 11,
+    author: 'Hans Peter Uerpmann and Margarethe Uerpmann',
+    year: 2002,
+    title: 'The Appearance of the Domestic Camel in South-East Arabia',
+    publisher: 'Journal of Oman Studies (journal article)',
+    why: 'Technical. Read only if you want the domestication record behind why a dromedary is a workable proxy candidate and why the domestication conversation is older and stranger than most readers think. Skippable for most readers. Load-bearing for the experiment.',
+    hard: 'hard',
+  },
+  {
+    rank: 12,
+    author: 'Aldo Leopold',
+    year: 1949,
+    title: 'A Sand County Almanac',
+    publisher: 'Oxford University Press',
+    why: 'The ethical substrate. "Thinking Like a Mountain" remains the clearest short statement of why a predator removed from a landscape does not leave just an empty niche. Read once when you start, once at the end, and once again whenever you are tempted to think conservation is only an engineering problem.',
+    hard: 'easy',
+  },
+];
+
+const hardBadge = {
+  easy: { label: 'accessible', cls: 'bg-moss/20 border-moss/40 text-moss' },
+  medium: { label: 'technical', cls: 'bg-ochre/15 border-ochre/40 text-ochre-deep' },
+  hard: { label: 'specialist', cls: 'bg-ink/10 border-ink/40 text-ink/80' },
+};
+---
+
+<Base title={title} description={description} canonical="https://sustainabilitydiet.com/near-time/further-reading" readingBar>
+  <article class="mx-auto max-w-3xl px-6 py-16">
+
+    <p class="small-caps text-xs text-ochre mb-3">Near Time · Reference</p>
+    <h1 class="font-display text-5xl md:text-6xl tracking-tight leading-[1.02] mb-6">
+      Further reading
+    </h1>
+    <p class="text-xl text-ink/75 leading-relaxed font-serif max-w-2xl mb-4">
+      Twelve books and papers, ranked. If you read one book after this site,
+      read #1. If you want to go deep, work the list.
+    </p>
+    <p class="font-serif text-base text-ink/60 leading-relaxed max-w-2xl">
+      This is a curation, not a comprehensive list. For every source the
+      atlas cites, see the <a href="/near-time/bibliography" class="text-ochre-deep hover:text-ink">bibliography</a>.
+      The accessibility rating is the author's read: <em>accessible</em> = any
+      educated general reader, <em>technical</em> = advanced general / undergraduate,
+      <em>specialist</em> = graduate-level or unusually patient.
+    </p>
+
+    <hr class="hairline my-10" />
+
+    <ol class="space-y-10">
+      {books.map(b => (
+        <li id={`r${b.rank}`} class="scroll-mt-24">
+          <header class="flex items-baseline gap-4 flex-wrap mb-3">
+            <span class="font-display text-3xl md:text-4xl text-ochre-deep tracking-tight tabular-nums">
+              {String(b.rank).padStart(2, '0')}
+            </span>
+            <span class={`small-caps text-[0.65rem] tracking-wide border px-2 py-0.5 ${hardBadge[b.hard].cls}`}>
+              {hardBadge[b.hard].label}
+            </span>
+          </header>
+          <p class="font-display text-xl md:text-2xl tracking-tight leading-tight mb-2">
+            <em>{b.title}</em>
+          </p>
+          <p class="small-caps text-xs text-ink/60 tracking-wide mb-4">
+            {b.author} · {b.year} · {b.publisher}
+          </p>
+          <p class="font-serif text-base md:text-lg text-ink/85 leading-relaxed" set:html={b.why}></p>
+        </li>
+      ))}
+    </ol>
+
+    <section class="mt-20 pt-10 border-t border-ink/15 font-serif text-ink/70 leading-relaxed">
+      <p>
+        A list like this reveals biases: the author's, her teachers', and her field's.
+        Missing voices are a signal to extend it. Send suggestions through
+        <a href="/about#contact" class="text-ochre-deep hover:text-ink">the contact form</a>
+        with &ldquo;Scientific&rdquo; or &ldquo;Reader&rdquo; selected, and a
+        one-line reason. Additions get credited on the
+        <a href="/changelog" class="text-ochre-deep hover:text-ink">changelog</a>.
+      </p>
+    </section>
+
+  </article>
+</Base>
