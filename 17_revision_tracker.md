@@ -1,3 +1,4 @@
+2026-10-04: Master manuscript is now The_Sustainability_Diet_Manuscript_REVISED.md (converted from the May 2026 print edition and copyedited; 29-item audit resolved). The numbered chapter files are superseded and kept for history only. Do not edit them.
 # Revision Tracker — *The Sustainability Diet*
 
 **Created:** 2026-04-16
